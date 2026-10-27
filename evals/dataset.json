@@ -396,42 +396,6 @@
   },
   {
     "inputs": {
-      "incident_name": "Wenatchee Complex",
-      "report_date": "2012-09-27",
-      "state": "WA"
-    },
-    "outputs": {
-      "fields": {
-        "acres": 54428.0,
-        "pct_contained": 36.0,
-        "personnel": 976,
-        "structures_threatened": 321,
-        "structures_destroyed": 1
-      },
-      "narrative": "Remarks:\nmisc fires are:  white pine (57 ac)  cuitin lake (204 ac)  maverick (21 ac)  sears creek (477 ac)  469 (21 ac)  upper white (0.2 ac)  john (2 ac)\n\nSignificant events:\nmop up and rehab is continuing. pilot cars are being used on route 97 and will continue through the night.\n\nCurrent threat:\nnone based on predicted weather and fire behavior|threats to residences of wenatchee and cashmere due to unchecked lines  timber  watershed visuals and t&e habitat.\n\nProjected activity:\ncontinued growth in all directions on unchecked line.|continued growth in all directions on unchecked line. cashmere growth to the southwest.",
-      "known_conflicts": [],
-      "source": "ics209plus",
-      "planted_evidence": null
-    },
-    "metadata": {
-      "incident_id": "2012_WA-OWF-000559_WENATCHEE COMPLEX",
-      "year": 2012,
-      "final_acres": 56478.0,
-      "geomac_fire_id": "2012-WAOWF-000559",
-      "new_acres": 1284.0,
-      "n_perimeters_that_day": 28,
-      "tool_errors": [
-        {
-          "tool": "resolve",
-          "message": "No historic GeoMAC fire matches name 'Wenatchee Complex' in 2012. Candidates: (none)"
-        }
-      ],
-      "slug": "wenatchee-complex-wa-2012-09-27",
-      "confirmed": false
-    }
-  },
-  {
-    "inputs": {
       "incident_name": "Silver",
       "report_date": "2013-06-12",
       "state": "NM"
@@ -517,42 +481,6 @@
   },
   {
     "inputs": {
-      "incident_name": "Salmon River Complex",
-      "report_date": "2013-08-04",
-      "state": "CA"
-    },
-    "outputs": {
-      "fields": {
-        "acres": 3547.0,
-        "pct_contained": 5.0,
-        "personnel": 656,
-        "structures_threatened": 41,
-        "structures_destroyed": 0
-      },
-      "narrative": "Remarks:\nicp relocation to etna was completed today. coordination between this incident and the butler fire continues to achieve efficiency and mission success.\n\nSignificant events:\ncompleted structure defense actions in the little north fork and sawyers bar community. contingency planning for community of sawyers bar and projected fire movement. scouting direct and indirect line on western flank of the boulder fire and eastern flank of shelly fire.\n\nCurrent threat:\ncommunity and infrastructure in sawyers bar and in the little north fork  northern spotted owl habitat  cultural and natural resources  and historic structure.|private residences and infrastructure in the little north fork area  northern spotted owl habitat  cultural and natural resources  and a historic structure.\n\nProjected activity:\nwest between olsen creek and kanaka gulch n-ne to yellow jacket ridge  north towards crapo mtn. n-ne into sur cree gulch  west into little north fork.|north into olsen meadows and yellow jacket ridge - n-ne into titmouse gulch and little north fork  n-ne into jackass gulch.|west into dougherty bluff  n-nw into yellow jacket ridge  east into little north fork and east into jackass gulch|west into china gulch  and east into tanners gulch",
-      "known_conflicts": [],
-      "source": "ics209plus",
-      "planted_evidence": null
-    },
-    "metadata": {
-      "incident_id": "2013_CA-KNF-005949_FORKS COMPLEX",
-      "year": 2013,
-      "final_acres": 37246.0,
-      "geomac_fire_id": "2013-CAKNF-005561",
-      "new_acres": 663.0,
-      "n_perimeters_that_day": 8,
-      "tool_errors": [
-        {
-          "tool": "resolve",
-          "message": "No historic GeoMAC fire matches name 'Salmon River Complex' in 2013. Candidates: (none)"
-        }
-      ],
-      "slug": "salmon-river-complex-ca-2013-08-04",
-      "confirmed": false
-    }
-  },
-  {
-    "inputs": {
       "incident_name": "Aspen",
       "report_date": "2013-08-06",
       "state": "CA"
@@ -589,42 +517,6 @@
       ],
       "slug": "aspen-ca-2013-08-06",
       "confirmed": true
-    }
-  },
-  {
-    "inputs": {
-      "incident_name": "Whiskey Complex",
-      "report_date": "2013-08-07",
-      "state": "OR"
-    },
-    "outputs": {
-      "fields": {
-        "acres": 10248.0,
-        "pct_contained": 35.0,
-        "personnel": 931,
-        "structures_threatened": 13,
-        "structures_destroyed": 1
-      },
-      "narrative": "Significant events:\nair and ground suppression forces conducted initial attack on one small fire on the forest just outside the ia area and assisted on several others off the forest.  all the fires were reported to be small.  the spot fire reported yesterday in block 33 as having crossed the 3100600 road late in the afternoon has been successfully lined.  approximately 250 acres was across the 3100600 road  which was the planned containment line.  some of the area burned was within a sold timber sale unit.  good progress continues to be made with securing containment lines on the buckeye fire and divisions a and z of the whiskey fire.\n\nCurrent threat:\nsold timber sales  private timber lands  archeological sites  cultural resources  recreation sites  high value fishery streams containing threatened and endangered fish species  historic structures  tallest sugar pine tree.\n\nProjected activity:\ncontinued south and east spread can be expected on the unchecked perimeter of the whiskey fire as well as some interior burnout  plus movement from any new starts from forecasted thunderstorms which may become large fires in a short period of time.",
-      "known_conflicts": [],
-      "source": "ics209plus",
-      "planted_evidence": null
-    },
-    "metadata": {
-      "incident_id": "2013_OR-UPF-130132_WHISKEY COMPLEX",
-      "year": 2013,
-      "final_acres": 17891.0,
-      "geomac_fire_id": "2013-ORUPF-130132",
-      "new_acres": 1908.0,
-      "n_perimeters_that_day": 6,
-      "tool_errors": [
-        {
-          "tool": "resolve",
-          "message": "No historic GeoMAC fire matches name 'Whiskey Complex' in 2013. Candidates: (none)"
-        }
-      ],
-      "slug": "whiskey-complex-or-2013-08-07",
-      "confirmed": false
     }
   },
   {
