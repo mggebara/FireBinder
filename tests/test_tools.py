@@ -242,7 +242,7 @@ def test_fetch_inciweb_updates_parses_grasshopper(serve) -> None:
 
     _check_evidence(
         update.to_evidence(),
-        {"acres", "pct_contained", "evacuation_status", "narrative", "inciweb_updated"},
+        {"acres", "pct_contained", "personnel", "evacuation_status", "narrative", "inciweb_updated"},
         "get_inciweb_updates",
     )
 

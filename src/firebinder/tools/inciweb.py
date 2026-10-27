@@ -78,6 +78,7 @@ class InciWebUpdate(SourceStamped):
         candidates: list[tuple[str, object]] = [
             ("acres", self.size_acres),
             ("pct_contained", self.pct_contained),
+            ("personnel", self.personnel),
             ("evacuation_status", self.evacuation_text),
             ("narrative", self.narrative),
             ("inciweb_updated", self.current_as_of),

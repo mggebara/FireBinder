@@ -46,7 +46,9 @@ def test_conflicts_runs_with_firms_error(serve, monkeypatch) -> None:  # noqa: F
     assert "get_hotspots" in out and "FIRMS_MAP_KEY" in out and ".env" in out
     assert "Evidence" in out
     assert "MultiPolygon (" in out  # geometry is summarised, not dumped
-    assert "No conflicts found." in out  # the recorded GRASSHOPPER sources agree within tolerance
+    # the recorded GRASSHOPPER sources disagree on personnel: WFIGS 85 vs InciWeb 218
+    assert "No conflicts found." not in out
+    assert "personnel" in out and "85" in out and "218" in out
 
 
 def test_conflicts_json_output(serve, monkeypatch) -> None:  # noqa: F811
