@@ -1,0 +1,59 @@
+{
+  "name": "e2_polygon_vs_acres_warn",
+  "description": "~1,000-acre square perimeter vs reported 1,800 ac: spread 800 > tol 500, < 3x.",
+  "evidence": [
+    {
+      "field": "acres",
+      "value": 1800,
+      "source": "get_incident_record",
+      "url": "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Incident_Locations/FeatureServer/0/query?where=IrwinID%3D%27EXAMPLE%27",
+      "fetched_at": "2014-07-20T18:00:00+00:00"
+    },
+    {
+      "field": "perimeter_geometry",
+      "value": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -120.0125609,
+              43.9909035
+            ],
+            [
+              -119.9874391,
+              43.9909035
+            ],
+            [
+              -119.9874391,
+              44.0090965
+            ],
+            [
+              -120.0125609,
+              44.0090965
+            ],
+            [
+              -120.0125609,
+              43.9909035
+            ]
+          ]
+        ]
+      },
+      "source": "get_incident_record",
+      "url": "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Interagency_Perimeters/FeatureServer/0/query?where=IrwinID%3D%27EXAMPLE%27",
+      "fetched_at": "2014-07-20T18:00:00+00:00"
+    },
+    {
+      "field": "perimeter_date",
+      "value": "2014-07-20T06:00:00Z",
+      "source": "get_incident_record",
+      "url": "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Interagency_Perimeters/FeatureServer/0/query?where=IrwinID%3D%27EXAMPLE%27",
+      "fetched_at": "2014-07-20T18:00:00+00:00"
+    }
+  ],
+  "expected_conflicts": [
+    {
+      "field": "polygon_area_vs_acres",
+      "severity": "warn"
+    }
+  ]
+}

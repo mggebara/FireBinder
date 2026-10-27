@@ -1,0 +1,117 @@
+{
+  "name": "g_evacuation_text",
+  "description": "Evacuation status differs: Level 2 vs Level 3 (Go Now).",
+  "evidence": [
+    {
+      "field": "acres",
+      "value": 12000,
+      "source": "get_incident_record",
+      "url": "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Incident_Locations/FeatureServer/0/query?where=IrwinID%3D%27EXAMPLE%27",
+      "fetched_at": "2014-07-20T18:00:00+00:00"
+    },
+    {
+      "field": "pct_contained",
+      "value": 35,
+      "source": "get_incident_record",
+      "url": "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Incident_Locations/FeatureServer/0/query?where=IrwinID%3D%27EXAMPLE%27",
+      "fetched_at": "2014-07-20T18:00:00+00:00"
+    },
+    {
+      "field": "personnel",
+      "value": 850,
+      "source": "get_incident_record",
+      "url": "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Incident_Locations/FeatureServer/0/query?where=IrwinID%3D%27EXAMPLE%27",
+      "fetched_at": "2014-07-20T18:00:00+00:00"
+    },
+    {
+      "field": "structures_threatened",
+      "value": 120,
+      "source": "get_incident_record",
+      "url": "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Incident_Locations/FeatureServer/0/query?where=IrwinID%3D%27EXAMPLE%27",
+      "fetched_at": "2014-07-20T18:00:00+00:00"
+    },
+    {
+      "field": "structures_destroyed",
+      "value": 3,
+      "source": "get_incident_record",
+      "url": "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Incident_Locations/FeatureServer/0/query?where=IrwinID%3D%27EXAMPLE%27",
+      "fetched_at": "2014-07-20T18:00:00+00:00"
+    },
+    {
+      "field": "evacuation_status",
+      "value": "Level 2 (Be Set) for Blue Creek area",
+      "source": "get_incident_record",
+      "url": "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Incident_Locations/FeatureServer/0/query?where=IrwinID%3D%27EXAMPLE%27",
+      "fetched_at": "2014-07-20T18:00:00+00:00"
+    },
+    {
+      "field": "gis_acres",
+      "value": 12150,
+      "source": "get_incident_record",
+      "url": "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Interagency_Perimeters/FeatureServer/0/query?where=IrwinID%3D%27EXAMPLE%27",
+      "fetched_at": "2014-07-20T18:00:00+00:00"
+    },
+    {
+      "field": "perimeter_date",
+      "value": "2014-07-20T06:00:00Z",
+      "source": "get_incident_record",
+      "url": "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Interagency_Perimeters/FeatureServer/0/query?where=IrwinID%3D%27EXAMPLE%27",
+      "fetched_at": "2014-07-20T18:00:00+00:00"
+    },
+    {
+      "field": "acres",
+      "value": 12400,
+      "source": "get_inciweb_updates",
+      "url": "https://inciweb.wildfire.gov/incident-information/orokr-example-fire",
+      "fetched_at": "2014-07-20T18:00:00+00:00"
+    },
+    {
+      "field": "pct_contained",
+      "value": 35,
+      "source": "get_inciweb_updates",
+      "url": "https://inciweb.wildfire.gov/incident-information/orokr-example-fire",
+      "fetched_at": "2014-07-20T18:00:00+00:00"
+    },
+    {
+      "field": "personnel",
+      "value": 850,
+      "source": "get_inciweb_updates",
+      "url": "https://inciweb.wildfire.gov/incident-information/orokr-example-fire",
+      "fetched_at": "2014-07-20T18:00:00+00:00"
+    },
+    {
+      "field": "structures_threatened",
+      "value": 120,
+      "source": "get_inciweb_updates",
+      "url": "https://inciweb.wildfire.gov/incident-information/orokr-example-fire",
+      "fetched_at": "2014-07-20T18:00:00+00:00"
+    },
+    {
+      "field": "structures_destroyed",
+      "value": 3,
+      "source": "get_inciweb_updates",
+      "url": "https://inciweb.wildfire.gov/incident-information/orokr-example-fire",
+      "fetched_at": "2014-07-20T18:00:00+00:00"
+    },
+    {
+      "field": "evacuation_status",
+      "value": "Level 3 (Go Now) for Blue Creek area",
+      "source": "get_inciweb_updates",
+      "url": "https://inciweb.wildfire.gov/incident-information/orokr-example-fire",
+      "fetched_at": "2014-07-20T18:00:00+00:00"
+    },
+    {
+      "field": "narrative",
+      "value": "Fire activity moderated overnight; crews continued line construction on the east flank.",
+      "source": "get_inciweb_updates",
+      "url": "https://inciweb.wildfire.gov/incident-information/orokr-example-fire",
+      "fetched_at": "2014-07-20T18:00:00+00:00"
+    }
+  ],
+  "expected_conflicts": [
+    {
+      "field": "evacuation_status",
+      "severity": "info"
+    }
+  ]
+}
