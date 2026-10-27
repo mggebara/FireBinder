@@ -5,8 +5,6 @@ else (never the published 209). Evidence is numbered [n] in the prompt, n being 
 state["evidence"]; the node maps the model's indexes back to Evidence dicts.
 """
 
-from __future__ import annotations
-
 import json
 from importlib import resources
 from typing import Literal

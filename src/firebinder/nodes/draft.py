@@ -5,8 +5,6 @@ fields without a citation. One re-prompt listing them; if any are still uncited,
 set to None and dropped, and a message says so. The audit never sees an uncited number.
 """
 
-from __future__ import annotations
-
 import json
 from importlib import resources
 from typing import Any

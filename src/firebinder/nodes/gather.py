@@ -8,8 +8,6 @@ Stops when every required field has evidence, every tool has been tried once, or
 MAX_ITERATIONS model calls, whichever comes first.
 """
 
-from __future__ import annotations
-
 from importlib import resources
 
 from langchain_core.messages import AIMessage, BaseMessage, HumanMessage, SystemMessage, ToolMessage
@@ -18,12 +16,12 @@ from langchain_core.runnables import RunnableConfig
 from langchain_core.tools import BaseTool
 
 from firebinder import llm
+from firebinder.nodes.conflicts import _short_message  # redacts FIRMS_MAP_KEY from errors
 from firebinder.state import Evidence, FireBinderState
 from firebinder.tools import LIVE_TOOLS
 from firebinder.tools._base import SourceStamped
 
 MAX_ITERATIONS = 8
-ERROR_LIMIT = 300
 
 # Evidence field names (see nodes/reconcile.py) that the draft needs at least one source for.
 REQUIRED_EVIDENCE: list[str] = [
@@ -61,12 +59,6 @@ def system_prompt(state: FireBinderState, config: RunnableConfig | None) -> str:
     )
 
 
-def _error_text(exc: Exception) -> str:
-    text = " ".join(str(exc).split()) or type(exc).__name__
-    text = f"Error from tool: {type(exc).__name__}: {text}"
-    return text if len(text) <= ERROR_LIMIT else text[: ERROR_LIMIT - 1] + "…"
-
-
 def run_tool_call(tools: dict[str, BaseTool], call: ToolCall) -> tuple[ToolMessage, list[Evidence]]:
     """Execute one tool call. Errors become a status="error" ToolMessage; the loop carries on."""
     name, call_id = call["name"], call["id"] or ""
@@ -77,7 +69,7 @@ def run_tool_call(tools: dict[str, BaseTool], call: ToolCall) -> tuple[ToolMessa
     try:
         message = tool.invoke(call)
     except Exception as exc:  # a failing tool is reported to the model and counts as tried
-        return ToolMessage(content=_error_text(exc), tool_call_id=call_id, name=name, status="error"), []
+        return ToolMessage(content=f"Error: {_short_message(exc)}", tool_call_id=call_id, name=name, status="error"), []
     artifact = getattr(message, "artifact", None)
     evidence = artifact.to_evidence() if isinstance(artifact, SourceStamped) else []
     # Keep state and checkpoints small and plain: the evidence is stored separately.
