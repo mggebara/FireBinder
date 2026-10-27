@@ -17,7 +17,7 @@ from shapely.geometry.base import BaseGeometry
 from shapely.geometry.polygon import orient
 
 from firebinder.state import Evidence
-from firebinder.tools._base import SourceStamped, utc_now_iso
+from firebinder.tools._base import SourceStamped, fmt, utc_now_iso
 from firebinder.tools._http import get_client
 
 TOOL_NAME = "get_incident_record"
@@ -143,6 +143,16 @@ class IncidentRecord(SourceStamped):
         ]
         return [self._evidence(field, value, url) for field, value, url in candidates if value is not None]
 
+    def summary(self) -> str:
+        perimeter = f"perimeter polygon dated {fmt(self.perimeter_date)}" if self.perimeter_geometry else "no perimeter polygon"
+        return (
+            f"WFIGS record for {self.incident_name} ({fmt(self.state)}, IRWIN {self.irwin_id}): "
+            f"IRWIN daily acres {fmt(self.irwin_daily_acres)}, GIS acres {fmt(self.gis_acres)}, "
+            f"containment {fmt(self.pct_contained, '%')}, personnel {fmt(self.personnel)}, "
+            f"discovered {fmt(self.discovery_date)}; {perimeter}. "
+            "Structures and evacuations are not in this record."
+        )
+
 
 def fetch_incident_record(irwin_id: str) -> IncidentRecord:
     """Fetch the WFIGS point record and (if one exists) the newest perimeter for an IRWIN ID."""
@@ -232,8 +242,9 @@ class IncidentRecordArgs(BaseModel):
     irwin_id: str = Field(description="IRWIN ID of the incident, e.g. '{6AA4C355-AD18-472F-AAAB-78BAA9DE31B1}'")
 
 
-@tool(TOOL_NAME, args_schema=IncidentRecordArgs)
-def get_incident_record(irwin_id: str) -> IncidentRecord:
+@tool(TOOL_NAME, args_schema=IncidentRecordArgs, response_format="content_and_artifact")
+def get_incident_record(irwin_id: str) -> tuple[str, IncidentRecord]:
     """Get the NIFC WFIGS incident record for an IRWIN ID: IRWIN daily acres, GIS (perimeter)
     acres, percent contained, personnel, discovery date, and the current perimeter polygon."""
-    return fetch_incident_record(irwin_id)
+    record = fetch_incident_record(irwin_id)
+    return record.summary(), record

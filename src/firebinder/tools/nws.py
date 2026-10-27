@@ -9,7 +9,7 @@ from langchain_core.tools import tool
 from pydantic import BaseModel, Field
 
 from firebinder.state import Evidence
-from firebinder.tools._base import SourceStamped, utc_now_iso
+from firebinder.tools._base import SourceStamped, fmt, utc_now_iso
 from firebinder.tools._http import get_client
 
 TOOL_NAME = "get_weather"
@@ -55,6 +55,19 @@ class WeatherOutlook(SourceStamped):
             self._evidence("red_flag_warning", self.red_flag_warning, self.alerts_url),
             self._evidence("active_alerts", [a.event for a in self.alerts], self.alerts_url),
         ]
+
+    def summary(self) -> str:
+        periods = "; ".join(
+            f"{p.name}: {fmt(p.temperature)}{p.temperature_unit or ''}, wind {p.wind_direction or ''} "
+            f"{p.wind_speed or 'unknown'}, min RH {fmt(p.relative_humidity_min, '%')}, {p.short_forecast or ''}".strip(", ")
+            for p in self.periods
+        )
+        alerts = ", ".join(a.event for a in self.alerts) or "none"
+        return (
+            f"NWS forecast at {self.point} (office {fmt(self.forecast_office)}). "
+            f"Red Flag Warning: {fmt(self.red_flag_warning)}. Active alerts: {alerts}. "
+            f"Periods: {periods or 'none'}."
+        )
 
 
 def _get_json(url: str, params: dict[str, str] | None = None) -> dict[str, Any]:
@@ -148,8 +161,9 @@ class WeatherArgs(BaseModel):
     lon: float = Field(description="Longitude of the fire centroid")
 
 
-@tool(TOOL_NAME, args_schema=WeatherArgs)
-def get_weather(lat: float, lon: float) -> WeatherOutlook:
+@tool(TOOL_NAME, args_schema=WeatherArgs, response_format="content_and_artifact")
+def get_weather(lat: float, lon: float) -> tuple[str, WeatherOutlook]:
     """Get the NWS gridpoint forecast (next ~6 periods: temperature, wind, min RH) and active
     alerts at a point, flagging any Red Flag Warning or Fire Weather Watch."""
-    return fetch_weather(lat, lon)
+    outlook = fetch_weather(lat, lon)
+    return outlook.summary(), outlook

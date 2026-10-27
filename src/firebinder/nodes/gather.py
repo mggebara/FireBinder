@@ -1,128 +1,125 @@
 """gather: ReAct-style tool-calling node over the four live tools (never get_published_209).
 
-The loop is written by hand rather than with ToolNode so each tool's Pydantic result can be
-turned into Evidence directly. The model only ever sees a compact JSON summary of each result.
+The loop is written by hand rather than with ToolNode so each tool's Pydantic artifact can be
+turned into Evidence directly. The tools use response_format="content_and_artifact": the model
+only sees the short text summary, the node keeps the artifact.
 
 Stops when every required field has evidence, every tool has been tried once, or after
-MAX_TURNS model calls, whichever comes first.
+MAX_ITERATIONS model calls, whichever comes first.
 """
 
 from __future__ import annotations
 
-import json
-from typing import Any
+from importlib import resources
 
 from langchain_core.messages import AIMessage, BaseMessage, HumanMessage, SystemMessage, ToolMessage
+from langchain_core.messages.tool import ToolCall
+from langchain_core.runnables import RunnableConfig
+from langchain_core.tools import BaseTool
 
 from firebinder import llm
-from firebinder.nodes.conflicts import _short_message
-from firebinder.nodes.fields import FIELD_TO_EVIDENCE, REQUIRED_FIELDS
 from firebinder.state import Evidence, FireBinderState
 from firebinder.tools import LIVE_TOOLS
+from firebinder.tools._base import SourceStamped
 
-MAX_TURNS = 8
-SUMMARY_LIMIT = 1500
-VALUE_LIMIT = 300
+MAX_ITERATIONS = 8
+ERROR_LIMIT = 300
 
-SYSTEM_PROMPT = """You gather public evidence for a wildfire ICS-209 daily status summary.
-
-Incident: {incident_name}
-Report date: {report_date}
-IRWIN ID: {irwin_id}
-Centroid (lat, lon): {centroid}
-Mode: {mode}
-
-Call the tools to collect evidence. Use the IRWIN ID for get_incident_record, the centroid for
-get_hotspots and get_weather (with the report date for get_hotspots), and the incident name for
-get_inciweb_updates. Call each tool at most once; you may call several tools in one turn.
-Required fields still lacking evidence: {missing}.
-When there is nothing more worth calling, reply with a one-line summary and no tool calls."""
+# Evidence field names (see nodes/reconcile.py) that the draft needs at least one source for.
+REQUIRED_EVIDENCE: list[str] = [
+    "acres",
+    "pct_contained",
+    "personnel",
+    "structures_threatened",
+    "structures_destroyed",
+    "evacuation_status",
+    "narrative",  # significant events
+    "forecast_periods",  # 12/24/72-hour outlook
+]
 
 
-def missing_required_fields(evidence: list[Evidence]) -> list[str]:
-    """Required draft fields for which no evidence item (with a non-null value) exists yet."""
+def missing_fields(evidence: list[Evidence]) -> list[str]:
+    """Required evidence fields with no non-null value yet."""
     present = {ev["field"] for ev in evidence if ev.get("value") is not None}
-    return [f for f in REQUIRED_FIELDS if not any(name in present for name in FIELD_TO_EVIDENCE[f])]
+    return [field for field in REQUIRED_EVIDENCE if field not in present]
 
 
-def _compact(field: str, value: Any) -> Any:
-    if field == "perimeter_geometry" and isinstance(value, dict):
-        return f"<{value.get('type', 'geometry')} omitted>"
-    if isinstance(value, list):
-        head = [_compact(field, v) for v in value[:2]]
-        return {"count": len(value), "first": head} if len(value) > 2 else head
-    if isinstance(value, dict):
-        text = json.dumps(value, default=str)
-        return value if len(text) <= VALUE_LIMIT else text[: VALUE_LIMIT - 1] + "…"
-    if isinstance(value, str) and len(value) > VALUE_LIMIT:
-        return value[: VALUE_LIMIT - 1] + "…"
-    return value
-
-
-def summarize_evidence(evidence: list[Evidence]) -> str:
-    """Compact JSON for the model: field -> value, without full geometry or forecast lists."""
-    summary = {
-        "source": evidence[0]["source"] if evidence else None,
-        "fields": {ev["field"]: _compact(ev["field"], ev["value"]) for ev in evidence},
-    }
-    text = json.dumps(summary, default=str)
-    return text if len(text) <= SUMMARY_LIMIT else text[: SUMMARY_LIMIT - 1] + "…"
-
-
-def _system_prompt(state: FireBinderState, missing: list[str]) -> str:
-    return SYSTEM_PROMPT.format(
+def system_prompt(state: FireBinderState, config: RunnableConfig | None) -> str:
+    template = resources.files("firebinder").joinpath("prompts/gather.md").read_text(encoding="utf-8")
+    lat, lon = state.get("centroid") or (None, None)
+    us_state = ((config or {}).get("configurable") or {}).get("state")
+    return template.format(
         incident_name=state.get("incident_name"),
-        report_date=state.get("report_date"),
+        us_state=us_state or "unknown (omit the state argument)",
         irwin_id=state.get("irwin_id"),
-        centroid=state.get("centroid"),
+        lat=lat,
+        lon=lon,
+        report_date=state.get("report_date"),
         mode=state.get("mode"),
-        missing=", ".join(missing) or "none",
+        required_fields=", ".join(REQUIRED_EVIDENCE),
+        missing=", ".join(missing_fields(state.get("evidence") or [])) or "none",
     )
 
 
-def gather(state: FireBinderState) -> dict:
+def _error_text(exc: Exception) -> str:
+    text = " ".join(str(exc).split()) or type(exc).__name__
+    text = f"Error from tool: {type(exc).__name__}: {text}"
+    return text if len(text) <= ERROR_LIMIT else text[: ERROR_LIMIT - 1] + "…"
+
+
+def run_tool_call(tools: dict[str, BaseTool], call: ToolCall) -> tuple[ToolMessage, list[Evidence]]:
+    """Execute one tool call. Errors become a status="error" ToolMessage; the loop carries on."""
+    name, call_id = call["name"], call["id"] or ""
+    tool = tools.get(name)
+    if tool is None:
+        content = f"Error: unknown tool {name!r}. Available tools: {', '.join(tools)}."
+        return ToolMessage(content=content, tool_call_id=call_id, name=name, status="error"), []
+    try:
+        message = tool.invoke(call)
+    except Exception as exc:  # a failing tool is reported to the model and counts as tried
+        return ToolMessage(content=_error_text(exc), tool_call_id=call_id, name=name, status="error"), []
+    artifact = getattr(message, "artifact", None)
+    evidence = artifact.to_evidence() if isinstance(artifact, SourceStamped) else []
+    # Keep state and checkpoints small and plain: the evidence is stored separately.
+    stored = ToolMessage(content=message.content, tool_call_id=call_id, name=name, status=message.status)
+    return stored, evidence
+
+
+def gather(state: FireBinderState, config: RunnableConfig | None = None) -> dict:
     tools = {t.name: t for t in LIVE_TOOLS}
     model = llm.get_model("gather").bind_tools(LIVE_TOOLS)
 
-    collected: list[Evidence] = []
-    produced: list[BaseMessage] = []
-    tried: set[str] = set()
     conversation: list[BaseMessage] = [
-        SystemMessage(_system_prompt(state, missing_required_fields(state.get("evidence") or []))),
+        SystemMessage(system_prompt(state, config)),
         HumanMessage("Gather the evidence now."),
     ]
+    produced: list[BaseMessage] = []
+    collected: list[Evidence] = []
+    tried: set[str] = set()
+    nudged = False
 
-    for _ in range(MAX_TURNS):
-        missing = missing_required_fields([*(state.get("evidence") or []), *collected])
-        if not missing or tried >= set(tools):
+    for _ in range(MAX_ITERATIONS):
+        if not missing_fields(collected) or tried >= set(tools):
             break
-        if produced:  # nudge after the first round with what is still open
-            untried = sorted(set(tools) - tried)
-            conversation.append(
-                HumanMessage(f"Still missing: {', '.join(missing)}. Tools not yet tried: {', '.join(untried)}.")
-            )
-
         ai = model.invoke(conversation)
         conversation.append(ai)
         produced.append(ai)
-        if not isinstance(ai, AIMessage) or not ai.tool_calls:
-            break
 
+        if not isinstance(ai, AIMessage) or not ai.tool_calls:
+            if nudged:  # the model declined twice; stop rather than loop
+                break
+            nudged = True
+            untried = ", ".join(name for name in tools if name not in tried)
+            missing = ", ".join(missing_fields(collected))
+            conversation.append(HumanMessage(f"Still missing: {missing}. Tools not yet tried: {untried}."))
+            continue
+
+        nudged = False
         for call in ai.tool_calls:
-            name = call["name"]
-            tool = tools.get(name)
-            if tool is None:
-                content, status = f"Error: unknown tool {name!r}. Available: {', '.join(tools)}.", "error"
-            else:
-                tried.add(name)
-                try:
-                    result = tool.invoke(call["args"])
-                    evidence = result.to_evidence()
-                    collected.extend(evidence)
-                    content, status = summarize_evidence(evidence), "success"
-                except Exception as exc:  # a failing tool is reported to the model and counts as tried
-                    content, status = f"Error: {_short_message(exc)}", "error"
-            message = ToolMessage(content=content, tool_call_id=call["id"], name=name, status=status)
+            message, evidence = run_tool_call(tools, call)
+            if call["name"] in tools:
+                tried.add(call["name"])
+            collected.extend(evidence)
             conversation.append(message)
             produced.append(message)
 

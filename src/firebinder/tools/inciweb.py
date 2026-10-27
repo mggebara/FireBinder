@@ -21,7 +21,7 @@ from langchain_core.tools import tool
 from pydantic import BaseModel, Field
 
 from firebinder.state import Evidence
-from firebinder.tools._base import SourceStamped, utc_now_iso
+from firebinder.tools._base import SourceStamped, clip, fmt, utc_now_iso
 from firebinder.tools._http import get_client
 
 TOOL_NAME = "get_inciweb_updates"
@@ -84,6 +84,14 @@ class InciWebUpdate(SourceStamped):
             ("inciweb_updated", self.current_as_of),
         ]
         return [self._evidence(field, value) for field, value in candidates if value is not None]
+
+    def summary(self) -> str:
+        return (
+            f"InciWeb page for {self.incident_name} (current as of {fmt(self.current_as_of)}): "
+            f"size {fmt(self.size_acres)} acres, containment {fmt(self.pct_contained, '%')}, "
+            f"personnel {fmt(self.personnel)}. Evacuations: {clip(self.evacuation_text, 300)}. "
+            f"Latest update: {clip(self.narrative)}"
+        )
 
 
 def html_to_text(fragment: str) -> str:
@@ -275,8 +283,9 @@ class InciWebArgs(BaseModel):
     state: str | None = Field(default=None, description="Two-letter state code to disambiguate, e.g. 'OR'")
 
 
-@tool(TOOL_NAME, args_schema=InciWebArgs)
-def get_inciweb_updates(incident_name: str, state: str | None = None) -> InciWebUpdate:
+@tool(TOOL_NAME, args_schema=InciWebArgs, response_format="content_and_artifact")
+def get_inciweb_updates(incident_name: str, state: str | None = None) -> tuple[str, InciWebUpdate]:
     """Get the public InciWeb page for an incident: reported size, percent containment, personnel,
     evacuation text, significant events, and the latest published update."""
-    return fetch_inciweb_updates(incident_name, state)
+    update = fetch_inciweb_updates(incident_name, state)
+    return update.summary(), update

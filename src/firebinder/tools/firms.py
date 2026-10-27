@@ -18,7 +18,7 @@ from pydantic import BaseModel, Field
 from shapely.geometry import MultiPoint
 
 from firebinder.state import Evidence
-from firebinder.tools._base import SourceStamped, utc_now_iso
+from firebinder.tools._base import SourceStamped, fmt, utc_now_iso
 from firebinder.tools._geo import area_acres
 from firebinder.tools._http import get_client
 
@@ -65,6 +65,15 @@ class HotspotSummary(SourceStamped):
             ("latest_detection", self.latest_detection),
         ]
         return [self._evidence(field, value) for field, value in candidates if value is not None]
+
+    def summary(self) -> str:
+        lat, lon = self.center
+        return (
+            f"FIRMS VIIRS ({', '.join(self.sources) or 'no sources'}): {self.count} detections within "
+            f"{fmt(self.radius_km)} km of ({lat}, {lon}) from {self.start_date} to {self.end_date}; "
+            f"hotspot hull {fmt(self.hull_acres)} acres; max FRP {fmt(self.max_frp, ' MW')}; "
+            f"latest detection {fmt(self.latest_detection)}."
+        )
 
 
 def bbox_around(lat: float, lon: float, radius_km: float) -> tuple[float, float, float, float]:
@@ -179,8 +188,11 @@ class HotspotsArgs(BaseModel):
     day_range: int = Field(default=3, ge=1, le=5, description="Number of days ending on `date`")
 
 
-@tool(TOOL_NAME, args_schema=HotspotsArgs)
-def get_hotspots(lat: float, lon: float, date: str, radius_km: float = 25, day_range: int = 3) -> HotspotSummary:
+@tool(TOOL_NAME, args_schema=HotspotsArgs, response_format="content_and_artifact")
+def get_hotspots(
+    lat: float, lon: float, date: str, radius_km: float = 25, day_range: int = 3
+) -> tuple[str, HotspotSummary]:
     """Get NASA FIRMS VIIRS satellite fire detections near a point: detection count, convex-hull
     area of the detections in acres, max fire radiative power, and the latest detection time."""
-    return fetch_hotspots(lat, lon, date, radius_km, day_range)
+    summary = fetch_hotspots(lat, lon, date, radius_km, day_range)
+    return summary.summary(), summary

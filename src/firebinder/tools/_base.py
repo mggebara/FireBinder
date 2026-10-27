@@ -21,6 +21,10 @@ class SourceStamped(BaseModel):
     def to_evidence(self) -> list[Evidence]:
         raise NotImplementedError(f"{type(self).__name__} must implement to_evidence()")
 
+    def summary(self) -> str:
+        """Short human-readable paragraph of the key values (no geometry). What the model sees."""
+        raise NotImplementedError(f"{type(self).__name__} must implement summary()")
+
     def _evidence(self, field: str, value: object, url: str | None = None) -> Evidence:
         return Evidence(
             field=field,
@@ -29,3 +33,23 @@ class SourceStamped(BaseModel):
             url=url or self.url,
             fetched_at=self.fetched_at,
         )
+
+
+def fmt(value: object, unit: str = "") -> str:
+    """Format a value for a tool summary: "unknown" for None, thousands separators for numbers."""
+    if value is None:
+        return "unknown"
+    if isinstance(value, bool):
+        return "yes" if value else "no"
+    if isinstance(value, int | float):
+        text = f"{value:,.0f}" if float(value).is_integer() else f"{value:,.2f}"
+        return text + unit
+    return str(value) + unit
+
+
+def clip(text: str | None, limit: int = 400) -> str:
+    """Collapse whitespace and truncate with an ellipsis."""
+    if not text:
+        return "none"
+    text = " ".join(text.split())
+    return text if len(text) <= limit else text[: limit - 1] + "…"
