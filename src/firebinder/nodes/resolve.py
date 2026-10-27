@@ -3,8 +3,6 @@
 Plain function, not a tool. Fails loudly if nothing matches or the match is still ambiguous.
 """
 
-from __future__ import annotations
-
 from datetime import UTC, datetime, timedelta
 
 from langchain_core.runnables import RunnableConfig

@@ -1,7 +1,5 @@
 """human_review: pause the run with interrupt() so a person can approve, reject, or edit the draft."""
 
-from __future__ import annotations
-
 from typing import Any
 
 from langchain_core.runnables import RunnableConfig
