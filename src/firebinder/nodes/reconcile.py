@@ -1,6 +1,6 @@
 """reconcile: pure-Python conflict detection over gathered evidence. No LLM, no HTTP.
 
-Rules (SPEC.md, "Node contracts: reconcile"):
+Rules:
 - acres / gis_acres: one group; tolerance max(10% of the larger value, 500 ac);
   warn outside tolerance, block beyond 3x tolerance.
 - pct_contained: tolerance 5 points; warn outside, block beyond 20 points.

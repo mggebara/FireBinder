@@ -1,4 +1,4 @@
-"""Phase-1 orchestration for `firebinder conflicts`: resolve, call the four live tools, reconcile.
+"""Orchestration for `firebinder conflicts`: resolve, call the four live tools, reconcile.
 
 Plain function (no graph yet). A failing tool is recorded and the run continues with
 whatever evidence the other tools produced.

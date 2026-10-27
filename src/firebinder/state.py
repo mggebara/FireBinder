@@ -1,4 +1,4 @@
-"""Graph state and shared record types. Mirrors the schema section of SPEC.md exactly."""
+"""Graph state and shared record types."""
 
 from __future__ import annotations
 

@@ -3,6 +3,9 @@ name = "firebinder"
 version = "0.1.0"
 description = "LangGraph agent that drafts and audits wildfire ICS-209 status summaries from public data"
 readme = "README.md"
+license = "MIT"
+authors = [{ name = "Matthew Gebara" }]
+keywords = ["wildfire", "ics-209", "langgraph", "langsmith", "nifc", "firms"]
 requires-python = ">=3.12,<3.13"
 dependencies = [
     "langgraph>=0.4",
@@ -18,6 +21,9 @@ dependencies = [
     "python-dotenv>=1.0",
     "langgraph-checkpoint-sqlite>=3.1.2",
 ]
+
+[project.urls]
+Repository = "https://github.com/mggebara/FireBinder"
 
 [project.scripts]
 firebinder = "firebinder.cli:app"
