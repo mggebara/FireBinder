@@ -8,7 +8,6 @@ dependencies = [
     "langgraph>=0.4",
     "langchain-core>=0.3",
     "langchain-anthropic>=0.3",
-    "langchain-openai>=0.3",
     "langsmith>=0.3",
     "httpx>=0.27",
     "pydantic>=2.7",
