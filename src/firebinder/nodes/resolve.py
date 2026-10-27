@@ -109,12 +109,13 @@ def run_mode(report_date: str, today: str | None = None) -> str:
     return "historical" if report_date < today else "live"
 
 
-def resolve(state: FireBinderState, config: RunnableConfig) -> dict:
+def resolve(state: FireBinderState, config: RunnableConfig | None = None) -> dict:
     """Graph node. Optional `configurable.state` disambiguates like `firebinder conflicts --state`.
 
+    Sets mode from the report date (spec is silent on how): before today (UTC) is historical, else live.
     Lets IncidentResolutionError propagate: the run should stop if the incident can't be pinned down.
     """
-    configurable = config.get("configurable", {})
+    configurable = (config or {}).get("configurable", {})
     resolved = resolve_incident(state["incident_name"], state["report_date"], state=configurable.get("state"))
     return {
         "irwin_id": resolved.irwin_id,
