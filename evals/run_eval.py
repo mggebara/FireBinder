@@ -124,17 +124,31 @@ def make_target(graph: Any, planted_by_example: dict[str, list[Evidence] | None]
 # ---------- results ----------
 
 
-def feedback_means(rows: Iterable[dict]) -> tuple[int, dict[str, float]]:
-    """(number of examples, mean score per feedback key), skipping None scores."""
+def _run_failed(row: dict) -> bool:
+    run = row.get("run")
+    error = getattr(run, "error", None) if run is not None and not isinstance(run, dict) else (run or {}).get("error")
+    return bool(error)
+
+
+def feedback_means(rows: Iterable[dict]) -> tuple[int, int, dict[str, float]]:
+    """(successful examples, failed examples, mean score per feedback key over successful ones).
+
+    A run that raised (API outage, exhausted credit, resolution failure) contributes nothing: its
+    code evaluators would otherwise score an empty output and drag the means down silently.
+    """
     scores: dict[str, list[float]] = {}
     n = 0
+    failed = 0
     for row in rows:
+        if _run_failed(row):
+            failed += 1
+            continue
         n += 1
         for res in (row.get("evaluation_results") or {}).get("results", []):
             key, score = (res.get("key"), res.get("score")) if isinstance(res, dict) else (res.key, res.score)
             if score is not None:
                 scores.setdefault(key, []).append(float(score))
-    return n, {key: sum(vals) / len(vals) for key, vals in scores.items()}
+    return n, failed, {key: sum(vals) / len(vals) for key, vals in scores.items()}
 
 
 def format_row(date: str, sha: str, n: int, means: dict[str, float], note: str) -> str:
@@ -189,9 +203,15 @@ def main(
         client=client,
     )
 
-    n, means = feedback_means(results)
+    n, failed, means = feedback_means(results)
+    if failed:
+        note = f"{note} ({failed} of {n + failed} runs errored)".strip()
+        typer.echo(f"WARNING: {failed} of {n + failed} runs errored; means cover the {n} that finished", err=True)
     row = format_row(date, sha, n, means, note)
-    append_row(row)
+    if n == 0:
+        typer.echo("No run finished; not recording a results row", err=True)
+    else:
+        append_row(row)
     typer.echo(RESULTS_HEADER.splitlines()[0])
     typer.echo(row)
     typer.echo(json.dumps({"experiment": results.experiment_name, "url": results.url}))

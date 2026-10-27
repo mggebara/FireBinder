@@ -236,8 +236,11 @@ def test_feedback_means_and_row_formatting(tmp_path):
     rows = [
         {"evaluation_results": {"results": [Res("faithfulness", 1.0), Res("conflict_recall", 1.0), Res("total_tokens", 1000)]}},
         {"evaluation_results": {"results": [Res("faithfulness", 0.5), Res("conflict_recall", None), Res("total_tokens", 3000)]}},
+        # An errored run (API outage, exhausted credit) is counted as failed and excluded from the means.
+        {"run": {"error": "credit balance too low"}, "evaluation_results": {"results": [Res("conflict_recall", 0.0)]}},
     ]
-    n, means = run_eval.feedback_means(rows)
+    n, failed, means = run_eval.feedback_means(rows)
+    assert failed == 1
     assert n == 2 and means == {"faithfulness": 0.75, "conflict_recall": 1.0, "total_tokens": 2000}
     row = run_eval.format_row("2026-10-26", "abc1234", n, means, "audit | v2")
     assert row == "| 2026-10-26 | abc1234 | 2 | 0.75 | 1.00 | n/a | n/a | n/a | 2,000 | n/a | audit \\| v2 |"
