@@ -17,6 +17,7 @@ dependencies = [
     "pandas>=2.2",
     "typer>=0.12",
     "python-dotenv>=1.0",
+    "langgraph-checkpoint-sqlite>=3.1.2",
 ]
 
 [project.scripts]
