@@ -20,3 +20,6 @@ build/
 .DS_Store
 .idea/
 .vscode/
+
+# build spec stays local
+SPEC.md
