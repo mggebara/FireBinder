@@ -18,6 +18,7 @@ from datetime import datetime, timezone
 from itertools import combinations
 from typing import Any, Literal
 
+from langsmith import traceable
 from shapely.geometry import shape
 
 from firebinder.state import Conflict, Evidence, FireBinderState
@@ -243,6 +244,7 @@ def find_conflicts(evidence: list[Evidence]) -> list[Conflict]:
     return conflicts
 
 
+@traceable(name="reconcile")
 def reconcile(state: FireBinderState) -> dict[str, list[Conflict]]:
     """Graph node: returns only the key it changes."""
     return {"conflicts": find_conflicts(state.get("evidence", []))}
