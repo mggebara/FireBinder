@@ -1,0 +1,22 @@
+# secrets and local data
+.env
+data/
+out/
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+dist/
+build/
+
+# langgraph checkpoints
+*.sqlite
+*.db
+
+# editors / os
+.DS_Store
+.idea/
+.vscode/

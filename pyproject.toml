@@ -1,0 +1,38 @@
+[project]
+name = "firebinder"
+version = "0.1.0"
+description = "LangGraph agent that drafts and audits wildfire ICS-209 status summaries from public data"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "langgraph>=0.4",
+    "langchain-core>=0.3",
+    "langchain-anthropic>=0.3",
+    "langchain-openai>=0.3",
+    "langsmith>=0.3",
+    "httpx>=0.27",
+    "pydantic>=2.7",
+    "shapely>=2.0",
+    "feedparser>=6.0",
+    "pandas>=2.2",
+    "typer>=0.12",
+    "python-dotenv>=1.0",
+]
+
+[project.scripts]
+firebinder = "firebinder.cli:app"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/firebinder"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
