@@ -9,7 +9,7 @@ from langchain_core.tools import tool
 from pydantic import BaseModel, Field
 
 from firebinder.state import Evidence
-from firebinder.tools._base import SourceStamped, fmt, utc_now_iso
+from firebinder.tools._base import SourceStamped, fmt, require_recent, utc_now_iso
 from firebinder.tools._http import get_client
 
 TOOL_NAME = "get_weather"
@@ -104,8 +104,13 @@ def parse_alerts(body: dict[str, Any]) -> list[Alert]:
     return alerts
 
 
-def fetch_weather(lat: float, lon: float) -> WeatherOutlook:
-    """Next ~6 forecast periods and active alerts at (lat, lon)."""
+def fetch_weather(lat: float, lon: float, date: str | None = None) -> WeatherOutlook:
+    """Next ~6 forecast periods and active alerts at (lat, lon).
+
+    NWS only serves forecasts for now: a report `date` more than 45 days back raises
+    HistoricalNotAvailable rather than returning today's forecast.
+    """
+    require_recent(date, "NWS only serves current forecasts and alerts; no data for")
     lat, lon = round(lat, 4), round(lon, 4)  # NWS redirects anything finer than 4 decimals
     fetched_at = utc_now_iso()
 
@@ -159,11 +164,12 @@ def fetch_weather(lat: float, lon: float) -> WeatherOutlook:
 class WeatherArgs(BaseModel):
     lat: float = Field(description="Latitude of the fire centroid")
     lon: float = Field(description="Longitude of the fire centroid")
+    report_date: str | None = Field(default=None, description="Report date, YYYY-MM-DD")
 
 
 @tool(TOOL_NAME, args_schema=WeatherArgs, response_format="content_and_artifact")
-def get_weather(lat: float, lon: float) -> tuple[str, WeatherOutlook]:
+def get_weather(lat: float, lon: float, report_date: str | None = None) -> tuple[str, WeatherOutlook]:
     """Get the NWS gridpoint forecast (next ~6 periods: temperature, wind, min RH) and active
-    alerts at a point, flagging any Red Flag Warning or Fire Weather Watch."""
-    outlook = fetch_weather(lat, lon)
+    alerts at a point, flagging any Red Flag Warning or Fire Weather Watch. Current forecasts only."""
+    outlook = fetch_weather(lat, lon, date=report_date)
     return outlook.summary(), outlook

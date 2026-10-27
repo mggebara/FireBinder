@@ -59,13 +59,21 @@ def system_prompt(state: FireBinderState, config: RunnableConfig | None) -> str:
     )
 
 
-def run_tool_call(tools: dict[str, BaseTool], call: ToolCall) -> tuple[ToolMessage, list[Evidence]]:
-    """Execute one tool call. Errors become a status="error" ToolMessage; the loop carries on."""
+def run_tool_call(
+    tools: dict[str, BaseTool], call: ToolCall, report_date: str | None = None
+) -> tuple[ToolMessage, list[Evidence]]:
+    """Execute one tool call. Errors become a status="error" ToolMessage; the loop carries on.
+
+    If the model left out `report_date` on a tool that takes one, the run's report date is filled
+    in: a historical run must never silently get today's data.
+    """
     name, call_id = call["name"], call["id"] or ""
     tool = tools.get(name)
     if tool is None:
         content = f"Error: unknown tool {name!r}. Available tools: {', '.join(tools)}."
         return ToolMessage(content=content, tool_call_id=call_id, name=name, status="error"), []
+    if report_date and "report_date" in tool.args and not call["args"].get("report_date"):
+        call = {**call, "args": {**call["args"], "report_date": report_date}}
     try:
         message = tool.invoke(call)
     except Exception as exc:  # a failing tool is reported to the model and counts as tried
@@ -108,7 +116,7 @@ def gather(state: FireBinderState, config: RunnableConfig | None = None) -> dict
 
         nudged = False
         for call in ai.tool_calls:
-            message, evidence = run_tool_call(tools, call)
+            message, evidence = run_tool_call(tools, call, state.get("report_date"))
             if call["name"] in tools:
                 tried.add(call["name"])
             collected.extend(evidence)

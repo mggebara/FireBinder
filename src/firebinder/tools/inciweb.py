@@ -21,7 +21,7 @@ from langchain_core.tools import tool
 from pydantic import BaseModel, Field
 
 from firebinder.state import Evidence
-from firebinder.tools._base import SourceStamped, clip, fmt, utc_now_iso
+from firebinder.tools._base import SourceStamped, clip, fmt, require_recent, utc_now_iso
 from firebinder.tools._http import get_client
 
 TOOL_NAME = "get_inciweb_updates"
@@ -238,8 +238,13 @@ def _get_text(url: str) -> str:
     return response.text
 
 
-def fetch_inciweb_updates(incident_name: str, state: str | None = None) -> InciWebUpdate:
-    """Find the incident in InciWeb's national feeds and read its incident page."""
+def fetch_inciweb_updates(incident_name: str, state: str | None = None, date: str | None = None) -> InciWebUpdate:
+    """Find the incident in InciWeb's national feeds and read its incident page.
+
+    InciWeb only serves current incidents: a report `date` more than 45 days back raises
+    HistoricalNotAvailable rather than describing today's page.
+    """
+    require_recent(date, "InciWeb only serves current incidents; no data for")
     fetched_at = utc_now_iso()
     entries = parse_placemarks(_get_text(PLACEMARKS_URL))
     rss = get_client().get(INCIDENTS_RSS_URL)
@@ -281,11 +286,14 @@ def fetch_inciweb_updates(incident_name: str, state: str | None = None) -> InciW
 class InciWebArgs(BaseModel):
     incident_name: str = Field(description="Incident name, e.g. 'Grasshopper' or 'Grasshopper Fire'")
     state: str | None = Field(default=None, description="Two-letter state code to disambiguate, e.g. 'OR'")
+    report_date: str | None = Field(default=None, description="Report date, YYYY-MM-DD")
 
 
 @tool(TOOL_NAME, args_schema=InciWebArgs, response_format="content_and_artifact")
-def get_inciweb_updates(incident_name: str, state: str | None = None) -> tuple[str, InciWebUpdate]:
+def get_inciweb_updates(
+    incident_name: str, state: str | None = None, report_date: str | None = None
+) -> tuple[str, InciWebUpdate]:
     """Get the public InciWeb page for an incident: reported size, percent containment, personnel,
-    evacuation text, significant events, and the latest published update."""
-    update = fetch_inciweb_updates(incident_name, state)
+    evacuation text, significant events, and the latest published update. Current incidents only."""
+    update = fetch_inciweb_updates(incident_name, state, date=report_date)
     return update.summary(), update

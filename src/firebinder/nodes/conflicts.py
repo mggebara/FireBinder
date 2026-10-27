@@ -57,10 +57,10 @@ def run_conflicts(
     resolved = resolve_incident(incident, date, state)
     lat, lon = resolved.centroid
     calls: dict[str, Callable[[], SourceStamped]] = {
-        "get_incident_record": lambda: fetch_incident_record(resolved.irwin_id),
+        "get_incident_record": lambda: fetch_incident_record(resolved.irwin_id, date),
         "get_hotspots": lambda: fetch_hotspots(lat, lon, date, radius_km=radius_km, day_range=day_range),
-        "get_inciweb_updates": lambda: fetch_inciweb_updates(resolved.incident_name, state or resolved.state),
-        "get_weather": lambda: fetch_weather(lat, lon),
+        "get_inciweb_updates": lambda: fetch_inciweb_updates(resolved.incident_name, state or resolved.state, date=date),
+        "get_weather": lambda: fetch_weather(lat, lon, date=date),
     }
 
     evidence: list[Evidence] = []

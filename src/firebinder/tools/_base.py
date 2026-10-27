@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import UTC, datetime
+from datetime import UTC, date, datetime, timedelta
 
 from pydantic import BaseModel
 
@@ -11,6 +11,27 @@ from firebinder.state import Evidence
 
 def utc_now_iso() -> str:
     return datetime.now(UTC).isoformat(timespec="seconds")
+
+
+HISTORICAL_CUTOFF_DAYS = 45  # older report dates are past what current-only sources can describe
+
+
+class ToolError(RuntimeError):
+    """A tool could not produce data for the request."""
+
+
+class HistoricalNotAvailable(ToolError):
+    """The source only serves current data, and the report date is too far in the past."""
+
+
+def require_recent(report_date: str | None, message: str) -> None:
+    """Raise HistoricalNotAvailable(f"{message} {report_date}") if report_date is more than
+    HISTORICAL_CUTOFF_DAYS before today (UTC). None means "now" and always passes."""
+    if report_date is None:
+        return
+    today = datetime.now(UTC).date()
+    if date.fromisoformat(report_date) < today - timedelta(days=HISTORICAL_CUTOFF_DAYS):
+        raise HistoricalNotAvailable(f"{message} {report_date}")
 
 
 class SourceStamped(BaseModel):
