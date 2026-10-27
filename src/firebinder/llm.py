@@ -32,4 +32,5 @@ def model_name(role: Role) -> str:
 
 
 def get_model(role: Role) -> BaseChatModel:
-    return ChatAnthropic(model=model_name(role), temperature=0, max_tokens=MAX_TOKENS)
+    # No temperature: the 5.5 models reject it ("`temperature` is deprecated for this model").
+    return ChatAnthropic(model=model_name(role), max_tokens=MAX_TOKENS)
