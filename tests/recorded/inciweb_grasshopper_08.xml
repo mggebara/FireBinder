@@ -1,0 +1,4187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<name> Inciweb - Fire Incidents Information </name>
+<open>1</open>
+<description>Viewing most recent fire incidents from InciWeb.</description>
+<Style id="downArrowIcon">
+	<IconStyle>
+		<Icon>
+			<href>
+				http://maps.google.com/mapfiles/kml/pal4/icon28.png
+			</href>
+		</Icon>
+	</IconStyle>
+</Style>
+<Style id="globeIcon">
+	<LabelStyle>
+		<color>
+			#0193fd
+		</color>
+		<scale>
+			1.2
+		</scale>
+	</LabelStyle>
+	<LineStyle>
+		<color>
+			ff0000ff
+		</color>
+	</LineStyle>
+	<PolyStyle>
+		<color>
+			ffff0000
+		</color>
+	</PolyStyle>
+	<IconStyle>
+		<Icon>
+			<href>
+				http://maps.google.com/mapfiles/kml/paddle/red-stars.png
+			</href>
+		</Icon>
+	</IconStyle>
+	<LineStyle>
+		<width>
+			2
+		</width>
+	</LineStyle>
+</Style>
+<Style id="transPurpleLineGreenPoly">
+	<LineStyle>
+		<color>
+			7fff00ff
+		</color>
+		<width>
+			4
+		</width>
+	</LineStyle>
+	<PolyStyle>
+		<color>
+			7f00ff00
+		</color>
+	</PolyStyle>
+</Style>
+<Style id="yellowLineGreenPoly">
+	<LineStyle>
+		<color>
+			7f00ffff
+		</color>
+		<width>
+			4
+		</width>
+	</LineStyle>
+	<PolyStyle>
+		<color>
+			7f00ff00
+		</color>
+	</PolyStyle>
+</Style>
+<Style id="thickBlackLine">
+	<LineStyle>
+		<color>
+			87000000
+		</color>
+		<width>
+			10
+		</width>
+	</LineStyle>
+</Style>
+<Style id="redLineBluePoly">
+	<LineStyle>
+		<color>
+			ff0000ff
+		</color>
+	</LineStyle>
+	<PolyStyle>
+		<color>
+			ffff0000
+		</color>
+	</PolyStyle>
+</Style>
+<Style id="blueLineRedPoly">
+	<LineStyle>
+		<color>
+			ffff0000
+		</color>
+	</LineStyle>
+	<PolyStyle>
+		<color>
+			ff0000ff
+		</color>
+	</PolyStyle>
+</Style>
+<Style id="transRedPoly">
+	<LineStyle>
+		<width>
+			1.5
+		</width>
+	</LineStyle>
+	<PolyStyle>
+		<color>
+			7d0000ff
+		</color>
+	</PolyStyle>
+</Style>
+<Style id="transBluePoly">
+	<LineStyle>
+		<width>
+			1.5
+		</width>
+	</LineStyle>
+	<PolyStyle>
+		<color>
+			7dff0000
+		</color>
+	</PolyStyle>
+</Style>
+<Style id="transGreenPoly">
+	<LineStyle>
+		<width>
+			1.5
+		</width>
+	</LineStyle>
+	<PolyStyle>
+		<color>
+			7d00ff00
+		</color>
+	</PolyStyle>
+</Style>
+<Style id="transYellowPoly">
+	<LineStyle>
+		<width>
+			1.5
+		</width>
+	</LineStyle>
+	<PolyStyle>
+		<color>
+			7d00ffff
+		</color>
+	</PolyStyle>
+</Style>
+<Style id="noDrivingDirections">
+	<BalloonStyle>
+		<text>
+			<![CDATA[
+			<b>$[name]</b>
+			<br /><br />
+			$[description]
+			]]>
+		</text>
+	</BalloonStyle>
+</Style>
+
+<Folder>
+<name>
+ COARF Blue Ridge Prescribed Burn 
+</name>
+<Placemark>
+<name>
+ COARF Blue Ridge Prescribed Burn 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/coarf-blue-ridge-prescribed-burn" hreflang="en"> Learn More About COARF Blue Ridge Prescribed Burn</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-106.03680555556</longitude>
+<altitude>0</altitude>
+<latitude>40.032416666667</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-106.03680555556, 40.032416666667</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ COSJF 2026 San Juan National Forest Prescribed Fire Program 
+</name>
+<Placemark>
+<name>
+ COSJF 2026 San Juan National Forest Prescribed Fire Program 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/cosjf-2026-san-juan-national-forest-prescribed-fire-program" hreflang="en"> Learn More About COSJF 2026 San Juan National Forest Prescribed Fire Program</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-107.89302283333</longitude>
+<altitude>0</altitude>
+<latitude>37.273411</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-107.89302283333, 37.273411</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ COARF Magic Feather Prescribed Burn 
+</name>
+<Placemark>
+<name>
+ COARF Magic Feather Prescribed Burn 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/coarf-magic-feather-prescribed-burn" hreflang="en"> Learn More About COARF Magic Feather Prescribed Burn</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-105.53797</longitude>
+<altitude>0</altitude>
+<latitude>40.779597</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-105.53797, 40.779597</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ MTLNF Lolo National Forest Prescribed Fire Operations 
+</name>
+<Placemark>
+<name>
+ MTLNF Lolo National Forest Prescribed Fire Operations 
+</name>
+<description>
+
+ Prescribed fire operations on the Lolo National Forest 
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/mtlnf-lolo-national-forest-prescribed-fire-operations" hreflang="en"> Learn More About MTLNF Lolo National Forest Prescribed Fire Operations</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-113.93694444444</longitude>
+<altitude>0</altitude>
+<latitude>46.837777777778</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-113.93694444444, 46.837777777778</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ AZCOF Coconino National Forest Prescribed Burn Projects 
+</name>
+<Placemark>
+<name>
+ AZCOF Coconino National Forest Prescribed Burn Projects 
+</name>
+<description>
+
+ Prescribed burns are important part of forest restoration and protecting communities by creating buffers around them Prescribed burns and me...
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/azcof-coconino-national-forest-prescribed-burn-projects" hreflang="en"> Learn More About AZCOF Coconino National Forest Prescribed Burn Projects</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-111.67388888889</longitude>
+<altitude>0</altitude>
+<latitude>35.185805555556</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-111.67388888889, 35.185805555556</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ MTBDF BeaverheadDeerlodge NF Prescribed Fire Operations 
+</name>
+<Placemark>
+<name>
+ MTBDF BeaverheadDeerlodge NF Prescribed Fire Operations 
+</name>
+<description>
+
+ Prescribed fire operations on the BeaverheadDeerlodge National Forest 
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/mtbdf-beaverheaddeerlodge-nf-prescribed-fire-operations" hreflang="en"> Learn More About MTBDF BeaverheadDeerlodge NF Prescribed Fire Operations</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-112.78461</longitude>
+<altitude>0</altitude>
+<latitude>45.85923</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-112.78461, 45.85923</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ COSJD West Rim Prescribed Burn 
+</name>
+<Placemark>
+<name>
+ COSJD West Rim Prescribed Burn 
+</name>
+<description>
+
+ The West Rim prescribed burn for Unit 18 Bravo is designed to maintain and enhance previous fuelsreduction work by reducing accumulated surf...
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/cosjd-west-rim-prescribed-burn" hreflang="en"> Learn More About COSJD West Rim Prescribed Burn</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-108.84035</longitude>
+<altitude>0</altitude>
+<latitude>37.813383333333</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-108.84035, 37.813383333333</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ MNCPF Chippewa National Forest Pile Burning and Prescribed Fire Fall 2026 
+</name>
+<Placemark>
+<name>
+ MNCPF Chippewa National Forest Pile Burning and Prescribed Fire Fall 2026 
+</name>
+<description>
+
+ The Forest utilizes prescribed fires for a variety of natural resource objectives including reducing hazardous fuel build up to help protect...
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/mncpf-chippewa-national-forest-pile-burning-and-prescribed-fire-fall-2026" hreflang="en"> Learn More About MNCPF Chippewa National Forest Pile Burning and Prescribed Fire Fall 2026</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-94.35</longitude>
+<altitude>0</altitude>
+<latitude>47</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-94.35, 47</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ NDDPF Sheyenne National Grassland RX 
+</name>
+<Placemark>
+<name>
+ NDDPF Sheyenne National Grassland RX 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/nddpf-sheyenne-national-grassland-rx" hreflang="en"> Learn More About NDDPF Sheyenne National Grassland RX</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-97.320722222222</longitude>
+<altitude>0</altitude>
+<latitude>46.463666666667</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-97.320722222222, 46.463666666667</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ MIOTF 2026 Upper Peninsula Fire and Aviation Management Unit Planned Prescribed Fires 
+</name>
+<Placemark>
+<name>
+ MIOTF 2026 Upper Peninsula Fire and Aviation Management Unit Planned Prescribed Fires 
+</name>
+<description>
+
+ These prescribed fires reduce risk to the public by removing hazardous vegetation to mitigate wildfires and prevent loss of property They al...
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/miotf-2026-upper-peninsula-fire-and-aviation-management-unit-planned-prescribed-fires" hreflang="en"> Learn More About MIOTF 2026 Upper Peninsula Fire and Aviation Management Unit Planned Prescribed Fires</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-89.175111111111</longitude>
+<altitude>0</altitude>
+<latitude>46.262166666667</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-89.175111111111, 46.262166666667</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ MIHIF 2026 Upper Peninsula Fire and Aviation Management Unit Planned Prescribed Fires West Zone 
+</name>
+<Placemark>
+<name>
+ MIHIF 2026 Upper Peninsula Fire and Aviation Management Unit Planned Prescribed Fires West Zone 
+</name>
+<description>
+
+ These prescribed fires reduce risk to the public by removing hazardous vegetation to mitigate wildfires and prevent loss of property They al...
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/mihif-2026-upper-peninsula-fire-and-aviation-management-unit-planned-prescribed-fires-west-zone" hreflang="en"> Learn More About MIHIF 2026 Upper Peninsula Fire and Aviation Management Unit Planned Prescribed Fires West Zone</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-86.963805555556</longitude>
+<altitude>0</altitude>
+<latitude>45.937694444444</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-86.963805555556, 45.937694444444</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ MIHIF 2026 Upper Peninsula Fire and Aviation Management Unit Planned Prescribed Fires East Zone 
+</name>
+<Placemark>
+<name>
+ MIHIF 2026 Upper Peninsula Fire and Aviation Management Unit Planned Prescribed Fires East Zone 
+</name>
+<description>
+
+ These prescribed fires reduce risk to the public by removing hazardous vegetation to mitigate wildfires and prevent loss of property They al...
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/mihif-2026-upper-peninsula-fire-and-aviation-management-unit-planned-prescribed-fires-east-zone" hreflang="en"> Learn More About MIHIF 2026 Upper Peninsula Fire and Aviation Management Unit Planned Prescribed Fires East Zone</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-84.830666666667</longitude>
+<altitude>0</altitude>
+<latitude>45.87775</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-84.830666666667, 45.87775</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ COWRD Elk RBX Fire 
+</name>
+<Placemark>
+<name>
+ COWRD Elk RBX Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/cowrd-elk-rbx-fire" hreflang="en"> Learn More About COWRD Elk RBX Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-107.74527777778</longitude>
+<altitude>0</altitude>
+<latitude>39.959444444444</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-107.74527777778, 39.959444444444</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ COSJD Rabbit Mountain Prescribed Burn 
+</name>
+<Placemark>
+<name>
+ COSJD Rabbit Mountain Prescribed Burn 
+</name>
+<description>
+
+ The Rabbit Mountain prescribed burn is a maintenancefocused project designed to uphold and enhance the fuels reduction work previously compl...
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/cosjd-rabbit-mountain-prescribed-burn" hreflang="en"> Learn More About COSJD Rabbit Mountain Prescribed Burn</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-107.66513333333</longitude>
+<altitude>0</altitude>
+<latitude>37.265577777778</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-107.66513333333, 37.265577777778</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ COSWD Transfer Road Prescribed Burn 
+</name>
+<Placemark>
+<name>
+ COSWD Transfer Road Prescribed Burn 
+</name>
+<description>
+
+ Objectives
+
+Reduce hazardous fuels to mitigate risk of extreme wildfire behavior
+
+Improve habitat for elk and deer
+
+Operational Detail...
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/coswd-transfer-road-prescribed-burn" hreflang="en"> Learn More About COSWD Transfer Road Prescribed Burn</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-108.15845555556</longitude>
+<altitude>0</altitude>
+<latitude>38.477188888889</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-108.15845555556, 38.477188888889</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ MTHLF HelenaLewis and Clark NF Rx Fires 
+</name>
+<Placemark>
+<name>
+ MTHLF HelenaLewis and Clark NF Rx Fires 
+</name>
+<description>
+
+ The purpose of the prescribed projects are to minimize the potential for a high severity wildfire in the surrounding Wildland Urban Interfac...
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/mthlf-helenalewis-and-clark-nf-rx-fires" hreflang="en"> Learn More About MTHLF HelenaLewis and Clark NF Rx Fires</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-111.988006</longitude>
+<altitude>0</altitude>
+<latitude>46.612105</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-111.988006, 46.612105</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ COARF Salt Cabin Prescribed Fire 
+</name>
+<Placemark>
+<name>
+ COARF Salt Cabin Prescribed Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/coarf-salt-cabin-prescribed-fire" hreflang="en"> Learn More About COARF Salt Cabin Prescribed Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-105.51999166667</longitude>
+<altitude>0</altitude>
+<latitude>40.6746</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-105.51999166667, 40.6746</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ COSJD Dawson broadcast prescribed burn 
+</name>
+<Placemark>
+<name>
+ COSJD Dawson broadcast prescribed burn 
+</name>
+<description>
+
+ The Dawson broadcast burn is intended to consume the majority of the Ponderosa pine needle litter to create favorable conditions for new Pon...
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/cosjd-dawson-broadcast-prescribed-burn" hreflang="en"> Learn More About COSJD Dawson broadcast prescribed burn</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-108.70928333333</longitude>
+<altitude>0</altitude>
+<latitude>37.88675</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-108.70928333333, 37.88675</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ COSJD Summit Point Prescribed Burn 
+</name>
+<Placemark>
+<name>
+ COSJD Summit Point Prescribed Burn 
+</name>
+<description>
+
+ The Summit Point prescribed burn is a maintenancefocused treatment designed to remove remaining biomass from a previous mastication project ...
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/cosjd-summit-point-prescribed-burn" hreflang="en"> Learn More About COSJD Summit Point Prescribed Burn</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-109.00816944444</longitude>
+<altitude>0</altitude>
+<latitude>38.011469444444</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-109.00816944444, 38.011469444444</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ MIHMF 2026 HuronManistee NFs SpringSummer Prescribed Fire Season 
+</name>
+<Placemark>
+<name>
+ MIHMF 2026 HuronManistee NFs SpringSummer Prescribed Fire Season 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/mihmf-2026-huronmanistee-nfs-springsummer-prescribed-fire-season" hreflang="en"> Learn More About MIHMF 2026 HuronManistee NFs SpringSummer Prescribed Fire Season</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-85.401111111111</longitude>
+<altitude>0</altitude>
+<latitude>44.251944444444</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-85.401111111111, 44.251944444444</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORRSF Rogue RiverSiskiyou National Forest Prescribed Fire Operations 
+</name>
+<Placemark>
+<name>
+ ORRSF Rogue RiverSiskiyou National Forest Prescribed Fire Operations 
+</name>
+<description>
+
+ Prescribed fire operations on the Rogue RiverSiskiyou National Forest 
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orrsf-rogue-riversiskiyou-national-forest-prescribed-fire-operations" hreflang="en"> Learn More About ORRSF Rogue RiverSiskiyou National Forest Prescribed Fire Operations</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-123.9375</longitude>
+<altitude>0</altitude>
+<latitude>42.0625</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-123.9375, 42.0625</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ UTMLF Babylon Fire 
+</name>
+<Placemark>
+<name>
+ UTMLF Babylon Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/utmlf-babylon-fire" hreflang="en"> Learn More About UTMLF Babylon Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-109.80861111111</longitude>
+<altitude>0</altitude>
+<latitude>37.734444444444</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-109.80861111111, 37.734444444444</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ COSJF Ferris Fire 
+</name>
+<Placemark>
+<name>
+ COSJF Ferris Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/cosjf-ferris-fire" hreflang="en"> Learn More About COSJF Ferris Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-108.67102777778</longitude>
+<altitude>0</altitude>
+<latitude>37.62925</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-108.67102777778, 37.62925</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ COPSF Willow Fire 
+</name>
+<Placemark>
+<name>
+ COPSF Willow Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/copsf-willow-fire" hreflang="en"> Learn More About COPSF Willow Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-106.44027777778</longitude>
+<altitude>0</altitude>
+<latitude>39.233333333333</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-106.44027777778, 39.233333333333</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ COGMF Gold Mountain Fire 
+</name>
+<Placemark>
+<name>
+ COGMF Gold Mountain Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/cogmf-gold-mountain-fire" hreflang="en"> Learn More About COGMF Gold Mountain Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-107.68222222222</longitude>
+<altitude>0</altitude>
+<latitude>38.051666666667</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-107.68222222222, 38.051666666667</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ COPSF Aspen Acres Fire 
+</name>
+<Placemark>
+<name>
+ COPSF Aspen Acres Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/copsf-aspen-acres-fire" hreflang="en"> Learn More About COPSF Aspen Acres Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-105.07138888889</longitude>
+<altitude>0</altitude>
+<latitude>38.019444444444</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-105.07138888889, 38.019444444444</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ MNSUF July 2026 Superior NF Wildfires 
+</name>
+<Placemark>
+<name>
+ MNSUF July 2026 Superior NF Wildfires 
+</name>
+<description>
+
+ 	Sioux 6833 acres 100 contained Location  North of the Echo Trail and east of Jeanette Campground
+	Bear Trap 39327 acres 100 contained Loca...
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/mnsuf-july-2026-superior-nf-wildfires" hreflang="en"> Learn More About MNSUF July 2026 Superior NF Wildfires</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-91.793888888889</longitude>
+<altitude>0</altitude>
+<latitude>48.009444444444</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-91.793888888889, 48.009444444444</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORWWF Anthony Fire 
+</name>
+<Placemark>
+<name>
+ ORWWF Anthony Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orwwf-anthony-fire" hreflang="en"> Learn More About ORWWF Anthony Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-118.20032983333</longitude>
+<altitude>0</altitude>
+<latitude>44.991866833333</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-118.20032983333, 44.991866833333</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORUMF Salmon Fire 
+</name>
+<Placemark>
+<name>
+ ORUMF Salmon Fire 
+</name>
+<description>
+
+ Salmon Fire  1433 acres 86 contained
+Olive Butte Fire  3092 acres 76 contained
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orumf-salmon-fire" hreflang="en"> Learn More About ORUMF Salmon Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-118.51027777778</longitude>
+<altitude>0</altitude>
+<latitude>44.716944444444</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-118.51027777778, 44.716944444444</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ COGMF Elk Fire 
+</name>
+<Placemark>
+<name>
+ COGMF Elk Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/cogmf-elk-fire" hreflang="en"> Learn More About COGMF Elk Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-107.35472222222</longitude>
+<altitude>0</altitude>
+<latitude>38.124027777778</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-107.35472222222, 38.124027777778</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ CORTF Fishhook Fire 
+</name>
+<Placemark>
+<name>
+ CORTF Fishhook Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/cortf-fishhook-fire" hreflang="en"> Learn More About CORTF Fishhook Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-106.71694444444</longitude>
+<altitude>0</altitude>
+<latitude>40.400277777778</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-106.71694444444, 40.400277777778</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ FLFNF Mailbox Fire 
+</name>
+<Placemark>
+<name>
+ FLFNF Mailbox Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/flfnf-mailbox-fire" hreflang="en"> Learn More About FLFNF Mailbox Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-82.313611111111</longitude>
+<altitude>0</altitude>
+<latitude>30.338611111111</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-82.313611111111, 30.338611111111</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ FLFNF Sandhill Fire 
+</name>
+<Placemark>
+<name>
+ FLFNF Sandhill Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/flfnf-sandhill-fire" hreflang="en"> Learn More About FLFNF Sandhill Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-82.326388888889</longitude>
+<altitude>0</altitude>
+<latitude>30.406944444444</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-82.326388888889, 30.406944444444</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORPRD Hay Creek Complex 
+</name>
+<Placemark>
+<name>
+ ORPRD Hay Creek Complex 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orprd-hay-creek-complex" hreflang="en"> Learn More About ORPRD Hay Creek Complex</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-120.4359</longitude>
+<altitude>0</altitude>
+<latitude>45.266</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-120.4359, 45.266</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORPRD Rowe Creek Complex 
+</name>
+<Placemark>
+<name>
+ ORPRD Rowe Creek Complex 
+</name>
+<description>
+
+ Multiple lightning starts
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orprd-rowe-creek-complex" hreflang="en"> Learn More About ORPRD Rowe Creek Complex</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-120.14472222222</longitude>
+<altitude>0</altitude>
+<latitude>44.760555555556</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-120.14472222222, 44.760555555556</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ OR95S Pilot Fire 
+</name>
+<Placemark>
+<name>
+ OR95S Pilot Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/or95s-pilot-fire" hreflang="en"> Learn More About OR95S Pilot Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-120.61666666667</longitude>
+<altitude>0</altitude>
+<latitude>44.204444444444</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-120.61666666667, 44.204444444444</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ OR95S Akawa Butte Fire 
+</name>
+<Placemark>
+<name>
+ OR95S Akawa Butte Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/or95s-akawa-butte-fire" hreflang="en"> Learn More About OR95S Akawa Butte Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-121.45305555556</longitude>
+<altitude>0</altitude>
+<latitude>44.4725</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-121.45305555556, 44.4725</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORUMF Paradise Fire 
+</name>
+<Placemark>
+<name>
+ ORUMF Paradise Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orumf-paradise-fire" hreflang="en"> Learn More About ORUMF Paradise Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-117.97416666667</longitude>
+<altitude>0</altitude>
+<latitude>45.998055555556</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-117.97416666667, 45.998055555556</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORUMF Hagen Fire 
+</name>
+<Placemark>
+<name>
+ ORUMF Hagen Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orumf-hagen-fire" hreflang="en"> Learn More About ORUMF Hagen Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-118.26888888889</longitude>
+<altitude>0</altitude>
+<latitude>45.706944444444</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-118.26888888889, 45.706944444444</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORUMF Horse Ridge Fire 
+</name>
+<Placemark>
+<name>
+ ORUMF Horse Ridge Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orumf-horse-ridge-fire" hreflang="en"> Learn More About ORUMF Horse Ridge Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-118.34583333333</longitude>
+<altitude>0</altitude>
+<latitude>45.541944444444</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-118.34583333333, 45.541944444444</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORVAD Powder River Fire 
+</name>
+<Placemark>
+<name>
+ ORVAD Powder River Fire 
+</name>
+<description>
+
+ Full Suppression Wildfire
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orvad-powder-river-fire" hreflang="en"> Learn More About ORVAD Powder River Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-117.27777777778</longitude>
+<altitude>0</altitude>
+<latitude>44.755277777778</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-117.27777777778, 44.755277777778</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ WAOWF Little Giant Fire 
+</name>
+<Placemark>
+<name>
+ WAOWF Little Giant Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/waowf-little-giant-fire" hreflang="en"> Learn More About WAOWF Little Giant Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-120.84666666667</longitude>
+<altitude>0</altitude>
+<latitude>48.016111111111</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-120.84666666667, 48.016111111111</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ OR95S Coyote Fire 
+</name>
+<Placemark>
+<name>
+ OR95S Coyote Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/or95s-coyote-fire" hreflang="en"> Learn More About OR95S Coyote Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-120.49277777778</longitude>
+<altitude>0</altitude>
+<latitude>44.1</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-120.49277777778, 44.1</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ OR95S Henry Fire 
+</name>
+<Placemark>
+<name>
+ OR95S Henry Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/or95s-henry-fire" hreflang="en"> Learn More About OR95S Henry Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-119.94777777778</longitude>
+<altitude>0</altitude>
+<latitude>44.121111111111</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-119.94777777778, 44.121111111111</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORUMF Bologna Fire 
+</name>
+<Placemark>
+<name>
+ ORUMF Bologna Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orumf-bologna-fire" hreflang="en"> Learn More About ORUMF Bologna Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-119.59805555556</longitude>
+<altitude>0</altitude>
+<latitude>44.861111111111</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-119.59805555556, 44.861111111111</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORWWF Burnt Creek Fire 
+</name>
+<Placemark>
+<name>
+ ORWWF Burnt Creek Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orwwf-burnt-creek-fire" hreflang="en"> Learn More About ORWWF Burnt Creek Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-117.25333333333</longitude>
+<altitude>0</altitude>
+<latitude>45.768055555556</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-117.25333333333, 45.768055555556</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ CAINF Rock Fire 
+</name>
+<Placemark>
+<name>
+ CAINF Rock Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/cainf-rock-fire" hreflang="en"> Learn More About CAINF Rock Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-118.24111111111</longitude>
+<altitude>0</altitude>
+<latitude>36.916944444444</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-118.24111111111, 36.916944444444</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ WANCP Border 2 Fire 
+</name>
+<Placemark>
+<name>
+ WANCP Border 2 Fire 
+</name>
+<description>
+
+ Total and containment acres are based on US heat signatures Because US firefighting resources and incident management responsibilities are l...
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/wancp-border-2-fire" hreflang="en"> Learn More About WANCP Border 2 Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-121.0275</longitude>
+<altitude>0</altitude>
+<latitude>48.998055555556</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-121.0275, 48.998055555556</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ WANCP Luna Fire 
+</name>
+<Placemark>
+<name>
+ WANCP Luna Fire 
+</name>
+<description>
+
+  
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/wancp-luna-fire" hreflang="en"> Learn More About WANCP Luna Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-121.20944444444</longitude>
+<altitude>0</altitude>
+<latitude>48.821111111111</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-121.20944444444, 48.821111111111</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ OR95S Shingle Fire 
+</name>
+<Placemark>
+<name>
+ OR95S Shingle Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/or95s-shingle-fire" hreflang="en"> Learn More About OR95S Shingle Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-119.8975</longitude>
+<altitude>0</altitude>
+<latitude>44.468611111111</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-119.8975, 44.468611111111</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORVAD Fox Fire 
+</name>
+<Placemark>
+<name>
+ ORVAD Fox Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orvad-fox-fire" hreflang="en"> Learn More About ORVAD Fox Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-117.21305555556</longitude>
+<altitude>0</altitude>
+<latitude>44.523888888889</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-117.21305555556, 44.523888888889</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORBUD Second Flat 
+</name>
+<Placemark>
+<name>
+ ORBUD Second Flat 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orbud-second-flat" hreflang="en"> Learn More About ORBUD Second Flat</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-119.43916666667</longitude>
+<altitude>0</altitude>
+<latitude>43.608611111111</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-119.43916666667, 43.608611111111</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORBUD Jackass Butte 
+</name>
+<Placemark>
+<name>
+ ORBUD Jackass Butte 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orbud-jackass-butte" hreflang="en"> Learn More About ORBUD Jackass Butte</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-118.95555555556</longitude>
+<altitude>0</altitude>
+<latitude>43.045</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-118.95555555556, 43.045</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORBUD Crater 
+</name>
+<Placemark>
+<name>
+ ORBUD Crater 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orbud-crater" hreflang="en"> Learn More About ORBUD Crater</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-118.80333333333</longitude>
+<altitude>0</altitude>
+<latitude>43.12</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-118.80333333333, 43.12</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORBUD Stubble 
+</name>
+<Placemark>
+<name>
+ ORBUD Stubble 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orbud-stubble" hreflang="en"> Learn More About ORBUD Stubble</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-118.92</longitude>
+<altitude>0</altitude>
+<latitude>43.18</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-118.92, 43.18</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORBUD Bald Mountain 
+</name>
+<Placemark>
+<name>
+ ORBUD Bald Mountain 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orbud-bald-mountain" hreflang="en"> Learn More About ORBUD Bald Mountain</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-118.47416666667</longitude>
+<altitude>0</altitude>
+<latitude>42.995555555556</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-118.47416666667, 42.995555555556</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORMHF Grasshopper Fire 
+</name>
+<Placemark>
+<name>
+ ORMHF Grasshopper Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/ormhf-grasshopper-fire" hreflang="en"> Learn More About ORMHF Grasshopper Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-121.5025</longitude>
+<altitude>0</altitude>
+<latitude>45.253888888889</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-121.5025, 45.253888888889</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ WAOWF Ptarmigan Fire 
+</name>
+<Placemark>
+<name>
+ WAOWF Ptarmigan Fire 
+</name>
+<description>
+
+ Ptarmigan Fire Update
+Friday September 4 2026
+InciWeb inciwebwildfiregovwaowfptarmiganfire
+Facebook facebookcomptarmiganfireinfo2026
+Fir...
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/waowf-ptarmigan-fire" hreflang="en"> Learn More About WAOWF Ptarmigan Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-120.60944444444</longitude>
+<altitude>0</altitude>
+<latitude>48.941944444444</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-120.60944444444, 48.941944444444</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORWSA Bench 
+</name>
+<Placemark>
+<name>
+ ORWSA Bench 
+</name>
+<description>
+
+ Latest Update Todays update serves as the final daily update for the Bench and Round Butte fires from Southwest Area Incident Management Tea...
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orwsa-bench" hreflang="en"> Learn More About ORWSA Bench</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-121.35027777778</longitude>
+<altitude>0</altitude>
+<latitude>44.631666666667</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-121.35027777778, 44.631666666667</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ NVCCD New Pass 
+</name>
+<Placemark>
+<name>
+ NVCCD New Pass 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/nvccd-new-pass" hreflang="en"> Learn More About NVCCD New Pass</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-117.48694444444</longitude>
+<altitude>0</altitude>
+<latitude>39.698888888889</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-117.48694444444, 39.698888888889</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ WASPD Pearl Hill 
+</name>
+<Placemark>
+<name>
+ WASPD Pearl Hill 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/waspd-pearl-hill" hreflang="en"> Learn More About WASPD Pearl Hill</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-119.61305555556</longitude>
+<altitude>0</altitude>
+<latitude>47.983611111111</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-119.61305555556, 47.983611111111</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORUPF Castle 
+</name>
+<Placemark>
+<name>
+ ORUPF Castle 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orupf-castle" hreflang="en"> Learn More About ORUPF Castle</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-122.56333333333</longitude>
+<altitude>0</altitude>
+<latitude>43.114166666667</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-122.56333333333, 43.114166666667</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORVAD Hat Fire 
+</name>
+<Placemark>
+<name>
+ ORVAD Hat Fire 
+</name>
+<description>
+
+ The Hat Fire started on July 24 2026 after a lightning storm moved through the area Fuels in the area consist of light flashy grasses and br...
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orvad-hat-fire" hreflang="en"> Learn More About ORVAD Hat Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-118.14972222222</longitude>
+<altitude>0</altitude>
+<latitude>43.274722222222</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-118.14972222222, 43.274722222222</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORVAD Big Grass Fire 
+</name>
+<Placemark>
+<name>
+ ORVAD Big Grass Fire 
+</name>
+<description>
+
+ The Big Grass Fire started on July 23 2026 following a lightning strike The Flint Fire was reported on August 25 2026 following a lightning ...
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orvad-big-grass-fire" hreflang="en"> Learn More About ORVAD Big Grass Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-117.30333333333</longitude>
+<altitude>0</altitude>
+<latitude>42.649722222222</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-117.30333333333, 42.649722222222</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ IDBOD Tartar 
+</name>
+<Placemark>
+<name>
+ IDBOD Tartar 
+</name>
+<description>
+
+ The fire remains active in grass brush and timber Warm dry and breezy weather combined with steep terrain has  contributed to active fire be...
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/idbod-tartar" hreflang="en"> Learn More About IDBOD Tartar</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-117.09305555556</longitude>
+<altitude>0</altitude>
+<latitude>44.541388888889</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-117.09305555556, 44.541388888889</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ COSJF Rio Blanco Fire 
+</name>
+<Placemark>
+<name>
+ COSJF Rio Blanco Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/cosjf-rio-blanco-fire" hreflang="en"> Learn More About COSJF Rio Blanco Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-106.98515883333</longitude>
+<altitude>0</altitude>
+<latitude>37.124653833333</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-106.98515883333, 37.124653833333</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ MTFNF Silvertip Fire 
+</name>
+<Placemark>
+<name>
+ MTFNF Silvertip Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/mtfnf-silvertip-fire" hreflang="en"> Learn More About MTFNF Silvertip Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-113.27361111111</longitude>
+<altitude>0</altitude>
+<latitude>47.835555555556</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-113.27361111111, 47.835555555556</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORVAD Bob Creek Fire 
+</name>
+<Placemark>
+<name>
+ ORVAD Bob Creek Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orvad-bob-creek-fire" hreflang="en"> Learn More About ORVAD Bob Creek Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-116.88972222222</longitude>
+<altitude>0</altitude>
+<latitude>44.995555555556</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-116.88972222222, 44.995555555556</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ CACNF Grade Fire 
+</name>
+<Placemark>
+<name>
+ CACNF Grade Fire 
+</name>
+<description>
+
+ wildfire in medium fuels and brush vegetation 
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/cacnf-grade-fire" hreflang="en"> Learn More About CACNF Grade Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-116.76143888889</longitude>
+<altitude>0</altitude>
+<latitude>33.258018055556</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-116.76143888889, 33.258018055556</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ NVHTF Ward Fire 
+</name>
+<Placemark>
+<name>
+ NVHTF Ward Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/nvhtf-ward-fire" hreflang="en"> Learn More About NVHTF Ward Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-114.89472222222</longitude>
+<altitude>0</altitude>
+<latitude>39.103055555556</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-114.89472222222, 39.103055555556</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ UTFIF Widemouth 2 Fire 
+</name>
+<Placemark>
+<name>
+ UTFIF Widemouth 2 Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/utfif-widemouth-2-fire" hreflang="en"> Learn More About UTFIF Widemouth 2 Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-112.49888888889</longitude>
+<altitude>0</altitude>
+<latitude>38.728888888889</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-112.49888888889, 38.728888888889</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ UTMLF Black Canyon 
+</name>
+<Placemark>
+<name>
+ UTMLF Black Canyon 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/utmlf-black-canyon" hreflang="en"> Learn More About UTMLF Black Canyon</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-111.30805555556</longitude>
+<altitude>0</altitude>
+<latitude>39.383055555556</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-111.30805555556, 39.383055555556</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ WASPA Mitre Rock Fire 
+</name>
+<Placemark>
+<name>
+ WASPA Mitre Rock Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/waspa-mitre-rock-fire" hreflang="en"> Learn More About WASPA Mitre Rock Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-118.3285</longitude>
+<altitude>0</altitude>
+<latitude>47.911638888889</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-118.3285, 47.911638888889</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ NMSNF Frijoles Fire 
+</name>
+<Placemark>
+<name>
+ NMSNF Frijoles Fire 
+</name>
+<description>
+
+ A lightning caused fire that was detected at 657 August 4th The fire is burning in steep terrain within the boundaries of the Pecos Wilderne...
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/nmsnf-frijoles-fire" hreflang="en"> Learn More About NMSNF Frijoles Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-105.84974784861</longitude>
+<altitude>0</altitude>
+<latitude>35.906844202778</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-105.84974784861, 35.906844202778</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORFWF Wrights Spring 
+</name>
+<Placemark>
+<name>
+ ORFWF Wrights Spring 
+</name>
+<description>
+
+ The Wrights Spring Fire was reported on Aug 5 2026 in the FremontWinema National Forest south of Sprague River Highway and east of Chiloquin...
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orfwf-wrights-spring" hreflang="en"> Learn More About ORFWF Wrights Spring</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-121.73666666667</longitude>
+<altitude>0</altitude>
+<latitude>42.471388888889</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-121.73666666667, 42.471388888889</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ COGWD 310 Fire 
+</name>
+<Placemark>
+<name>
+ COGWD 310 Fire 
+</name>
+<description>
+
+ Wildfire that started as a structure fire on private land that grew and moved onto BLM public lands
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/cogwd-310-fire" hreflang="en"> Learn More About COGWD 310 Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-107.98444444444</longitude>
+<altitude>0</altitude>
+<latitude>39.451944444444</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-107.98444444444, 39.451944444444</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ IDPAF Lake 
+</name>
+<Placemark>
+<name>
+ IDPAF Lake 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/idpaf-lake" hreflang="en"> Learn More About IDPAF Lake</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-115.90944444444</longitude>
+<altitude>0</altitude>
+<latitude>45.213055555556</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-115.90944444444, 45.213055555556</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ WAOWF Three Queens 
+</name>
+<Placemark>
+<name>
+ WAOWF Three Queens 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/waowf-three-queens" hreflang="en"> Learn More About WAOWF Three Queens</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-121.26138888889</longitude>
+<altitude>0</altitude>
+<latitude>47.413888888889</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-121.26138888889, 47.413888888889</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ CALPF Timber Fire 
+</name>
+<Placemark>
+<name>
+ CALPF Timber Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/calpf-timber-fire" hreflang="en"> Learn More About CALPF Timber Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-121.73311111111</longitude>
+<altitude>0</altitude>
+<latitude>36.227805555556</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-121.73311111111, 36.227805555556</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ NVCCD Bug Stallion Fire 
+</name>
+<Placemark>
+<name>
+ NVCCD Bug Stallion Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/nvccd-bug-stallion-fire" hreflang="en"> Learn More About NVCCD Bug Stallion Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-119.74444444444</longitude>
+<altitude>0</altitude>
+<latitude>39.847333333333</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-119.74444444444, 39.847333333333</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ WYWBD Weiser Knoll Fire 
+</name>
+<Placemark>
+<name>
+ WYWBD Weiser Knoll Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/wywbd-weiser-knoll-fire" hreflang="en"> Learn More About WYWBD Weiser Knoll Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-108.6075</longitude>
+<altitude>0</altitude>
+<latitude>42.636388888889</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-108.6075, 42.636388888889</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ OR95S Cottonwood Fire 
+</name>
+<Placemark>
+<name>
+ OR95S Cottonwood Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/or95s-cottonwood-fire" hreflang="en"> Learn More About OR95S Cottonwood Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-119.38027777778</longitude>
+<altitude>0</altitude>
+<latitude>44.628055555556</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-119.38027777778, 44.628055555556</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ WAACKN Alpowa Fire 
+</name>
+<Placemark>
+<name>
+ WAACKN Alpowa Fire 
+</name>
+<description>
+
+ Wildland fire in brush grass and flashy fuels 
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/waackn-alpowa-fire" hreflang="en"> Learn More About WAACKN Alpowa Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-117.2475</longitude>
+<altitude>0</altitude>
+<latitude>46.405833333333</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-117.2475, 46.405833333333</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ CAHIA MP 18 CAHVT000753 
+</name>
+<Placemark>
+<name>
+ CAHIA MP 18 CAHVT000753 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/cahia-mp-18-cahvt000753" hreflang="en"> Learn More About CAHIA MP 18 CAHVT000753</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-123.685</longitude>
+<altitude>0</altitude>
+<latitude>41.133055555556</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-123.685, 41.133055555556</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ OR95S Little Bear 
+</name>
+<Placemark>
+<name>
+ OR95S Little Bear 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/or95s-little-bear" hreflang="en"> Learn More About OR95S Little Bear</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-119.04222222222</longitude>
+<altitude>0</altitude>
+<latitude>44.515277777778</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-119.04222222222, 44.515277777778</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORMHF Austin Fire 
+</name>
+<Placemark>
+<name>
+ ORMHF Austin Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/ormhf-austin-fire" hreflang="en"> Learn More About ORMHF Austin Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-121.94472222222</longitude>
+<altitude>0</altitude>
+<latitude>45.025</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-121.94472222222, 45.025</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ OR71S Fielder Mountain 
+</name>
+<Placemark>
+<name>
+ OR71S Fielder Mountain 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/or71s-fielder-mountain" hreflang="en"> Learn More About OR71S Fielder Mountain</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-123.20666666667</longitude>
+<altitude>0</altitude>
+<latitude>42.421666666667</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-123.20666666667, 42.421666666667</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ OR95S Rosenbaum Fire 
+</name>
+<Placemark>
+<name>
+ OR95S Rosenbaum Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/or95s-rosenbaum-fire" hreflang="en"> Learn More About OR95S Rosenbaum Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-120.03972222222</longitude>
+<altitude>0</altitude>
+<latitude>44.84</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-120.03972222222, 44.84</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ NVCCD Shoshone Fire 
+</name>
+<Placemark>
+<name>
+ NVCCD Shoshone Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/nvccd-shoshone-fire" hreflang="en"> Learn More About NVCCD Shoshone Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-117.67611111111</longitude>
+<altitude>0</altitude>
+<latitude>39.83</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-117.67611111111, 39.83</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ IDBOF Crooked 
+</name>
+<Placemark>
+<name>
+ IDBOF Crooked 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/idbof-crooked" hreflang="en"> Learn More About IDBOF Crooked</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-115.53961111111</longitude>
+<altitude>0</altitude>
+<latitude>43.847166666667</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-115.53961111111, 43.847166666667</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ WAOWF King Fire 
+</name>
+<Placemark>
+<name>
+ WAOWF King Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/waowf-king-fire" hreflang="en"> Learn More About WAOWF King Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-121.25583333333</longitude>
+<altitude>0</altitude>
+<latitude>47.470833333333</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-121.25583333333, 47.470833333333</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ MTMTS Deer Creek 
+</name>
+<Placemark>
+<name>
+ MTMTS Deer Creek 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/mtmts-deer-creek" hreflang="en"> Learn More About MTMTS Deer Creek</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-115.08583333333</longitude>
+<altitude>0</altitude>
+<latitude>48.161388888889</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-115.08583333333, 48.161388888889</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ WAOWF Sisi Fire 
+</name>
+<Placemark>
+<name>
+ WAOWF Sisi Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/waowf-sisi-fire" hreflang="en"> Learn More About WAOWF Sisi Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-120.83055555556</longitude>
+<altitude>0</altitude>
+<latitude>48.346666666667</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-120.83055555556, 48.346666666667</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ NVTMFX Hawk Fire 
+</name>
+<Placemark>
+<name>
+ NVTMFX Hawk Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/nvtmfx-hawk-fire" hreflang="en"> Learn More About NVTMFX Hawk Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-119.95388888889</longitude>
+<altitude>0</altitude>
+<latitude>39.548611111111</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-119.95388888889, 39.548611111111</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ WACWC Colwash 
+</name>
+<Placemark>
+<name>
+ WACWC Colwash 
+</name>
+<description>
+
+ Grass shrub crops
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/wacwc-colwash" hreflang="en"> Learn More About WACWC Colwash</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-120.19611111111</longitude>
+<altitude>0</altitude>
+<latitude>46.175277777778</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-120.19611111111, 46.175277777778</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ WAOWF Goat Fire 
+</name>
+<Placemark>
+<name>
+ WAOWF Goat Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/waowf-goat-fire" hreflang="en"> Learn More About WAOWF Goat Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-121.05277777778</longitude>
+<altitude>0</altitude>
+<latitude>47.458888888889</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-121.05277777778, 47.458888888889</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ UTUOA Slough Canyon 
+</name>
+<Placemark>
+<name>
+ UTUOA Slough Canyon 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/utuoa-slough-canyon" hreflang="en"> Learn More About UTUOA Slough Canyon</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-109.92333333333</longitude>
+<altitude>0</altitude>
+<latitude>39.369722222222</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-109.92333333333, 39.369722222222</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORWWF McCully Fire 
+</name>
+<Placemark>
+<name>
+ ORWWF McCully Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orwwf-mccully-fire" hreflang="en"> Learn More About ORWWF McCully Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-118.28083333333</longitude>
+<altitude>0</altitude>
+<latitude>44.827777777778</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-118.28083333333, 44.827777777778</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ NVHTF California Creek Fire 
+</name>
+<Placemark>
+<name>
+ NVHTF California Creek Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/nvhtf-california-creek-fire" hreflang="en"> Learn More About NVHTF California Creek Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-115.94055555556</longitude>
+<altitude>0</altitude>
+<latitude>41.832222222222</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-115.94055555556, 41.832222222222</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ NMCAF Mogote Ridge Fire 
+</name>
+<Placemark>
+<name>
+ NMCAF Mogote Ridge Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/nmcaf-mogote-ridge-fire" hreflang="en"> Learn More About NMCAF Mogote Ridge Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-106.30527777778</longitude>
+<altitude>0</altitude>
+<latitude>36.491666666667</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-106.30527777778, 36.491666666667</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ WAMSF 2026 Electric Fire MBS 
+</name>
+<Placemark>
+<name>
+ WAMSF 2026 Electric Fire MBS 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/wamsf-2026-electric-fire-mbs" hreflang="en"> Learn More About WAMSF 2026 Electric Fire MBS</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-121.43527777778</longitude>
+<altitude>0</altitude>
+<latitude>48.6525</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-121.43527777778, 48.6525</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ CALPF Plaskett Fire 
+</name>
+<Placemark>
+<name>
+ CALPF Plaskett Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/calpf-plaskett-fire" hreflang="en"> Learn More About CALPF Plaskett Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-121.4125</longitude>
+<altitude>0</altitude>
+<latitude>35.905555555556</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-121.4125, 35.905555555556</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ AZFTA Paddy Creek Fire 
+</name>
+<Placemark>
+<name>
+ AZFTA Paddy Creek Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/azfta-paddy-creek-fire" hreflang="en"> Learn More About AZFTA Paddy Creek Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-109.64944444444</longitude>
+<altitude>0</altitude>
+<latitude>33.623333333333</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-109.64944444444, 33.623333333333</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ NVWID McConnell Fire 
+</name>
+<Placemark>
+<name>
+ NVWID McConnell Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/nvwid-mcconnell-fire" hreflang="en"> Learn More About NVWID McConnell Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-117.74222222222</longitude>
+<altitude>0</altitude>
+<latitude>41.5175</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-117.74222222222, 41.5175</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ MTMTS Rattlesnake Complex 
+</name>
+<Placemark>
+<name>
+ MTMTS Rattlesnake Complex 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/mtmts-rattlesnake-complex" hreflang="en"> Learn More About MTMTS Rattlesnake Complex</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-104.92797222222</longitude>
+<altitude>0</altitude>
+<latitude>46.586027777778</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-104.92797222222, 46.586027777778</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ WYWYS Cow Camp Fire 
+</name>
+<Placemark>
+<name>
+ WYWYS Cow Camp Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/wywys-cow-camp-fire" hreflang="en"> Learn More About WYWYS Cow Camp Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-107.18972222222</longitude>
+<altitude>0</altitude>
+<latitude>43.8325</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-107.18972222222, 43.8325</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ SDSDS Lookout Fire 
+</name>
+<Placemark>
+<name>
+ SDSDS Lookout Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/sdsds-lookout-fire" hreflang="en"> Learn More About SDSDS Lookout Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-103.8573</longitude>
+<altitude>0</altitude>
+<latitude>44.5194</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-103.8573, 44.5194</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ AZKNF Kaibab NF Fall Prescribed Fires North Kaibab Ranger District 
+</name>
+<Placemark>
+<name>
+ AZKNF Kaibab NF Fall Prescribed Fires North Kaibab Ranger District 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/azknf-kaibab-nf-fall-prescribed-fires-north-kaibab-ranger-district" hreflang="en"> Learn More About AZKNF Kaibab NF Fall Prescribed Fires North Kaibab Ranger District</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-112.22611111111</longitude>
+<altitude>0</altitude>
+<latitude>36.521944444444</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-112.22611111111, 36.521944444444</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ AZKNF Kaibab NF Fall Prescribed Fires Tusayan Ranger District 
+</name>
+<Placemark>
+<name>
+ AZKNF Kaibab NF Fall Prescribed Fires Tusayan Ranger District 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/azknf-kaibab-nf-fall-prescribed-fires-tusayan-ranger-district" hreflang="en"> Learn More About AZKNF Kaibab NF Fall Prescribed Fires Tusayan Ranger District</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-112.05361111111</longitude>
+<altitude>0</altitude>
+<latitude>35.8625</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-112.05361111111, 35.8625</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ AZKNF Kaibab NF Fall Prescribed Fires Williams Ranger District 
+</name>
+<Placemark>
+<name>
+ AZKNF Kaibab NF Fall Prescribed Fires Williams Ranger District 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/azknf-kaibab-nf-fall-prescribed-fires-williams-ranger-district" hreflang="en"> Learn More About AZKNF Kaibab NF Fall Prescribed Fires Williams Ranger District</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-112.08916666667</longitude>
+<altitude>0</altitude>
+<latitude>35.250277777778</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-112.08916666667, 35.250277777778</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ WYWYS 2026 Moonshine Fire 
+</name>
+<Placemark>
+<name>
+ WYWYS 2026 Moonshine Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/wywys-2026-moonshine-fire" hreflang="en"> Learn More About WYWYS 2026 Moonshine Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-105.32166666667</longitude>
+<altitude>0</altitude>
+<latitude>41.953611111111</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-105.32166666667, 41.953611111111</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ COSJF Swiss Roll Fire 
+</name>
+<Placemark>
+<name>
+ COSJF Swiss Roll Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/cosjf-swiss-roll-fire" hreflang="en"> Learn More About COSJF Swiss Roll Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-106.78861111111</longitude>
+<altitude>0</altitude>
+<latitude>37.386944444444</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-106.78861111111, 37.386944444444</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ MNSUF 2026 Superior National Forest Planned Prescribed FireMNSUF 
+</name>
+<Placemark>
+<name>
+ MNSUF 2026 Superior National Forest Planned Prescribed FireMNSUF 
+</name>
+<description>
+
+ These prescribed fires reduce risk to the public by removing hazardous vegetation to mitigate wildfires and prevent loss of property They al...
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/mnsuf-2026-superior-national-forest-planned-prescribed-firemnsuf" hreflang="en"> Learn More About MNSUF 2026 Superior National Forest Planned Prescribed FireMNSUF</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-92.212366388889</longitude>
+<altitude>0</altitude>
+<latitude>46.707693611111</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-92.212366388889, 46.707693611111</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORWWF Horsefly 605 
+</name>
+<Placemark>
+<name>
+ ORWWF Horsefly 605 
+</name>
+<description>
+
+ Both hand and UAS ignition will occur 
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orwwf-horsefly-605" hreflang="en"> Learn More About ORWWF Horsefly 605</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-118.36644</longitude>
+<altitude>0</altitude>
+<latitude>45.21865</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-118.36644, 45.21865</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ WYBHF Cabin Springs Fire 
+</name>
+<Placemark>
+<name>
+ WYBHF Cabin Springs Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/wybhf-cabin-springs-fire" hreflang="en"> Learn More About WYBHF Cabin Springs Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-107.3005</longitude>
+<altitude>0</altitude>
+<latitude>44.050694444444</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-107.3005, 44.050694444444</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ COSJD Cabezon Canyon 
+</name>
+<Placemark>
+<name>
+ COSJD Cabezon Canyon 
+</name>
+<description>
+
+ Approximately 700 acres of BIAadministered lands in the Cabezon Canyon area south of Chimney Rock were treated as part of ongoing fuels redu...
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/cosjd-cabezon-canyon" hreflang="en"> Learn More About COSJD Cabezon Canyon</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-107.26385</longitude>
+<altitude>0</altitude>
+<latitude>37.120202777778</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-107.26385, 37.120202777778</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORWWF Bird Track 622623 
+</name>
+<Placemark>
+<name>
+ ORWWF Bird Track 622623 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orwwf-bird-track-622623" hreflang="en"> Learn More About ORWWF Bird Track 622623</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-118.31128333333</longitude>
+<altitude>0</altitude>
+<latitude>45.315283333333</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-118.31128333333, 45.315283333333</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORWWF Bird Track 620 
+</name>
+<Placemark>
+<name>
+ ORWWF Bird Track 620 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orwwf-bird-track-620" hreflang="en"> Learn More About ORWWF Bird Track 620</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-118.307268</longitude>
+<altitude>0</altitude>
+<latitude>45.318382</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-118.307268, 45.318382</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORWWF Starvation 2A 
+</name>
+<Placemark>
+<name>
+ ORWWF Starvation 2A 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orwwf-starvation-2a" hreflang="en"> Learn More About ORWWF Starvation 2A</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-117.21443055556</longitude>
+<altitude>0</altitude>
+<latitude>45.622441666667</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-117.21443055556, 45.622441666667</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORWWF Starvation 2324A and 11A 
+</name>
+<Placemark>
+<name>
+ ORWWF Starvation 2324A and 11A 
+</name>
+<description>
+
+ T3N R44E Sec36
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orwwf-starvation-2324a-and-11a" hreflang="en"> Learn More About ORWWF Starvation 2324A and 11A</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-117.26283333333</longitude>
+<altitude>0</altitude>
+<latitude>45.700333333333</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-117.26283333333, 45.700333333333</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ NVTMFX Bull Fire 
+</name>
+<Placemark>
+<name>
+ NVTMFX Bull Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/nvtmfx-bull-fire" hreflang="en"> Learn More About NVTMFX Bull Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-119.98777777778</longitude>
+<altitude>0</altitude>
+<latitude>39.539166666667</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-119.98777777778, 39.539166666667</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ CAANF Bouquet 
+</name>
+<Placemark>
+<name>
+ CAANF Bouquet 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/caanf-bouquet" hreflang="en"> Learn More About CAANF Bouquet</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-118.40194444444</longitude>
+<altitude>0</altitude>
+<latitude>34.561944444444</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-118.40194444444, 34.561944444444</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORWWF Bird Track 610 607A 
+</name>
+<Placemark>
+<name>
+ ORWWF Bird Track 610 607A 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orwwf-bird-track-610-607a" hreflang="en"> Learn More About ORWWF Bird Track 610 607A</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-118.280063</longitude>
+<altitude>0</altitude>
+<latitude>45.351806</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-118.280063, 45.351806</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ COGMF GMUG National Forests Prescribed Burn Plan 20262027 
+</name>
+<Placemark>
+<name>
+ COGMF GMUG National Forests Prescribed Burn Plan 20262027 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/cogmf-gmug-national-forests-prescribed-burn-plan-20262027" hreflang="en"> Learn More About COGMF GMUG National Forests Prescribed Burn Plan 20262027</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-108.05356666667</longitude>
+<altitude>0</altitude>
+<latitude>38.716958333333</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-108.05356666667, 38.716958333333</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORWWF Trail 618 and 619 
+</name>
+<Placemark>
+<name>
+ ORWWF Trail 618 and 619 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orwwf-trail-618-and-619" hreflang="en"> Learn More About ORWWF Trail 618 and 619</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-118.259</longitude>
+<altitude>0</altitude>
+<latitude>45.411</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-118.259, 45.411</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ COGMF 20262027 GMUG National Forests Prescibed Pile Burn Plan 
+</name>
+<Placemark>
+<name>
+ COGMF 20262027 GMUG National Forests Prescibed Pile Burn Plan 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/cogmf-20262027-gmug-national-forests-prescibed-pile-burn-plan" hreflang="en"> Learn More About COGMF 20262027 GMUG National Forests Prescibed Pile Burn Plan</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-108.05356666667</longitude>
+<altitude>0</altitude>
+<latitude>38.720833333333</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-108.05356666667, 38.720833333333</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ CAANF Danny Fire 
+</name>
+<Placemark>
+<name>
+ CAANF Danny Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/caanf-danny-fire" hreflang="en"> Learn More About CAANF Danny Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-118.79561111111</longitude>
+<altitude>0</altitude>
+<latitude>34.754722222222</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-118.79561111111, 34.754722222222</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ PAALF Fall 2026 Prescribed Fire Plan Allegheny National Forest 
+</name>
+<Placemark>
+<name>
+ PAALF Fall 2026 Prescribed Fire Plan Allegheny National Forest 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/paalf-fall-2026-prescribed-fire-plan-allegheny-national-forest" hreflang="en"> Learn More About PAALF Fall 2026 Prescribed Fire Plan Allegheny National Forest</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-79.264042</longitude>
+<altitude>0</altitude>
+<latitude>41.838510833333</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-79.264042, 41.838510833333</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORWWF SUMAC 2A 
+</name>
+<Placemark>
+<name>
+ ORWWF SUMAC 2A 
+</name>
+<description>
+
+ Two days 27 miles N of Enterprise OR near Red Hill Lookout Tower West side of NF RD 4600 T4N R46E Sec 30 
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orwwf-sumac-2a" hreflang="en"> Learn More About ORWWF SUMAC 2A</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-117.31805555556</longitude>
+<altitude>0</altitude>
+<latitude>46.036666666667</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-117.31805555556, 46.036666666667</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORWWF Bird Track 621 
+</name>
+<Placemark>
+<name>
+ ORWWF Bird Track 621 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orwwf-bird-track-621" hreflang="en"> Learn More About ORWWF Bird Track 621</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-118.30333333333</longitude>
+<altitude>0</altitude>
+<latitude>45.232</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-118.30333333333, 45.232</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ CAANF Peak Fire 
+</name>
+<Placemark>
+<name>
+ CAANF Peak Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/caanf-peak-fire" hreflang="en"> Learn More About CAANF Peak Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-117.9085</longitude>
+<altitude>0</altitude>
+<latitude>34.147222222222</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-117.9085, 34.147222222222</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORWWF Bird Track 615 and 617 
+</name>
+<Placemark>
+<name>
+ ORWWF Bird Track 615 and 617 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orwwf-bird-track-615-and-617" hreflang="en"> Learn More About ORWWF Bird Track 615 and 617</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-118.31308333333</longitude>
+<altitude>0</altitude>
+<latitude>45.331666666667</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-118.31308333333, 45.331666666667</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORWWF Starvation 21A 
+</name>
+<Placemark>
+<name>
+ ORWWF Starvation 21A 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orwwf-starvation-21a" hreflang="en"> Learn More About ORWWF Starvation 21A</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-117.23891666667</longitude>
+<altitude>0</altitude>
+<latitude>45.626366666667</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-117.23891666667, 45.626366666667</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORWWF Cove 200B 
+</name>
+<Placemark>
+<name>
+ ORWWF Cove 200B 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orwwf-cove-200b" hreflang="en"> Learn More About ORWWF Cove 200B</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-117.714</longitude>
+<altitude>0</altitude>
+<latitude>45.391</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-117.714, 45.391</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ CAKNF Klamath National Forest Fall Prescribed Burning 
+</name>
+<Placemark>
+<name>
+ CAKNF Klamath National Forest Fall Prescribed Burning 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/caknf-klamath-national-forest-fall-prescribed-burning" hreflang="en"> Learn More About CAKNF Klamath National Forest Fall Prescribed Burning</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-122.64444444444</longitude>
+<altitude>0</altitude>
+<latitude>41.706666666667</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-122.64444444444, 41.706666666667</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ ORWWF Cove Pile Burns 
+</name>
+<Placemark>
+<name>
+ ORWWF Cove Pile Burns 
+</name>
+<description>
+
+ FS road 6220 near Mt Fanny
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/orwwf-cove-pile-burns" hreflang="en"> Learn More About ORWWF Cove Pile Burns</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-117.693</longitude>
+<altitude>0</altitude>
+<latitude>45.308</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-117.693, 45.308</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ TXTXS Kickapoo Creek Fire 
+</name>
+<Placemark>
+<name>
+ TXTXS Kickapoo Creek Fire 
+</name>
+<description>
+
+ No Description Provided
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/txtxs-kickapoo-creek-fire" hreflang="en"> Learn More About TXTXS Kickapoo Creek Fire</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-95.099722222222</longitude>
+<altitude>0</altitude>
+<latitude>30.950555555556</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-95.099722222222, 30.950555555556</coordinates>
+</Point>
+</Placemark>
+</Folder>
+<Folder>
+<name>
+ NMCIF Cedro Prescribed Fire Sandia Ranger District 
+</name>
+<Placemark>
+<name>
+ NMCIF Cedro Prescribed Fire Sandia Ranger District 
+</name>
+<description>
+
+ 15 acres of prescribed fire piles within the Cedro unit of the Sandia Ranger District
+
+
+ <a href="http://inciweb.wildfire.gov/incident-information/nmcif-cedro-prescribed-fire-sandia-ranger-district" hreflang="en"> Learn More About NMCIF Cedro Prescribed Fire Sandia Ranger District</a> 
+ 
+</description>
+<visibility> 1 </visibility>
+<LookAt>
+<longitude>-106.31666666667</longitude>
+<altitude>0</altitude>
+<latitude>35.073416666667</latitude>
+<tilt>40</tilt>
+</LookAt>
+<styleUrl>#globeIcon</styleUrl>
+<Point>
+<coordinates>-106.31666666667, 35.073416666667</coordinates>
+</Point>
+</Placemark>
+</Folder>
+</Document>
+</kml>

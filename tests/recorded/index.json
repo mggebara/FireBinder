@@ -1,0 +1,13 @@
+{
+  "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Incident_Locations_Current/FeatureServer/0/query?where=IrwinID+%3D+%27%7B6AA4C355-AD18-472F-AAAB-78BAA9DE31B1%7D%27&outFields=IncidentName%2CIrwinID%2CIncidentSize%2CPercentContained%2CFireDiscoveryDateTime%2CPOOState%2CPOOCounty%2CTotalIncidentPersonnel%2CInitialLatitude%2CInitialLongitude%2CModifiedOnDateTime_dt%2CICS209ReportDateTime%2CIncidentTypeCategory%2CCpxName%2CUniqueFireIdentifier&returnGeometry=true&outSR=4326&f=json": "wfigs_grasshopper_01.json",
+  "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Interagency_Perimeters_Current/FeatureServer/0/query?where=poly_IRWINID+%3D+%27%7B6AA4C355-AD18-472F-AAAB-78BAA9DE31B1%7D%27&outFields=poly_IRWINID%2Cpoly_IncidentName%2Cpoly_GISAcres%2Cpoly_Acres_AutoCalc%2Cpoly_DateCurrent%2Cpoly_PolygonDateTime%2Cpoly_MapMethod%2Cattr_IncidentSize%2Cattr_PercentContained&returnGeometry=true&outSR=4326&f=json": "wfigs_grasshopper_02.json",
+  "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Incident_Locations_Current/FeatureServer/0/query?where=UPPER%28IncidentName%29+LIKE+UPPER%28%27%25Turkey+Creek%25%27%29&outFields=IncidentName%2CIrwinID%2CPOOState%2CPOOCounty%2CFireDiscoveryDateTime%2CIncidentSize&returnGeometry=true&outSR=4326&f=json": "resolve_turkey_creek_03.json",
+  "https://api.weather.gov/points/45.3248,-121.4176": "nws_grasshopper_04.json",
+  "https://api.weather.gov/gridpoints/PDT/44,100/forecast": "nws_grasshopper_05.json",
+  "https://api.weather.gov/gridpoints/PDT/44,100/forecast/hourly": "nws_grasshopper_06.json",
+  "https://api.weather.gov/alerts/active?point=45.3248%2C-121.4176": "nws_grasshopper_07.json",
+  "https://inciweb.wildfire.gov/feeds/maps/placemarks.kml": "inciweb_grasshopper_08.xml",
+  "https://inciweb.wildfire.gov/incidents/rss.xml": "inciweb_grasshopper_09.xml",
+  "https://inciweb.wildfire.gov/incident-information/ormhf-grasshopper-fire": "inciweb_grasshopper_10.html",
+  "https://inciweb.wildfire.gov/incident-publication/ormhf-grasshopper-fire/austin-and-grasshopper-fires-incident-update-09-30-2026": "inciweb_grasshopper_11.html"
+}

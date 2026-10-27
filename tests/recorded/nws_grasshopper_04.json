@@ -1,0 +1,112 @@
+{
+    "@context": [
+        "https://geojson.org/geojson-ld/geojson-context.jsonld",
+        {
+            "@version": "1.1",
+            "wx": "https://api.weather.gov/ontology#",
+            "s": "https://schema.org/",
+            "geo": "http://www.opengis.net/ont/geosparql#",
+            "unit": "http://codes.wmo.int/common/unit/",
+            "@vocab": "https://api.weather.gov/ontology#",
+            "geometry": {
+                "@id": "s:GeoCoordinates",
+                "@type": "geo:wktLiteral"
+            },
+            "city": "s:addressLocality",
+            "state": "s:addressRegion",
+            "distance": {
+                "@id": "s:Distance",
+                "@type": "s:QuantitativeValue"
+            },
+            "bearing": {
+                "@type": "s:QuantitativeValue"
+            },
+            "value": {
+                "@id": "s:value"
+            },
+            "unitCode": {
+                "@id": "s:unitCode",
+                "@type": "@id"
+            },
+            "forecastOffice": {
+                "@type": "@id"
+            },
+            "forecastGridData": {
+                "@type": "@id"
+            },
+            "publicZone": {
+                "@type": "@id"
+            },
+            "county": {
+                "@type": "@id"
+            }
+        }
+    ],
+    "id": "https://api.weather.gov/points/45.3248,-121.4176",
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -121.4176,
+            45.3248
+        ]
+    },
+    "properties": {
+        "@id": "https://api.weather.gov/points/45.3248,-121.4176",
+        "@type": "wx:Point",
+        "cwa": "PDT",
+        "type": "land",
+        "forecastOffice": "https://api.weather.gov/offices/PDT",
+        "gridId": "PDT",
+        "gridX": 44,
+        "gridY": 100,
+        "forecast": "https://api.weather.gov/gridpoints/PDT/44,100/forecast",
+        "forecastHourly": "https://api.weather.gov/gridpoints/PDT/44,100/forecast/hourly",
+        "forecastGridData": "https://api.weather.gov/gridpoints/PDT/44,100",
+        "observationStations": "https://api.weather.gov/gridpoints/PDT/44,100/stations",
+        "relativeLocation": {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.3956202,
+                    45.2194994
+                ]
+            },
+            "properties": {
+                "city": "Sportsmans Park",
+                "state": "OR",
+                "distance": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 11518.824230469
+                },
+                "bearing": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 351
+                }
+            }
+        },
+        "forecastZone": "https://api.weather.gov/zones/forecast/ORZ509",
+        "county": "https://api.weather.gov/zones/county/ORC065",
+        "fireWeatherZone": "https://api.weather.gov/zones/fire/ORZ702",
+        "timeZone": "America/Los_Angeles",
+        "radarStation": "KRTX",
+        "astronomicalData": {
+            "sunrise": "2026-10-27T07:38:23-07:00",
+            "sunset": "2026-10-27T18:00:37-07:00",
+            "transit": "2026-10-27T12:49:30-07:00",
+            "civilTwilightBegin": "2026-10-27T07:08:02-07:00",
+            "civilTwilightEnd": "2026-10-27T18:30:58-07:00",
+            "nauticalTwilightBegin": "2026-10-27T06:33:25-07:00",
+            "nauticalTwilightEnd": "2026-10-27T19:05:35-07:00",
+            "astronomicalTwilightBegin": "2026-10-27T05:59:12-07:00",
+            "astronomicalTwilightEnd": "2026-10-27T19:39:48-07:00"
+        },
+        "nwr": {
+            "transmitter": "WXM34",
+            "sameCode": "041065",
+            "areaBroadcast": "https://api.weather.gov/radio/WXM34/broadcast",
+            "pointBroadcast": "https://api.weather.gov/points/45.3248,-121.4176/radio"
+        }
+    }
+}
