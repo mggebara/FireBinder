@@ -56,6 +56,9 @@ def _origin(ev: Evidence) -> tuple[str, str]:
 
 def _label(ev: Evidence) -> str:
     key = (ev["source"], ev["field"])
+    if ev["source"] == "get_incident_record" and "Historic_Geomac" in str(ev.get("url", "")).replace("GeoMAC", "Geomac"):
+        # Historical mode: both acreage values come from GeoMAC perimeters, not IRWIN/WFIGS.
+        return "GeoMAC perimeter" if ev["field"] == "acres" else "GeoMAC same-day perimeter"
     if key in SOURCE_LABELS:
         return SOURCE_LABELS[key]
     return SOURCE_LABELS.get((ev["source"], None), ev["source"])
