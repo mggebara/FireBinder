@@ -37,8 +37,11 @@ class DraftFields(BaseModel):
 class Draft(BaseModel):
     narrative: str = Field(description="The 209 narrative. Mentions every warn/block conflict explicitly.")
     fields: DraftFields
-    citations: dict[str, str] = Field(
-        description="Field name -> url of the evidence item it comes from, copied exactly from the evidence list."
+    citations: dict[str, str | None] = Field(
+        description=(
+            "Field name -> url of the evidence item it comes from, copied exactly from the evidence list. "
+            "Null (or omitted) for a field whose value is null."
+        )
     )
 
 
