@@ -27,13 +27,13 @@ def _gate_flag(state: FireBinderState) -> list[AIMessage]:
     return [AIMessage(content=note, name=AUDIT_GATE)]
 
 
-def human_review(state: FireBinderState, config: RunnableConfig | None = None) -> dict[str, Any]:
+def human_review(state: FireBinderState, config: RunnableConfig) -> dict[str, Any]:
     """Resume payloads: {"action": "approve"} | {"action": "reject"} | {"action": "edit", "draft": {...}}.
 
     `configurable.skip_review` (historical eval runs) approves without interrupting.
     """
     flag = _gate_flag(state)
-    if (config or {}).get("configurable", {}).get("skip_review"):
+    if config.get("configurable", {}).get("skip_review"):
         return {"approved": True, "messages": flag}
 
     decision = interrupt(
