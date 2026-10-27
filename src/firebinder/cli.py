@@ -2,17 +2,25 @@
 
 from __future__ import annotations
 
-import json
-from typing import Any
+from dotenv import load_dotenv
 
-import httpx
-import typer
-from rich.console import Console
-from rich.table import Table
+load_dotenv()  # LANGSMITH_* before anything LangChain is imported
 
-from firebinder.nodes.conflicts import ConflictsRun, run_conflicts
-from firebinder.nodes.resolve import IncidentResolutionError
-from firebinder.tools.wfigs import WfigsError
+import json  # noqa: E402
+import os  # noqa: E402
+import re  # noqa: E402
+import uuid  # noqa: E402
+from pathlib import Path  # noqa: E402
+from typing import Any  # noqa: E402
+
+import httpx  # noqa: E402
+import typer  # noqa: E402
+from rich.console import Console  # noqa: E402
+from rich.table import Table  # noqa: E402
+
+from firebinder.nodes.conflicts import ConflictsRun, run_conflicts  # noqa: E402
+from firebinder.nodes.resolve import IncidentResolutionError, run_mode  # noqa: E402
+from firebinder.tools.wfigs import WfigsError  # noqa: E402
 
 app = typer.Typer(help="FireBinder: draft and audit wildfire ICS-209 summaries from public data.")
 
@@ -102,6 +110,198 @@ def conflicts(
 
     if len(run.errors) == run.tools_called:
         raise typer.Exit(1)
+
+
+
+# --- draft / resume -------------------------------------------------------------------------------
+
+
+def slug(name: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-") or "incident"
+
+
+def initial_state(incident: str, date: str) -> dict[str, Any]:
+    return {
+        "incident_name": incident,
+        "report_date": date,
+        "irwin_id": None,
+        "centroid": None,
+        "mode": run_mode(date),  # resolve sets it again; here so the run tags are right from the start
+        "evidence": [],
+        "conflicts": [],
+        "draft": None,
+        "audit": [],
+        "revision": 0,
+        "approved": None,
+        "messages": [],
+    }
+
+
+def _tracing_on() -> bool:
+    return os.environ.get("LANGSMITH_TRACING", "").lower() in {"1", "true", "yes"}
+
+
+def _print_trace_hint(console: Console, run_id: uuid.UUID, config: dict[str, Any]) -> None:
+    if not _tracing_on():
+        return
+    project = os.environ.get("LANGSMITH_PROJECT", "default")
+    url = None
+    try:
+        from langchain_core.tracers.langchain import wait_for_all_tracers
+        from langsmith import Client
+
+        wait_for_all_tracers()
+        url = Client().read_run(run_id).url
+    except Exception:  # noqa: BLE001 - the hint is best-effort; the run itself already finished
+        url = None
+    if url:
+        console.print(f"LangSmith run: {url}", markup=False, highlight=False)
+    else:
+        tags = " ".join(config.get("tags", []))
+        console.print(f"LangSmith project {project}, run id {run_id}, tags: {tags}", markup=False, highlight=False)
+
+
+def _render_review(console: Console, payload: dict[str, Any], thread_id: str) -> None:
+    draft = payload.get("draft") or {}
+    console.print(f"\n[bold]Draft (revision {payload.get('revision', 0)})[/bold]")
+    if payload.get("flagged"):
+        console.print("[bold red]Flag: the audit still fails after the revision cap.[/bold red]")
+    console.print(draft.get("narrative", "(no narrative)"), markup=False, highlight=False)
+
+    fields = Table(title="Fields")
+    for column in ("field", "value", "citation"):
+        fields.add_column(column)
+    citations = draft.get("citations", {})
+    for name, value in draft.get("fields", {}).items():
+        fields.add_row(name, format_value(value), _truncate(str(citations.get(name, "(uncited)")), MAX_URL_CHARS))
+    console.print(fields)
+
+    conflicts = payload.get("conflicts", [])
+    if conflicts:
+        table = Table(title="Conflicts", show_lines=True)
+        for column in ("severity", "field", "note"):
+            table.add_column(column)
+        for c in conflicts:
+            table.add_row(c["severity"], c["field"], c["note"])
+        console.print(table)
+    else:
+        console.print("No conflicts found.")
+
+    audit = payload.get("audit", [])
+    table = Table(title="Audit")
+    table.add_column("status")
+    table.add_column("claim")
+    for finding in audit:
+        table.add_row(finding["status"], _truncate(finding["claim"], 120))
+    console.print(table)
+
+    console.print(
+        f"\nPaused for review. Thread {thread_id}. Continue with:\n"
+        f"  firebinder resume --thread-id {thread_id} --approve | --reject | --edit FILE.json",
+        markup=False,
+        highlight=False,
+    )
+
+
+def _report(console: Console, graph: Any, result: dict[str, Any], config: dict[str, Any], thread_id: str) -> None:
+    """After invoke/resume: show the review prompt if paused, else where finalize wrote."""
+    interrupts = result.get("__interrupt__") or []
+    if interrupts:
+        _render_review(console, interrupts[0].value, thread_id)
+        return
+    from firebinder.nodes.finalize import output_dir
+
+    state = graph.get_state(config).values
+    status = {True: "approved", False: "rejected", None: "not reviewed"}[state.get("approved")]
+    out = output_dir(state.get("irwin_id"), state["report_date"])
+    console.print(f"Finalized ({status}). Wrote {out}/209.md, evidence.json, conflicts.json, audit.json", highlight=False)
+
+
+def _thread_exists(graph: Any, thread_id: str) -> bool:
+    return bool(graph.get_state({"configurable": {"thread_id": thread_id}}).values)
+
+
+def _fresh_thread_id(graph: Any, base: str) -> str:
+    """base, or base-2, base-3, ... so a re-run never appends to an old run's evidence."""
+    candidate, n = base, 1
+    while _thread_exists(graph, candidate):
+        n += 1
+        candidate = f"{base}-{n}"
+    return candidate
+
+
+@app.command()
+def draft(
+    incident: str = typer.Option(..., "--incident", help="Incident name, e.g. GRASSHOPPER."),
+    date: str = typer.Option(..., "--date", help="Report date, YYYY-MM-DD."),
+    state: str | None = typer.Option(None, "--state", help="Two-letter state to disambiguate, e.g. OR."),
+    skip_review: bool = typer.Option(False, "--skip-review", help="Approve without pausing (historical eval runs)."),
+    thread_id: str | None = typer.Option(None, "--thread-id", help="Checkpoint thread; default <slug>-<date>."),
+) -> None:
+    """Run the full graph: resolve, gather, reconcile, draft, audit (with revisions), review, finalize."""
+    from firebinder.graph import build_graph, get_checkpointer, run_config
+
+    console = Console()
+    graph = build_graph(get_checkpointer())
+    if thread_id is None:
+        thread_id = _fresh_thread_id(graph, f"{slug(incident)}-{date}")
+    elif _thread_exists(graph, thread_id):
+        Console(stderr=True).print(
+            f"Thread {thread_id} already has a run; use `firebinder resume` or another --thread-id.",
+            markup=False,
+            highlight=False,
+        )
+        raise typer.Exit(1)
+    run_id = uuid.uuid4()
+    config = run_config(incident, date, run_mode(date), thread_id, state=state, skip_review=skip_review)
+    config["run_id"] = run_id
+    console.print(f"Thread {thread_id}", highlight=False)
+    try:
+        result = graph.invoke(initial_state(incident, date), config)
+    except (IncidentResolutionError, WfigsError, httpx.HTTPError) as exc:
+        Console(stderr=True).print(f"Could not resolve incident: {exc}", markup=False, highlight=False)
+        raise typer.Exit(1) from exc
+    _report(console, graph, result, config, thread_id)
+    _print_trace_hint(console, run_id, config)
+
+
+def _resume_payload(approve: bool, reject: bool, edit: Path | None) -> dict[str, Any]:
+    if sum([approve, reject, edit is not None]) != 1:
+        raise typer.BadParameter("pass exactly one of --approve, --reject, --edit FILE")
+    if approve:
+        return {"action": "approve"}
+    if reject:
+        return {"action": "reject"}
+    data = json.loads(edit.read_text())  # type: ignore[union-attr]
+    return {"action": "edit", "draft": data.get("draft", data)}  # accept the draft or {"draft": ...}
+
+
+@app.command()
+def resume(
+    thread_id: str = typer.Option(..., "--thread-id", help="Thread printed by `firebinder draft`."),
+    approve: bool = typer.Option(False, "--approve", help="Approve the draft as is."),
+    reject: bool = typer.Option(False, "--reject", help="Reject the draft (still written, marked rejected)."),
+    edit: Path | None = typer.Option(None, "--edit", exists=True, dir_okay=False, help="JSON file with the edited draft."),
+) -> None:
+    """Resume a run paused at human review."""
+    from langgraph.types import Command
+
+    from firebinder.graph import build_graph, get_checkpointer, run_config
+
+    payload = _resume_payload(approve, reject, edit)
+    console = Console()
+    graph = build_graph(get_checkpointer())
+    snapshot = graph.get_state({"configurable": {"thread_id": thread_id}})
+    if not snapshot.next:
+        Console(stderr=True).print(f"Thread {thread_id} is not paused at review.", markup=False, highlight=False)
+        raise typer.Exit(1)
+    values = snapshot.values
+    run_id = uuid.uuid4()
+    config = run_config(values["incident_name"], values["report_date"], values.get("mode", "live"), thread_id)
+    config["run_id"] = run_id
+    result = graph.invoke(Command(resume=payload), config)
+    _report(console, graph, result, config, thread_id)
+    _print_trace_hint(console, run_id, config)
 
 
 if __name__ == "__main__":
