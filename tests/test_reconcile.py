@@ -12,7 +12,12 @@ import pytest
 from firebinder.nodes.reconcile import find_conflicts, polygon_area_acres, reconcile
 from firebinder.state import Evidence
 
-FIXTURES = sorted((Path(__file__).parent.parent / "evals" / "fixtures").glob("*.json"))
+# Reconcile fixtures carry "expected_conflicts"; the planted_*.json dataset examples in the same
+# folder use the LangSmith example format and are covered by tests/test_ics209plus.py.
+FIXTURES = sorted(
+    p for p in (Path(__file__).parent.parent / "evals" / "fixtures").glob("*.json")
+    if not p.name.startswith("planted_")
+)
 
 IRWIN = ("get_incident_record", "https://irwin.example/incident")
 PERIM = ("get_incident_record", "https://wfigs.example/perimeter")
