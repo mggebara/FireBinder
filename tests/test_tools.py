@@ -3,6 +3,11 @@
 Recordings in tests/recorded/ were captured live on 2026-10-26 (GRASSHOPPER fire, OR) except
 `firms_handmade.csv` and `nws_alerts_redflag_handmade.json`, which were written by hand
 (no FIRMS key was available, and no Red Flag Warning was active anywhere at record time).
+
+Historical mode: `resolve_deluz_2013_12.json`, `geomac_deluz_*` (Historic GeoMAC 2013 layer,
+Deluz fire, CA, 2013-10-06: three real perimeters that day), `firms_deluz_*.csv` (VIIRS_SNPP_SP
+and MODIS_SP for 2013-10-04..06) and `firms_availability_2026-10-26.csv` were captured live on
+2026-10-26.
 """
 
 from __future__ import annotations
@@ -10,6 +15,7 @@ from __future__ import annotations
 import json
 import math
 from collections.abc import Callable, Iterator
+from datetime import UTC, datetime
 from pathlib import Path
 
 import httpx
@@ -17,18 +23,27 @@ import pytest
 from shapely.geometry import Polygon, box, shape
 
 from firebinder.nodes.resolve import IncidentResolutionError, resolve_incident
-from firebinder.tools import LIVE_TOOLS, _http
+from firebinder.tools import LIVE_TOOLS, _http, firms
+from firebinder.tools._base import HistoricalNotAvailable
 from firebinder.tools._geo import area_acres
-from firebinder.tools.firms import fetch_hotspots, parse_firms_csv
+from firebinder.tools.firms import FirmsError, choose_sources, fetch_hotspots, parse_availability_csv, parse_firms_csv
 from firebinder.tools.inciweb import fetch_inciweb_updates
 from firebinder.tools.nws import fetch_weather
-from firebinder.tools.wfigs import esri_rings_to_geometry, fetch_incident_record
+from firebinder.tools.wfigs import (
+    WfigsError,
+    esri_rings_to_geometry,
+    fetch_incident_record,
+    geomac_query_url,
+    is_geomac_id,
+)
 
 RECORDED = Path(__file__).parent / "recorded"
 INDEX: dict[str, str] = json.loads((RECORDED / "index.json").read_text())
 
 GRASSHOPPER_IRWIN = "{6AA4C355-AD18-472F-AAAB-78BAA9DE31B1}"
 GRASSHOPPER_CENTROID = (45.32482051723143, -121.41757017985736)
+DELUZ_ID = "2013-CAMCP-003197"
+DELUZ_CENTROID = (33.36324983004942, -117.32180386032918)  # service centroid of the 22:54 perimeter
 
 CONTENT_TYPES = {".json": "application/json", ".xml": "application/xml", ".html": "text/html", ".csv": "text/csv"}
 
@@ -38,6 +53,25 @@ Override = Callable[[httpx.Request], httpx.Response | None]
 def _file_response(name: str, status: int = 200) -> httpx.Response:
     path = RECORDED / name
     return httpx.Response(status, content=path.read_bytes(), headers={"content-type": CONTENT_TYPES[path.suffix]})
+
+
+@pytest.fixture(autouse=True)
+def _fresh_firms_availability(monkeypatch) -> None:
+    """The availability list is cached per process; start every test without it."""
+    monkeypatch.setattr(firms, "_availability", None)
+
+
+def serve_firms(request: httpx.Request) -> httpx.Response | None:
+    """Override for serve(): FIRMS availability plus the recorded Deluz SP CSVs; 400 for anything else."""
+    url = str(request.url)
+    if "firms.modaps" not in url:
+        return None
+    if "/data_availability/" in url:
+        return _file_response("firms_availability_2026-10-26.csv")
+    for source in ("VIIRS_SNPP_SP", "MODIS_SP"):
+        if f"/{source}/" in url:
+            return _file_response(f"firms_deluz_{source}.csv")
+    return httpx.Response(400, text="Invalid source")
 
 
 @pytest.fixture
@@ -192,17 +226,19 @@ def test_fetch_hotspots_dedupes_and_computes_hull(serve, monkeypatch) -> None:
         url = str(request.url)
         if "firms.modaps" not in url:
             return None
+        if "/data_availability/" in url:
+            return _file_response("firms_availability_2026-10-26.csv")
         if "VIIRS_NOAA21_NRT" in url:
             return httpx.Response(400, text="Invalid source")
-        # SNPP and NOAA-20 both return the same rows, so dedupe must collapse them.
+        # SNPP, NOAA-20 and MODIS all return the same rows, so dedupe must collapse them.
         return _file_response("firms_handmade.csv")
 
     seen = serve(firms)
     summary = fetch_hotspots(*GRASSHOPPER_CENTROID, "2026-08-12")
-    assert len(seen) == 3
-    assert "/2026-08-10" in seen[0]  # 3-day window ending on the report date
+    assert len(seen) == 5  # availability + four sources
+    assert "/2026-08-10" in seen[1]  # 3-day window ending on the report date
     assert summary.count == 5
-    assert summary.sources == ["VIIRS_SNPP_NRT", "VIIRS_NOAA20_NRT"]
+    assert summary.sources == ["VIIRS_SNPP_NRT", "VIIRS_NOAA20_NRT", "MODIS_NRT"]  # NOAA-21 failed, skipped
     assert summary.max_frp == 48.9
     assert summary.latest_detection == "2026-08-12T02:18:00+00:00"
     # Hull is the 0.01 x 0.01 degree square of the four corner detections.
@@ -221,6 +257,112 @@ def test_fetch_hotspots_requires_key(monkeypatch) -> None:
     monkeypatch.delenv("FIRMS_MAP_KEY", raising=False)
     with pytest.raises(RuntimeError, match="FIRMS_MAP_KEY"):
         fetch_hotspots(45.0, -121.0, "2026-08-12")
+
+
+def test_choose_sources_by_date() -> None:
+    availability = parse_availability_csv((RECORDED / "firms_availability_2026-10-26.csv").read_text())
+    assert choose_sources(availability, "2013-10-04", "2013-10-06") == ["VIIRS_SNPP_SP", "MODIS_SP"]
+    # Live: NRT only (SP ends months back); SNPP_NRT ends a day before the others but still overlaps.
+    assert choose_sources(availability, "2026-10-25", "2026-10-27") == [
+        "VIIRS_SNPP_NRT", "VIIRS_NOAA20_NRT", "VIIRS_NOAA21_NRT", "MODIS_NRT",
+    ]
+    # Both cover the whole window: SP wins.
+    assert choose_sources(availability, "2026-07-10", "2026-07-12") == [
+        "VIIRS_SNPP_NRT", "VIIRS_NOAA20_NRT", "VIIRS_NOAA21_NRT", "MODIS_SP",
+    ]
+    assert choose_sources(availability, "1999-08-01", "1999-08-03") == []
+
+
+def test_fetch_hotspots_historical_uses_sp_archive(serve, monkeypatch) -> None:
+    monkeypatch.setenv("FIRMS_MAP_KEY", "testkey")
+    seen = serve(serve_firms)
+    summary = fetch_hotspots(*DELUZ_CENTROID, "2013-10-06")
+    assert summary.sources == ["VIIRS_SNPP_SP", "MODIS_SP"]
+    assert summary.count == 50  # 43 VIIRS + 7 MODIS rows, no duplicates across instruments
+    assert summary.latest_detection == "2013-10-06T09:26:00+00:00"
+    assert all("testkey" not in u for u in summary.urls)
+
+    fetch_hotspots(*DELUZ_CENTROID, "2013-10-06")
+    assert sum("/data_availability/" in u for u in seen) == 1  # fetched once per process
+
+
+def test_fetch_hotspots_errors_when_no_source_covers(serve, monkeypatch) -> None:
+    monkeypatch.setenv("FIRMS_MAP_KEY", "testkey")
+    serve(serve_firms)
+    with pytest.raises(FirmsError, match="No FIRMS VIIRS or MODIS source covers 1999-07-30 to 1999-08-01"):
+        fetch_hotspots(*DELUZ_CENTROID, "1999-08-01")
+
+
+# --- historical (GeoMAC) -----------------------------------------------------------------------
+
+
+def test_geomac_ids_and_layer_names() -> None:
+    assert is_geomac_id(DELUZ_ID) and is_geomac_id("2013-CASTF-002857")
+    assert not is_geomac_id(GRASSHOPPER_IRWIN)
+    assert "/Historic_Geomac_Perimeters_2013/" in geomac_query_url(2013)
+    assert "/Historic_GeoMAC_Perimeters_2019/" in geomac_query_url(2019)
+    with pytest.raises(WfigsError, match="2000 to 2019"):
+        geomac_query_url(2021)
+
+
+def test_resolve_falls_back_to_geomac_for_old_dates(serve) -> None:
+    seen = serve()
+    resolved = resolve_incident("Deluz", "2013-10-06", "CA")
+    assert resolved.irwin_id == DELUZ_ID
+    assert resolved.record_source == "geomac"
+    assert resolved.incident_name == "Deluz" and resolved.state == "CA"
+    assert resolved.centroid == pytest.approx(DELUZ_CENTROID)
+    assert resolved.discovery_date == "2013-10-06T16:04:00+00:00"  # earliest perimeter
+    assert len(seen) == 1 and "Historic_Geomac_Perimeters_2013" in seen[0]
+
+
+def test_resolve_geomac_requires_a_perimeter_by_the_date(serve) -> None:
+    serve()
+    with pytest.raises(IncidentResolutionError, match="on or before 2013-10-05") as excinfo:
+        resolve_incident("Deluz", "2013-10-05", "CA")
+    assert DELUZ_ID in str(excinfo.value)
+
+
+def test_historical_record_evidence_includes_same_day_perimeters(serve) -> None:
+    serve()
+    record = fetch_incident_record(DELUZ_ID, "2013-10-06")
+    assert record.record_source == "geomac"
+    assert record.incident_name == "Deluz" and record.state == "CA"
+    assert record.perimeter_date == "2013-10-06T22:54:00+00:00"  # the latest of the day's three
+    assert record.irwin_daily_acres is None and record.pct_contained is None and record.personnel is None
+
+    evidence = record.to_evidence()
+    assert [e["field"] for e in evidence] == ["acres", "perimeter_geometry", "perimeter_date", "gis_acres", "gis_acres"]
+    for e in evidence:
+        assert e["source"] == "get_incident_record" and e["url"].startswith("https://")
+    acres, geometry, _date, *others = evidence
+    assert acres["value"] == pytest.approx(2708.69, abs=0.01)
+    assert geometry["value"]["type"] == "Polygon"
+    assert area_acres(shape(geometry["value"])) == pytest.approx(acres["value"], rel=0.01)
+    assert [round(e["value"], 2) for e in others] == [2752.51, 2757.5]
+    assert [e["url"].split("objectIds=")[1].split("&")[0] for e in others] == ["154", "155"]
+    assert len({e["url"] for e in evidence if e["field"] in ("acres", "gis_acres")}) == 3
+    assert "2,708.69 GIS acres" in record.summary()
+
+
+def test_historical_record_requires_a_date() -> None:
+    with pytest.raises(WfigsError, match="report date is required"):
+        fetch_incident_record(DELUZ_ID)
+
+
+def test_current_only_tools_refuse_old_dates() -> None:
+    # No transport installed: these must fail before any HTTP call.
+    with pytest.raises(HistoricalNotAvailable, match="^InciWeb only serves current incidents; no data for 2013-08-22$"):
+        fetch_inciweb_updates("Rim", "CA", date="2013-08-22")
+    with pytest.raises(HistoricalNotAvailable, match="^NWS only serves current forecasts and alerts; no data for 2013-08-22$"):
+        fetch_weather(37.9, -120.0, date="2013-08-22")
+
+
+def test_current_only_tools_accept_todays_date(serve) -> None:
+    today = datetime.now(UTC).date().isoformat()
+    serve()
+    assert fetch_inciweb_updates("GRASSHOPPER", "OR", date=today).size_acres == 93972
+    assert fetch_weather(*GRASSHOPPER_CENTROID, date=today).forecast_office == "PDT"
 
 
 # --- InciWeb -----------------------------------------------------------------------------------

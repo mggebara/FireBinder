@@ -12,7 +12,8 @@ from rich.console import Console
 from firebinder.cli import _render, app, format_value
 from firebinder.nodes.conflicts import ConflictsRun, ToolError, _short_message
 from firebinder.nodes.resolve import ResolvedIncident
-from tests.test_tools import GRASSHOPPER_CENTROID, RECORDED, serve  # noqa: F401  (serve is a fixture)
+from firebinder.tools import firms
+from tests.test_tools import GRASSHOPPER_CENTROID, RECORDED, serve, serve_firms  # noqa: F401  (serve is a fixture)
 
 runner = CliRunner()
 ARGS = ["conflicts", "--incident", "GRASSHOPPER", "--date", "2026-10-26", "--state", "OR"]
@@ -62,6 +63,25 @@ def test_conflicts_json_output(serve, monkeypatch) -> None:  # noqa: F811
     assert [e["tool"] for e in payload["errors"]] == ["get_hotspots"]
     geometry = next(e["value"] for e in payload["evidence"] if e["field"] == "perimeter_geometry")
     assert geometry["type"] == "MultiPolygon" and geometry["coordinates"]
+
+
+def test_conflicts_historical_day(serve, monkeypatch) -> None:  # noqa: F811
+    """A 2013 day: GeoMAC record + FIRMS SP archive; InciWeb and NWS refuse the old date."""
+    monkeypatch.setenv("FIRMS_MAP_KEY", "testkey")
+    monkeypatch.setattr(firms, "_availability", None)
+    serve(serve_firms)
+    result = runner.invoke(app, ["conflicts", "--incident", "Deluz", "--date", "2013-10-06", "--state", "CA", "--json"])
+    assert result.exit_code == 0, result.output
+    payload = json.loads(result.stdout)
+    assert payload["resolved"]["irwin_id"] == "2013-CAMCP-003197"
+    assert payload["resolved"]["record_source"] == "geomac"
+    errors = {e["tool"]: e["message"] for e in payload["errors"]}
+    assert errors == {
+        "get_inciweb_updates": "InciWeb only serves current incidents; no data for 2013-10-06",
+        "get_weather": "NWS only serves current forecasts and alerts; no data for 2013-10-06",
+    }
+    fields = [e["field"] for e in payload["evidence"]]
+    assert fields.count("gis_acres") == 2 and "acres" in fields and "hotspot_count" in fields
 
 
 def test_conflicts_resolution_failure_exits_1(serve) -> None:  # noqa: F811

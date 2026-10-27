@@ -9,5 +9,8 @@
   "https://inciweb.wildfire.gov/feeds/maps/placemarks.kml": "inciweb_grasshopper_08.xml",
   "https://inciweb.wildfire.gov/incidents/rss.xml": "inciweb_grasshopper_09.xml",
   "https://inciweb.wildfire.gov/incident-information/ormhf-grasshopper-fire": "inciweb_grasshopper_10.html",
-  "https://inciweb.wildfire.gov/incident-publication/ormhf-grasshopper-fire/austin-and-grasshopper-fires-incident-update-09-30-2026": "inciweb_grasshopper_11.html"
+  "https://inciweb.wildfire.gov/incident-publication/ormhf-grasshopper-fire/austin-and-grasshopper-fires-incident-update-09-30-2026": "inciweb_grasshopper_11.html",
+  "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/Historic_Geomac_Perimeters_2013/FeatureServer/0/query?where=UPPER%28incidentname%29+LIKE+UPPER%28%27%25Deluz%25%27%29&outFields=OBJECTID%2Cuniquefireidentifier%2Cincidentname%2Cstate%2Cgisacres%2Cperimeterdatetime&returnGeometry=false&returnCentroid=true&outSR=4326&f=json": "resolve_deluz_2013_12.json",
+  "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/Historic_Geomac_Perimeters_2013/FeatureServer/0/query?where=uniquefireidentifier+%3D+%272013-CAMCP-003197%27&outFields=OBJECTID%2Cuniquefireidentifier%2Cincidentname%2Cstate%2Cfireyear%2Cgisacres%2Cperimeterdatetime%2Cmapmethod&returnGeometry=false&f=json": "geomac_deluz_attrs_13.json",
+  "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/Historic_Geomac_Perimeters_2013/FeatureServer/0/query?objectIds=1998&outFields=OBJECTID%2Cuniquefireidentifier%2Cincidentname%2Cstate%2Cfireyear%2Cgisacres%2Cperimeterdatetime%2Cmapmethod&returnGeometry=true&outSR=4326&f=json": "geomac_deluz_perimeter_14.json"
 }
