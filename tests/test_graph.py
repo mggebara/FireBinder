@@ -1,11 +1,7 @@
-"""Graph wiring tests: offline, no LLM. gather/draft/audit are deterministic stubs; resolve_incident is patched."""
-
-from __future__ import annotations
+"""Graph wiring tests: fake resolve/gather/draft/audit, real reconcile/human_review/finalize. No network, no model."""
 
 import json
-from collections.abc import Callable
 from pathlib import Path
-from typing import Any
 
 import pytest
 from langgraph.checkpoint.memory import MemorySaver
@@ -14,198 +10,169 @@ from typer.testing import CliRunner
 
 import firebinder.graph as graph_module
 from firebinder.cli import app
-from firebinder.graph import build_graph, get_checkpointer, route_after_audit, run_config
-from firebinder.nodes import resolve as resolve_module
-from firebinder.nodes.resolve import ResolvedIncident, resolve
-from firebinder.state import AuditFinding
+from firebinder.graph import build_graph, initial_state, route_after_audit, run_config
+from firebinder.nodes.review import FAILING_FLAG
 
-IRWIN = "{TEST-IRWIN}"
-EVIDENCE = [
-    {"field": "acres", "value": 1200, "source": "get_incident_record", "url": "https://wfigs", "fetched_at": "2026-10-26T00:00:00Z"},
-    {"field": "acres", "value": 5000, "source": "get_inciweb_updates", "url": "https://inciweb", "fetched_at": "2026-10-26T00:00:00Z"},
-]
+IRWIN = "{FAKE-IRWIN-0001}"
+DATE = "2024-08-01"
+GEOMETRY = {"type": "MultiPolygon", "coordinates": [[[[0, 0], [0, 0.01], [0.01, 0.01], [0, 0]]]] * 3}
 
 
-def finding(status: str) -> AuditFinding:
-    return {"claim": f"a {status} claim", "status": status, "evidence": []}
+def _ev(field: str, value: object, source: str, url: str) -> dict:
+    return {"field": field, "value": value, "source": source, "url": url, "fetched_at": "2024-08-01T12:00:00+00:00"}
 
 
-@pytest.fixture(autouse=True)
-def offline(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> Path:
-    out = tmp_path / "out"
-    monkeypatch.setenv("FIREBINDER_OUT", str(out))
-    monkeypatch.setenv("LANGSMITH_TRACING", "false")
-    monkeypatch.setattr(
-        resolve_module,
-        "resolve_incident",
-        lambda name, date, state=None: ResolvedIncident(
-            irwin_id=IRWIN, incident_name=name, state=state, centroid=(44.0, -121.0), discovery_date="2026-10-01"
-        ),
-    )
-    return out
+def fake_resolve(state: dict) -> dict:
+    return {"irwin_id": IRWIN, "centroid": (44.0, -120.0), "mode": "historical"}
 
 
-class Stubs:
-    """Stub LLM nodes. `audit_by_revision(revision) -> findings` drives the loop."""
-
-    def __init__(self, audit_by_revision: Callable[[int], list[AuditFinding]] = lambda r: [finding("supported")]):
-        self.audit_by_revision = audit_by_revision
-        self.draft_revisions: list[int] = []
-
-    def gather(self, state: dict) -> dict:
-        return {"evidence": EVIDENCE}
-
-    def draft(self, state: dict) -> dict:
-        self.draft_revisions.append(state["revision"])
-        return {
-            "draft": {
-                "narrative": f"Draft revision {state['revision']}. Acres disagree between sources.",
-                "fields": {"acres": 1200},
-                "citations": {"acres": "https://wfigs"},
-            }
-        }
-
-    def audit(self, state: dict) -> dict:
-        return {"audit": self.audit_by_revision(state["revision"])}
-
-    def overrides(self) -> dict[str, Callable[..., dict]]:
-        return {"gather": self.gather, "draft": self.draft, "audit": self.audit}
-
-
-def initial(date: str = "2026-10-26") -> dict[str, Any]:
+def fake_gather(state: dict) -> dict:
     return {
-        "incident_name": "TESTFIRE", "report_date": date, "irwin_id": None, "centroid": None, "mode": "live",
-        "evidence": [], "conflicts": [], "draft": None, "audit": [], "revision": 0, "approved": None, "messages": [],
+        "evidence": [
+            _ev("acres", 1000, "get_incident_record", "https://wfigs.example/1"),
+            _ev("acres", 3000, "get_inciweb_updates", "https://inciweb.example/1"),
+            _ev("perimeter_geometry", GEOMETRY, "get_incident_record", "https://wfigs.example/perim"),
+        ],
+        "messages": [],
     }
 
 
-def run(stubs: Stubs, *, skip_review: bool = True, thread: str = "t1", checkpointer: Any = None) -> tuple[Any, dict, dict]:
-    graph = build_graph(checkpointer or MemorySaver(), nodes_override=stubs.overrides())
-    config = run_config("TESTFIRE", "2026-10-26", "live", thread, skip_review=skip_review)
-    return graph, config, graph.invoke(initial(), config)
+def fake_draft(state: dict) -> dict:
+    out: dict = {
+        "draft": {
+            "narrative": "The fire is 1,000 acres; InciWeb reports 3,000 acres.",
+            "fields": {"acres": 1000},
+            "citations": {"acres": "https://wfigs.example/1"},
+        }
+    }
+    if state.get("audit"):
+        out["revision"] = state["revision"] + 1
+    return out
 
 
-def test_happy_path_writes_four_files(offline: Path) -> None:
-    stubs = Stubs()
-    _, _, result = run(stubs)
-    out = offline / IRWIN / "2026-10-26"
+@pytest.fixture
+def patched(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> dict[str, int]:
+    calls = {"audit": 0}
+
+    def fake_audit(state: dict) -> dict:
+        calls["audit"] += 1
+        status = "contradicted" if calls["audit"] == 1 else "supported"
+        return {"audit": [{"claim": "1,000 acres", "status": status, "evidence": []}]}
+
+    monkeypatch.setattr(graph_module, "resolve", fake_resolve)
+    monkeypatch.setattr(graph_module, "gather", fake_gather)
+    monkeypatch.setattr(graph_module, "draft", fake_draft)
+    monkeypatch.setattr(graph_module, "audit", fake_audit)
+    monkeypatch.setenv("FIREBINDER_OUT_DIR", str(tmp_path))
+    monkeypatch.delenv("LANGSMITH_TRACING", raising=False)
+    return calls
+
+
+def _config(thread: str, skip_review: bool = False) -> dict:
+    return run_config("FAKE", DATE, "historical", thread, skip_review=skip_review)
+
+
+def test_run_interrupts_then_approve_finalizes(patched: dict[str, int], tmp_path: Path) -> None:
+    graph = build_graph(MemorySaver())
+    config = _config("t1")
+    result = graph.invoke(initial_state("FAKE", DATE), config)
+
+    payload = result["__interrupt__"][0].value
+    assert set(payload) == {"draft", "conflicts", "audit", "revision", "flag"}
+    assert payload["revision"] == 1  # the loop fired exactly once
+    assert payload["flag"] is None
+    assert patched["audit"] == 2
+    assert [c["field"] for c in payload["conflicts"]][0] == "acres"
+    assert graph.get_state(config).next == ("human_review",)
+
+    graph.invoke(Command(resume={"action": "approve"}), config)
+    out = tmp_path / IRWIN / DATE
     assert sorted(p.name for p in out.iterdir()) == ["209.md", "audit.json", "conflicts.json", "evidence.json"]
-    assert result["approved"] is True and result["irwin_id"] == IRWIN
-    assert stubs.draft_revisions == [0]
     md = (out / "209.md").read_text()
-    assert "Draft revision 0" in md and "| acres | 1200 | https://wfigs |" in md
-    assert "Flag:" not in md
-    assert json.loads((out / "conflicts.json").read_text())[0]["field"] == "acres"  # reconcile ran for real
+    assert "approved" in md and "https://wfigs.example/1" in md and "## Conflicts" in md and "## Audit" in md
+    geometry = next(e["value"] for e in json.loads((out / "evidence.json").read_text()) if e["field"] == "perimeter_geometry")
+    assert geometry == {"type": "MultiPolygon", "parts": 3}
+    assert graph.get_state(config).values["approved"] is True
 
 
-def test_contradiction_loops_once() -> None:
-    stubs = Stubs(lambda r: [finding("contradicted")] if r == 0 else [finding("supported")])
-    _, _, result = run(stubs)
-    assert stubs.draft_revisions == [0, 1]
-    assert result["revision"] == 1
+def test_edit_resume_replaces_draft_and_rejects_bad_edits(patched: dict[str, int]) -> None:
+    graph = build_graph(MemorySaver())
+    config = _config("t2")
+    graph.invoke(initial_state("FAKE", DATE), config)
+    with pytest.raises(ValueError):
+        graph.invoke(Command(resume={"action": "edit", "draft": {"narrative": "x"}}), config)
+
+    graph = build_graph(MemorySaver())
+    graph.invoke(initial_state("FAKE", DATE), config)
+    edited = {"narrative": "Edited.", "fields": {}, "citations": {}}
+    graph.invoke(Command(resume={"action": "edit", "draft": edited}), config)
+    values = graph.get_state(config).values
+    assert values["draft"] == edited and values["approved"] is True
 
 
-def test_revision_cap_sends_flagged_draft_to_review(offline: Path) -> None:
-    stubs = Stubs(lambda r: [finding("contradicted")])
-    _, _, result = run(stubs)
-    assert stubs.draft_revisions == [0, 1, 2, 3]
-    assert result["revision"] == 3 and result["approved"] is True
-    assert any(getattr(m, "name", None) == "audit_gate" for m in result["messages"])
-    assert "Flag:" in (offline / IRWIN / "2026-10-26" / "209.md").read_text()
+def test_skip_review_bypasses_interrupt(patched: dict[str, int], tmp_path: Path) -> None:
+    graph = build_graph(MemorySaver())
+    config = _config("t3", skip_review=True)
+    result = graph.invoke(initial_state("FAKE", DATE), config)
+    assert "__interrupt__" not in result
+    assert result["approved"] is None
+    assert "bypassed" in (tmp_path / IRWIN / DATE / "209.md").read_text()
 
 
-@pytest.mark.parametrize(("unsupported", "drafts"), [(2, [0, 1]), (1, [0])])
-def test_unsupported_threshold(unsupported: int, drafts: list[int]) -> None:
-    stubs = Stubs(lambda r: [finding("unsupported")] * unsupported if r == 0 else [])
-    run(stubs)
-    assert stubs.draft_revisions == drafts
+def _state(statuses: list[str], revision: int = 0) -> dict:
+    return {"audit": [{"claim": "c", "status": s, "evidence": []} for s in statuses], "revision": revision}
 
 
-def test_route_after_audit_rules() -> None:
-    assert route_after_audit({"audit": [finding("contradicted")], "revision": 2}) == "draft"
-    assert route_after_audit({"audit": [finding("contradicted")], "revision": 3}) == "human_review"
-    assert route_after_audit({"audit": [finding("unsupported")], "revision": 0}) == "human_review"
-    assert route_after_audit({"audit": [], "revision": 0}) == "human_review"
+@pytest.mark.parametrize(
+    ("statuses", "revision", "expected"),
+    [
+        (["contradicted"], 0, "draft"),
+        (["unsupported"], 0, "human_review"),
+        (["unsupported", "unsupported"], 0, "draft"),
+        (["supported"], 0, "human_review"),
+        (["contradicted"], 2, "draft"),
+        (["contradicted"], 3, "human_review"),
+        (["unsupported", "unsupported"], 3, "human_review"),
+    ],
+)
+def test_route_after_audit(statuses: list[str], revision: int, expected: str) -> None:
+    assert route_after_audit(_state(statuses, revision)) == expected
 
 
-def test_interrupt_then_approve(offline: Path) -> None:
-    graph, config, result = run(Stubs(), skip_review=False)
-    assert "__interrupt__" in result
-    snapshot = graph.get_state(config)
-    assert snapshot.next == ("human_review",)
-    assert snapshot.values["draft"]["fields"] == {"acres": 1200}
-    assert result["__interrupt__"][0].value["draft"]["fields"] == {"acres": 1200}
-    assert not (offline / IRWIN).exists()
-
-    final = graph.invoke(Command(resume={"action": "approve"}), config)
-    assert final["approved"] is True
-    assert (offline / IRWIN / "2026-10-26" / "209.md").exists()
+def test_flag_set_when_revision_cap_hit(patched: dict[str, int], monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(
+        graph_module, "audit", lambda state: {"audit": [{"claim": "c", "status": "contradicted", "evidence": []}]}
+    )
+    graph = build_graph(MemorySaver())
+    result = graph.invoke(initial_state("FAKE", DATE), _config("t4"))
+    payload = result["__interrupt__"][0].value
+    assert payload["revision"] == 3 and payload["flag"] == FAILING_FLAG
 
 
-def test_interrupt_then_edit_or_reject() -> None:
-    edited = {"narrative": "Human edit.", "fields": {"acres": 1300}, "citations": {"acres": "https://wfigs"}}
-    graph, config, _ = run(Stubs(), skip_review=False, thread="edit")
-    final = graph.invoke(Command(resume={"action": "edit", "draft": edited}), config)
-    assert final["draft"] == edited and final["approved"] is True
-
-    graph, config, _ = run(Stubs(), skip_review=False, thread="reject")
-    final = graph.invoke(Command(resume={"action": "reject"}), config)
-    assert final["approved"] is False
-
-
-def test_sqlite_checkpoint_round_trip(tmp_path: Path) -> None:
-    path = tmp_path / "ckpt" / "checkpoints.sqlite"
-    stubs = Stubs()
-    _, config, _ = run(stubs, skip_review=False, checkpointer=get_checkpointer(path))
-    assert path.exists()
-
-    reopened = build_graph(get_checkpointer(path), nodes_override=stubs.overrides())
-    assert reopened.get_state(config).next == ("human_review",)
-    final = reopened.invoke(Command(resume={"action": "approve"}), config)
-    assert final["approved"] is True
+def test_cli_draft_skip_review_prints_output_path(patched: dict[str, int], monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    monkeypatch.setattr(graph_module, "get_checkpointer", lambda path=None: MemorySaver())
+    result = CliRunner().invoke(
+        app, ["draft", "--incident", "FAKE", "--date", DATE, "--skip-review"], env={"COLUMNS": "250"}
+    )
+    assert result.exit_code == 0, result.output
+    assert str(tmp_path / IRWIN / DATE / "209.md") in result.output
+    assert "Finalized (bypassed)" in result.output
 
 
-def test_resolve_sets_mode_and_reads_state_from_config(monkeypatch: pytest.MonkeyPatch) -> None:
-    seen: dict[str, Any] = {}
-
-    def fake(name: str, date: str, state: str | None = None) -> ResolvedIncident:
-        seen["state"] = state
-        return ResolvedIncident(irwin_id=IRWIN, incident_name=name, state=state, centroid=(1.0, 2.0), discovery_date=None)
-
-    monkeypatch.setattr(resolve_module, "resolve_incident", fake)
-    out = resolve(initial("2014-08-01"), {"configurable": {"state": "OR"}})
-    assert out == {"irwin_id": IRWIN, "centroid": (1.0, 2.0), "mode": "historical"}
-    assert seen["state"] == "OR"
-    assert resolve(initial("2999-01-01"), {"configurable": {}})["mode"] == "live"
-
-
-def test_run_config_tags() -> None:
-    config = run_config("GRASSHOPPER", "2026-10-26", "live", "grasshopper-2026-10-26", skip_review=True)
-    assert config["configurable"] == {"thread_id": "grasshopper-2026-10-26", "skip_review": True}
-    assert config["tags"][:3] == ["incident:GRASSHOPPER", "date:2026-10-26", "mode:live"]
-    assert config["tags"][3].startswith("sha:")
-    assert config["metadata"]["incident"] == "GRASSHOPPER"
-
-
-def test_cli_draft_then_resume(monkeypatch: pytest.MonkeyPatch, tmp_path: Path, offline: Path) -> None:
-    stubs = Stubs()
-    real_build = graph_module.build_graph
-    ckpt = tmp_path / "cli.sqlite"
-    monkeypatch.setattr(graph_module, "build_graph", lambda cp=None: real_build(cp, nodes_override=stubs.overrides()))
-    monkeypatch.setattr(graph_module, "get_checkpointer", lambda path=None: get_checkpointer(ckpt))
+def test_cli_draft_then_resume_over_sqlite(patched: dict[str, int], monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    """Pause in one process-like invocation, resume in another: the SqliteSaver file carries the thread."""
+    db = str(tmp_path / "checkpoints.sqlite")
+    real_get_checkpointer = graph_module.get_checkpointer
+    monkeypatch.setattr(graph_module, "get_checkpointer", lambda path=None: real_get_checkpointer(db))
     runner = CliRunner()
+    env = {"COLUMNS": "250"}
 
-    result = runner.invoke(app, ["draft", "--incident", "Test Fire", "--date", "2026-10-26"])
-    assert result.exit_code == 0, result.output
-    assert "firebinder resume --thread-id test-fire-2026-10-26" in result.output
+    paused = runner.invoke(app, ["draft", "--incident", "FAKE", "--date", DATE, "--thread-id", "cli-1"], env=env)
+    assert paused.exit_code == 0, paused.output
+    assert "Paused for review" in paused.output and "firebinder resume --thread-id cli-1 --approve" in paused.output
+    assert "Audit" in paused.output and "Conflicts" in paused.output
 
-    edit = tmp_path / "edit.json"
-    edit.write_text(json.dumps({"narrative": "Edited.", "fields": {"acres": 1}, "citations": {"acres": "x"}}))
-    result = runner.invoke(app, ["resume", "--thread-id", "test-fire-2026-10-26", "--edit", str(edit)])
-    assert result.exit_code == 0, result.output
-    assert "Finalized (approved)" in result.output
-    assert "Edited." in (offline / IRWIN / "2026-10-26" / "209.md").read_text()
-
-    result = runner.invoke(app, ["draft", "--incident", "Test Fire", "--date", "2026-10-26", "--skip-review"])
-    assert result.exit_code == 0, result.output
-    assert "Thread test-fire-2026-10-26-2" in result.output
+    resumed = runner.invoke(app, ["resume", "--thread-id", "cli-1", "--reject"], env=env)
+    assert resumed.exit_code == 0, resumed.output
+    assert "Finalized (rejected)" in resumed.output
+    assert "rejected" in (tmp_path / IRWIN / DATE / "209.md").read_text()
