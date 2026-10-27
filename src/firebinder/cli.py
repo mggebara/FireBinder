@@ -9,7 +9,6 @@ load_dotenv()  # LANGSMITH_* before anything LangChain is imported
 import json  # noqa: E402
 import os  # noqa: E402
 import re  # noqa: E402
-import uuid  # noqa: E402
 from pathlib import Path  # noqa: E402
 from typing import Any  # noqa: E402
 
@@ -120,52 +119,30 @@ def slug(name: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-") or "incident"
 
 
-def initial_state(incident: str, date: str) -> dict[str, Any]:
-    return {
-        "incident_name": incident,
-        "report_date": date,
-        "irwin_id": None,
-        "centroid": None,
-        "mode": run_mode(date),  # resolve sets it again; here so the run tags are right from the start
-        "evidence": [],
-        "conflicts": [],
-        "draft": None,
-        "audit": [],
-        "revision": 0,
-        "approved": None,
-        "messages": [],
-    }
-
-
 def _tracing_on() -> bool:
     return os.environ.get("LANGSMITH_TRACING", "").lower() in {"1", "true", "yes"}
 
 
-def _print_trace_hint(console: Console, run_id: uuid.UUID, config: dict[str, Any]) -> None:
+def _invoke_traced(console: Console, graph: Any, graph_input: Any, config: dict[str, Any]) -> dict[str, Any]:
+    """Invoke the graph; with LANGSMITH_TRACING on, collect the root run and print its LangSmith URL."""
     if not _tracing_on():
-        return
-    project = os.environ.get("LANGSMITH_PROJECT", "default")
-    url = None
-    try:
-        from langchain_core.tracers.langchain import wait_for_all_tracers
-        from langsmith import Client
+        return graph.invoke(graph_input, config)
+    from langchain_core.tracers.context import tracing_v2_enabled
 
-        wait_for_all_tracers()
-        url = Client().read_run(run_id).url
-    except Exception:  # noqa: BLE001 - the hint is best-effort; the run itself already finished
-        url = None
-    if url:
-        console.print(f"LangSmith run: {url}", markup=False, highlight=False)
-    else:
-        tags = " ".join(config.get("tags", []))
-        console.print(f"LangSmith project {project}, run id {run_id}, tags: {tags}", markup=False, highlight=False)
+    with tracing_v2_enabled(project_name=os.environ.get("LANGSMITH_PROJECT")) as cb:
+        result = graph.invoke(graph_input, config)
+    try:
+        console.print(f"LangSmith run: {cb.get_run_url()}", markup=False, highlight=False)
+    except Exception:  # noqa: BLE001 - the URL is best-effort; the run itself already finished
+        pass
+    return result
 
 
 def _render_review(console: Console, payload: dict[str, Any], thread_id: str) -> None:
     draft = payload.get("draft") or {}
     console.print(f"\n[bold]Draft (revision {payload.get('revision', 0)})[/bold]")
-    if payload.get("flagged"):
-        console.print("[bold red]Flag: the audit still fails after the revision cap.[/bold red]")
+    if payload.get("flag"):
+        console.print(f"Flag: {payload['flag']}", style="bold red", markup=False, highlight=False)
     console.print(draft.get("narrative", "(no narrative)"), markup=False, highlight=False)
 
     fields = Table(title="Fields")
@@ -188,6 +165,8 @@ def _render_review(console: Console, payload: dict[str, Any], thread_id: str) ->
         console.print("No conflicts found.")
 
     audit = payload.get("audit", [])
+    counts = {s: sum(1 for f in audit if f["status"] == s) for s in ("supported", "unsupported", "contradicted")}
+    console.print("Audit: " + ", ".join(f"{n} {s}" for s, n in counts.items()), highlight=False)
     table = Table(title="Audit")
     table.add_column("status")
     table.add_column("claim")
@@ -196,8 +175,11 @@ def _render_review(console: Console, payload: dict[str, Any], thread_id: str) ->
     console.print(table)
 
     console.print(
-        f"\nPaused for review. Thread {thread_id}. Continue with:\n"
-        f"  firebinder resume --thread-id {thread_id} --approve | --reject | --edit FILE.json",
+        f"\nPaused for review. Thread {thread_id}. Continue with one of:\n"
+        f"  firebinder resume --thread-id {thread_id} --approve\n"
+        f"  firebinder resume --thread-id {thread_id} --reject\n"
+        f"  firebinder resume --thread-id {thread_id} --edit DRAFT.json   "
+        "(JSON with narrative, fields, citations)",
         markup=False,
         highlight=False,
     )
@@ -209,12 +191,12 @@ def _report(console: Console, graph: Any, result: dict[str, Any], config: dict[s
     if interrupts:
         _render_review(console, interrupts[0].value, thread_id)
         return
-    from firebinder.nodes.finalize import output_dir
+    from firebinder.nodes.finalize import approval_status, output_dir
 
     state = graph.get_state(config).values
-    status = {True: "approved", False: "rejected", None: "not reviewed"}[state.get("approved")]
     out = output_dir(state.get("irwin_id"), state["report_date"])
-    console.print(f"Finalized ({status}). Wrote {out}/209.md, evidence.json, conflicts.json, audit.json", highlight=False)
+    console.print(f"Finalized ({approval_status(state.get('approved'))}).", highlight=False)
+    console.print(f"Wrote {out / '209.md'} (+ evidence.json, conflicts.json, audit.json)", markup=False, highlight=False)
 
 
 def _thread_exists(graph: Any, thread_id: str) -> bool:
@@ -239,7 +221,7 @@ def draft(
     thread_id: str | None = typer.Option(None, "--thread-id", help="Checkpoint thread; default <slug>-<date>."),
 ) -> None:
     """Run the full graph: resolve, gather, reconcile, draft, audit (with revisions), review, finalize."""
-    from firebinder.graph import build_graph, get_checkpointer, run_config
+    from firebinder.graph import build_graph, get_checkpointer, initial_state, run_config
 
     console = Console()
     graph = build_graph(get_checkpointer())
@@ -252,17 +234,14 @@ def draft(
             highlight=False,
         )
         raise typer.Exit(1)
-    run_id = uuid.uuid4()
-    config = run_config(incident, date, run_mode(date), thread_id, state=state, skip_review=skip_review)
-    config["run_id"] = run_id
+    config = run_config(incident, date, run_mode(date), thread_id, skip_review=skip_review, state=state)
     console.print(f"Thread {thread_id}", highlight=False)
     try:
-        result = graph.invoke(initial_state(incident, date), config)
+        result = _invoke_traced(console, graph, initial_state(incident, date), config)
     except (IncidentResolutionError, WfigsError, httpx.HTTPError) as exc:
         Console(stderr=True).print(f"Could not resolve incident: {exc}", markup=False, highlight=False)
         raise typer.Exit(1) from exc
     _report(console, graph, result, config, thread_id)
-    _print_trace_hint(console, run_id, config)
 
 
 def _resume_payload(approve: bool, reject: bool, edit: Path | None) -> dict[str, Any]:
@@ -296,12 +275,9 @@ def resume(
         Console(stderr=True).print(f"Thread {thread_id} is not paused at review.", markup=False, highlight=False)
         raise typer.Exit(1)
     values = snapshot.values
-    run_id = uuid.uuid4()
     config = run_config(values["incident_name"], values["report_date"], values.get("mode", "live"), thread_id)
-    config["run_id"] = run_id
-    result = graph.invoke(Command(resume=payload), config)
+    result = _invoke_traced(console, graph, Command(resume=payload), config)
     _report(console, graph, result, config, thread_id)
-    _print_trace_hint(console, run_id, config)
 
 
 if __name__ == "__main__":
