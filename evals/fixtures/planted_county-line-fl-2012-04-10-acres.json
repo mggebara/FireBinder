@@ -1,0 +1,44 @@
+{
+  "inputs": {
+    "incident_name": "County Line",
+    "report_date": "2012-04-10",
+    "state": "FL"
+  },
+  "outputs": {
+    "fields": {
+      "acres": 20425.0,
+      "pct_contained": 25.0,
+      "personnel": 189,
+      "structures_threatened": 4,
+      "structures_destroyed": 0
+    },
+    "narrative": "Remarks:\nacreage increase primarily due to burnout operations.\n\nCurrent threat:\ncommercial timberland and t&e specie habitat.\n\nProjected activity:\neast and southeast|continued movement to the south and east.|red flag conditions are expected to bring extreme fire activity.",
+    "known_conflicts": [
+      {
+        "field": "acres",
+        "severity": "block"
+      }
+    ],
+    "source": "planted",
+    "planted_evidence": [
+      {
+        "field": "acres",
+        "value": 32680.0,
+        "source": "get_inciweb_updates",
+        "url": "planted://inciweb/county-line-fl-2012-04-10-acres",
+        "fetched_at": "2012-04-10T18:00:00+00:00"
+      }
+    ]
+  },
+  "metadata": {
+    "incident_id": "2012_FL-FNF-012017_COUNTY LINE",
+    "year": 2012,
+    "final_acres": 34936.0,
+    "geomac_fire_id": "2012-FLFNF-012017",
+    "new_acres": 6421.0,
+    "n_perimeters_that_day": 4,
+    "tool_errors": [],
+    "slug": "county-line-fl-2012-04-10-acres",
+    "planted_from": "county-line-fl-2012-04-10"
+  }
+}

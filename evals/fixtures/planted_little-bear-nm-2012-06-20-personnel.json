@@ -1,0 +1,44 @@
+{
+  "inputs": {
+    "incident_name": "Little Bear",
+    "report_date": "2012-06-20",
+    "state": "NM"
+  },
+  "outputs": {
+    "fields": {
+      "acres": 41706.0,
+      "pct_contained": 60.0,
+      "personnel": 894,
+      "structures_threatened": 0,
+      "structures_destroyed": 254
+    },
+    "narrative": "Significant events:\ngood progress on mop up and rehab in all divisions.  aerial ignitions continued today in division b  and c within the wilderness.  continued mop up of spot fires picked up yesterday in division b and c from the burnout.  spot fire in division a mopped up today.\n\nCurrent threat:\nthe bonito park area and rio bonito subdivisions remain on evacuation status.  mop up and rehab in and around rio bonito subdivision and runnels stables.|aerial ignitions on the western flank of the fire if needed.  mop up and rehab in all divisions around the fire.|continued mop up  rehab  and public relations in all divisions around the fire.\n\nProjected activity:\nprimary movement will be on the western flank within perimeter lines of the white mountain wilderness.  aerial ignitions will continue to fill in any unburned islands.  active to very active fire behavior in interior unburned islands.|moderate to very active fire behavior in interior unburned islands.  30% chance of moisture and higher humidities will help in minimizing fire behavior.|moderate to very active fire behavior in interior unburned islands.",
+    "known_conflicts": [
+      {
+        "field": "personnel",
+        "severity": "warn"
+      }
+    ],
+    "source": "planted",
+    "planted_evidence": [
+      {
+        "field": "personnel",
+        "value": 1073,
+        "source": "get_inciweb_updates",
+        "url": "planted://inciweb/little-bear-nm-2012-06-20-personnel",
+        "fetched_at": "2012-06-20T18:00:00+00:00"
+      }
+    ]
+  },
+  "metadata": {
+    "incident_id": "2012_NM-LNF-007_LITTLE BEAR",
+    "year": 2012,
+    "final_acres": 44330.0,
+    "geomac_fire_id": "2012-NMLNF-000007",
+    "new_acres": 2275.0,
+    "n_perimeters_that_day": 4,
+    "tool_errors": [],
+    "slug": "little-bear-nm-2012-06-20-personnel",
+    "planted_from": "little-bear-nm-2012-06-20"
+  }
+}

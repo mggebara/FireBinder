@@ -1,0 +1,44 @@
+{
+  "inputs": {
+    "incident_name": "Sunflower",
+    "report_date": "2012-05-15",
+    "state": "AZ"
+  },
+  "outputs": {
+    "fields": {
+      "acres": 12000.0,
+      "pct_contained": 7.0,
+      "personnel": 403,
+      "structures_threatened": 5,
+      "structures_destroyed": 0
+    },
+    "narrative": "Remarks:\ndue to the south/south west wind pattern setting up  the valley communities may not be effected by smoke for the next 24 hours. smoke will be moving north/north east. payson and surounding communities will be impacted by smoke from the fire.\n\nSignificant events:\ndue to weather conditions 3 large smoke columns developed from the fire today. this was expected and did not effect todays containment strategies.\n\nCurrent threat:\n2 residence  2 out buildings  aps 345 kv power lines  spotted owl habitat.|cross f ranch\n\nProjected activity:\nprojected fire spread is to the nnw due to the ssw winds",
+    "known_conflicts": [
+      {
+        "field": "pct_contained",
+        "severity": "warn"
+      }
+    ],
+    "source": "planted",
+    "planted_evidence": [
+      {
+        "field": "pct_contained",
+        "value": 22.0,
+        "source": "get_inciweb_updates",
+        "url": "planted://inciweb/sunflower-az-2012-05-15-pct-contained",
+        "fetched_at": "2012-05-15T18:00:00+00:00"
+      }
+    ]
+  },
+  "metadata": {
+    "incident_id": "2012_AZ-TNF-039_SUNFLOWER",
+    "year": 2012,
+    "final_acres": 17446.0,
+    "geomac_fire_id": "2012-AZTNF-000039",
+    "new_acres": 7400.0,
+    "n_perimeters_that_day": 4,
+    "tool_errors": [],
+    "slug": "sunflower-az-2012-05-15-pct-contained",
+    "planted_from": "sunflower-az-2012-05-15"
+  }
+}

@@ -1,0 +1,734 @@
+[
+  {
+    "inputs": {
+      "incident_name": "County Line",
+      "report_date": "2012-04-10",
+      "state": "FL"
+    },
+    "outputs": {
+      "fields": {
+        "acres": 20425.0,
+        "pct_contained": 25.0,
+        "personnel": 189,
+        "structures_threatened": 4,
+        "structures_destroyed": 0
+      },
+      "narrative": "Remarks:\nacreage increase primarily due to burnout operations.\n\nCurrent threat:\ncommercial timberland and t&e specie habitat.\n\nProjected activity:\neast and southeast|continued movement to the south and east.|red flag conditions are expected to bring extreme fire activity.",
+      "known_conflicts": [],
+      "source": "ics209plus",
+      "planted_evidence": null
+    },
+    "metadata": {
+      "incident_id": "2012_FL-FNF-012017_COUNTY LINE",
+      "year": 2012,
+      "final_acres": 34936.0,
+      "geomac_fire_id": "2012-FLFNF-012017",
+      "new_acres": 6421.0,
+      "n_perimeters_that_day": 4,
+      "tool_errors": [],
+      "slug": "county-line-fl-2012-04-10"
+    }
+  },
+  {
+    "inputs": {
+      "incident_name": "Sunflower",
+      "report_date": "2012-05-15",
+      "state": "AZ"
+    },
+    "outputs": {
+      "fields": {
+        "acres": 12000.0,
+        "pct_contained": 7.0,
+        "personnel": 403,
+        "structures_threatened": 5,
+        "structures_destroyed": 0
+      },
+      "narrative": "Remarks:\ndue to the south/south west wind pattern setting up  the valley communities may not be effected by smoke for the next 24 hours. smoke will be moving north/north east. payson and surounding communities will be impacted by smoke from the fire.\n\nSignificant events:\ndue to weather conditions 3 large smoke columns developed from the fire today. this was expected and did not effect todays containment strategies.\n\nCurrent threat:\n2 residence  2 out buildings  aps 345 kv power lines  spotted owl habitat.|cross f ranch\n\nProjected activity:\nprojected fire spread is to the nnw due to the ssw winds",
+      "known_conflicts": [],
+      "source": "ics209plus",
+      "planted_evidence": null
+    },
+    "metadata": {
+      "incident_id": "2012_AZ-TNF-039_SUNFLOWER",
+      "year": 2012,
+      "final_acres": 17446.0,
+      "geomac_fire_id": "2012-AZTNF-000039",
+      "new_acres": 7400.0,
+      "n_perimeters_that_day": 4,
+      "tool_errors": [],
+      "slug": "sunflower-az-2012-05-15"
+    }
+  },
+  {
+    "inputs": {
+      "incident_name": "Little Bear",
+      "report_date": "2012-06-20",
+      "state": "NM"
+    },
+    "outputs": {
+      "fields": {
+        "acres": 41706.0,
+        "pct_contained": 60.0,
+        "personnel": 894,
+        "structures_threatened": 0,
+        "structures_destroyed": 254
+      },
+      "narrative": "Significant events:\ngood progress on mop up and rehab in all divisions.  aerial ignitions continued today in division b  and c within the wilderness.  continued mop up of spot fires picked up yesterday in division b and c from the burnout.  spot fire in division a mopped up today.\n\nCurrent threat:\nthe bonito park area and rio bonito subdivisions remain on evacuation status.  mop up and rehab in and around rio bonito subdivision and runnels stables.|aerial ignitions on the western flank of the fire if needed.  mop up and rehab in all divisions around the fire.|continued mop up  rehab  and public relations in all divisions around the fire.\n\nProjected activity:\nprimary movement will be on the western flank within perimeter lines of the white mountain wilderness.  aerial ignitions will continue to fill in any unburned islands.  active to very active fire behavior in interior unburned islands.|moderate to very active fire behavior in interior unburned islands.  30% chance of moisture and higher humidities will help in minimizing fire behavior.|moderate to very active fire behavior in interior unburned islands.",
+      "known_conflicts": [],
+      "source": "ics209plus",
+      "planted_evidence": null
+    },
+    "metadata": {
+      "incident_id": "2012_NM-LNF-007_LITTLE BEAR",
+      "year": 2012,
+      "final_acres": 44330.0,
+      "geomac_fire_id": "2012-NMLNF-000007",
+      "new_acres": 2275.0,
+      "n_perimeters_that_day": 4,
+      "tool_errors": [],
+      "slug": "little-bear-nm-2012-06-20"
+    }
+  },
+  {
+    "inputs": {
+      "incident_name": "Seeley",
+      "report_date": "2012-07-03",
+      "state": "UT"
+    },
+    "outputs": {
+      "fields": {
+        "acres": 38175.0,
+        "pct_contained": 15.0,
+        "personnel": 641,
+        "structures_threatened": 765,
+        "structures_destroyed": 1
+      },
+      "narrative": "Remarks:\nevacuations include the electric lake area  scofield  clear creek  hiawatha  and cleveland camp ground  miller flat reservoir area  hog flat area and two youth camps. due to the vicinity of the fire  a major oil and gas field has been shut down. several working coal mines in the area remain under a pre evacuation notice.  land ownership : blm 1412 acres  private 4065 acres  state 322 acres and usfs 32367 acres for a total of 38175\n\nSignificant events:\nburn out operation in division x  structure group  division b and c continued to prep buildings. constructed some dozer line as needed in division c.\n\nCurrent threat:\nthis area is summer mule deer range along with elk  goshawk habitat and contain blue ribbon fisheries in the huntington area. whirling disease and spread of whirling disease is of major concern.|cabins  homes  residences and historic ranger station are threatened. fire is limiting highway access and has threatened active oil and gas lines which have been shut down. area is highly utilized for summer recreation and grazing  so socioeconomics are of concern.\n\nProjected activity:\nnorth and northeast",
+      "known_conflicts": [],
+      "source": "ics209plus",
+      "planted_evidence": null
+    },
+    "metadata": {
+      "incident_id": "2012_UT-MLF-002129_SEELEY",
+      "year": 2012,
+      "final_acres": 48050.0,
+      "geomac_fire_id": "2012-UTMLF-002129",
+      "new_acres": 4765.0,
+      "n_perimeters_that_day": 5,
+      "tool_errors": [],
+      "slug": "seeley-ut-2012-07-03"
+    }
+  },
+  {
+    "inputs": {
+      "incident_name": "Mill",
+      "report_date": "2012-07-14",
+      "state": "CA"
+    },
+    "outputs": {
+      "fields": {
+        "acres": 26728.0,
+        "pct_contained": 55.0,
+        "personnel": 1699,
+        "structures_threatened": 413,
+        "structures_destroyed": 5
+      },
+      "narrative": "Remarks:\nresidences threatened by area:  fouts springs: 25  board camp spring: 18  stonyford: 60  century ranch: 300    acres burned by land allocation:    usfs: 24 993 acres  blm: 1 573 acres  private: 222 acres    acres burned by dpa:    federal: 24 810 acres  state:  1 918 acres\n\nSignificant events:\nfiring operations continue in division n and t working toward completing control lines.  type 1 crews are being utilized to complete complex firing operation in division n and t and hold indirect lines in conjunction with type 2ia crews.  helicopters are being utilized to slow advancing main fire and for ignition operations. contingency lines continue to be completed and improved along pine and lovelady ridge in divisions n and t.  continued patrol and mop up from previous burnout operations occurred in divisions n  u  t and z.  a/d  g  and m continued to be patrolled and secured 300 feet in.  divisions a d g m  and u are assessing suppression repair needs.\n\nCurrent threat:\nevacuations will remain in effect for the communities fouts spring  bonnie view  and board camp spring and campgrounds within the upper letts lake area. portions of the community of stonyford are under an advisory notice for possible evacuation.  forest closure for campgrounds and ohv areas in the lower letts valley and upper letts lake area will remain in place.  multiple cultural resource sites are threatened along with spotted owl habitat within the lower letts valley.|evacuations in effect for the communities fouts springs  bonnie view  and board camp spring and campgrounds within the upper letts lake area. portions of the community of stonyford are under advisory notice of potential evacuation; areas affected include stonyford lodoga rd and fouts spring rd.  forest closure for the lower letts valley and upper letts lake area are in effect.  multiple cultural resource sites are threatened along with spotted owl habitat within the lower letts valley.\n\nProjected activity:\ntype 1 crews continued to burnout along divisions n and t today.  helicopter ignitions (psd) were utilized interior to back fire to indirect line and burnout along indirect control lines.  main fire continued backing in a southern direction with short uphill runs where wind and slope were in alignment.|burnout operations continuing into the evening hours producing backing fire off control lines to meet main fire advancing toward the south.  good overnight humidity recovery expected with cooler temperatures will minimize fire spread into the early morning hours. helicopter ignitions will continue as needed during daylight hours to back fire to county road # 42.",
+      "known_conflicts": [],
+      "source": "ics209plus",
+      "planted_evidence": null
+    },
+    "metadata": {
+      "incident_id": "2012_CA-MNF-001109_MILL ",
+      "year": 2012,
+      "final_acres": 29052.0,
+      "geomac_fire_id": "2012-CAMNFC-001109",
+      "new_acres": 1150.0,
+      "n_perimeters_that_day": 4,
+      "tool_errors": [],
+      "slug": "mill-ca-2012-07-14"
+    }
+  },
+  {
+    "inputs": {
+      "incident_name": "Longhorn Complex",
+      "report_date": "2012-07-25",
+      "state": "SD"
+    },
+    "outputs": {
+      "fields": {
+        "acres": 41902.0,
+        "pct_contained": 80.0,
+        "personnel": 584,
+        "structures_threatened": 0,
+        "structures_destroyed": 4
+      },
+      "narrative": "Significant events:\nburn out operations on south crazy horse fire were completed.  evacuation orders were lifted for the spring creek community.  mop up and patrol on longhorn and iron shell fires.\n\nCurrent threat:\ncultural resources within fire perimeter.",
+      "known_conflicts": [],
+      "source": "ics209plus",
+      "planted_evidence": null
+    },
+    "metadata": {
+      "incident_id": "2012_SD-RBA-120671_LONGHORN COMPLEX",
+      "year": 2012,
+      "final_acres": 43639.0,
+      "geomac_fire_id": "2012-SDRBA-120671",
+      "new_acres": 47.0,
+      "n_perimeters_that_day": 6,
+      "tool_errors": [],
+      "slug": "longhorn-complex-sd-2012-07-25"
+    }
+  },
+  {
+    "inputs": {
+      "incident_name": "Halstead",
+      "report_date": "2012-08-21",
+      "state": "ID"
+    },
+    "outputs": {
+      "fields": {
+        "acres": 93498.0,
+        "pct_contained": 5.0,
+        "personnel": 465,
+        "structures_threatened": 417,
+        "structures_destroyed": 1
+      },
+      "narrative": "Remarks:\n1) prevent halstead fire from reaching hwy 75  power lines  infrastructure and the community of sunbeam. probability of success with requested critical resources =50%---- 2) burn out and hold fire along hwy 21 where it is threatening power lines  private land  structures  timber sales and historic values. probability of success =80% with requested critical resources. **type one helicopters and handcrews are needed to accomplish above missions.**\n\nSignificant events:\nmoderate fire spread to the se. hwy 75 power line prepped for fire. pre-evacuations recommended for lower stanley and sunbeam along hwy 75. fire is now well established in basin creek and west of yankee creek. type 1 handcrew conducting burnout operations in kelly creek to slow fire spread toward hwy 75. holding action on the sw corner to keep fire out of marsh creek and from crossing hwy 21. protect identified values at risk along the hwy 21 corridor.--- evacuations for yankee fork have been lifted  however the expanded area closure established on 8/15/12 from yankee fork e to squaw creek is still in effect.--- map 9 has been breached. actions include notification to custer county sheriff department. decision was made to give a 24 hour notice for potential evacuation. fire area impacted by thunderstorms.\n\nCurrent threat:\ncamp bradley boy scout camp; cape horn ranch; cape horn guard station; power lines; seafoam area; loon creek guard station; diamond d ranch  cow camp|virginia estates  bonanza  custer  casi|lower stanley-highway 75 corridor.|camp bradley boy scout camp; cape horn ranch; cape horn guard station; powerlines; seafoam area; loon creek guard station; diamond d ranch; bonanza/yankee fork; basin butte communications infrastructure.\n\nProjected activity:\nfire spread is expected to increase as drying continues along with a dry cold front passage.|moderate fire spread is expected to the south and southeast. moderate risk of thunderstorm activity poses the risk of outflow winds that could increase rates of spread  possible change in spread direction  and spotting.|fire spread is expected to increase as warming and drying occurs  fuel moisture decreases  and ercs rebound toward the end of the week.|moderate spread potential to the southeast with warming and drying trend along with increasing west winds.",
+      "known_conflicts": [],
+      "source": "ics209plus",
+      "planted_evidence": null
+    },
+    "metadata": {
+      "incident_id": "2012_ID-SCF-012151_HALSTEAD",
+      "year": 2012,
+      "final_acres": 181948.0,
+      "geomac_fire_id": "2012-IDSCF-012151",
+      "new_acres": 1511.0,
+      "n_perimeters_that_day": 5,
+      "tool_errors": [],
+      "slug": "halstead-id-2012-08-21"
+    }
+  },
+  {
+    "inputs": {
+      "incident_name": "Trinity Ridge",
+      "report_date": "2012-08-29",
+      "state": "ID"
+    },
+    "outputs": {
+      "fields": {
+        "acres": 138966.0,
+        "pct_contained": 17.0,
+        "personnel": 1311,
+        "structures_threatened": 1041,
+        "structures_destroyed": 12
+      },
+      "narrative": "Remarks:\ntrinity ridge west  critical needs are identified as crews  engines and helicopters  needed for the incident in support of planned operations in regards to implement the contingency plan that is being formulated and for structure protection. these critical needs is for the protection of idaho city  id. all structures identified as threatened are in boise county the idaho air national guard is providing personnel and equipment to staff road closures and provide a hoist capable medivac helicopter for the incident.... trinity ridge  the trinity ridge incident is in unified command with the elmore county sheriffs office. the idaho national guard is providing personnel and equipment to staff numerous road checkpoints and provide a hoist capable medevac helicopter for the incident. a military coordinator has been assigned.  block 4: trinity ridge west  id-bof-000745  block 14: trinity ridge west  15 miles east of idaho city  id  block 15: acres by ownership - usfs 137 380 acres and private 1 821 acres.   block 16: trinity ridge west  10 percent; trinity ridge  7 percent   block 18: trinity ridge west  6 miles; trinity ridge  na  block 19: trinity ridge west  $2 923 305; trinity ridge  $23 332 734 limited growth due to refining cost data.  block 21: trinity ridge west  0; trinity ridge  0  block 22: trinity ridge west  3 since the separation of the incidents; trinity ridge  4   block 24: threatened structures: trinity ridge west  (7 2 5); trinity ridge  (420 22 585). destroyed structures: trinity ridge west  (1 6 0); trinity ridge  (2 2 8).  block 28: 24hr 2 t1 helics(local supply). one of the t1s may be any make/model. the 2nd must be a tanked s64 to meet env. restrictions for crossing a major river.   additional type 1 or type 2 crews (if available) would be employed to conduct direct and indirect line construction and burnout. these resources will minimize fire growth in the pine/featherville corridor and shorten the time required to meet objectives.\n\nSignificant events:\ntrinity ridge west  road closures in effect  scouted the middle fork of the boise river to look for opportunities to construct hand line and contingency line in division b. burn out operations continued in division c. contingency group scouted for the placement of contingency line in preparation of future operations if needed. structure group continued their assessment..... trinity ridge  good progress is being made in holding and improving security of burned out areas around the community of featherville. fire continues to grow on the south flank (div. u  s and w). indirect line is complete in the wagontown basin with the addition of type 1 crews. good progress is being made in bringing the fire down slowly in the wagontown drainage. evacuations and area closures remain in effect.\n\nCurrent threat:\ntrinity ridge west  swanholm lookout and sunset mountain lookout and repeater sites..... trinity ridge  pine  id. area and the fall creek corridor.|trinity ridge west  swanholm lookout and sunset mountain lookout and repeater sites..... trinity ridge  pine  id. area.|trinity ridge west  summer homes along the middle fork of the boise river. bald mountain communications site...... trinity ridge  featherville/pine  id. area.\n\nProjected activity:\ntrinity ridge west  northeast and west; trinity ridge  potential spread to the west and south with limited likelihood to the east and north.|trinity ridge west  northeast and west; trinity ridge  potential spread to the west and south with limited likelihood to the east.",
+      "known_conflicts": [],
+      "source": "ics209plus",
+      "planted_evidence": null
+    },
+    "metadata": {
+      "incident_id": "2012_ID-BOF-000628_TRINITY RIDGE",
+      "year": 2012,
+      "final_acres": 146832.0,
+      "geomac_fire_id": "2012-IDBOF-000628",
+      "new_acres": 6303.0,
+      "n_perimeters_that_day": 4,
+      "tool_errors": [],
+      "slug": "trinity-ridge-id-2012-08-29"
+    }
+  },
+  {
+    "inputs": {
+      "incident_name": "Table Mountain Complex",
+      "report_date": "2012-09-19",
+      "state": "WA"
+    },
+    "outputs": {
+      "fields": {
+        "acres": 9506.0,
+        "pct_contained": 4.0,
+        "personnel": 665,
+        "structures_threatened": 800,
+        "structures_destroyed": 1
+      },
+      "narrative": "Remarks:\none injury was a scratched cornea that was treated and the person returned to work.    lion rock fire 6 544 acres  diamond head fire 1 056 acres  county line fire 1 215 acres   first creek fire jumped the southeast containment line  329 acres  447 fire 363 acres  diamond head and county line fires have grown together.\n\nSignificant events:\nlevel 3 evacuation notices took place at 1400.  the area encompassing elk springs road and upper green canyon road east to wilson creek road and above the northern-most set of power lines.  an additional emergency red cross shelter has been set up in ellensburg.     retardant was used to protect structures along the se edge of the lion rock fire.    wa state patrol has closed us 97 from the junction of state route 970 to blewett pass.    one historic structure was lost to fire last night.\n\nCurrent threat:\nlevel 1  2 & 3 evacuation levels are in place for many residences in or near the fires. multiple historic cabins as well as archaeological sites  mines and t&e species are also at risk.|communities of liberty  liberty mtn  and harkness gulch are at risk as fire backs into the canyon south of blewett pass. level 1  2 & 3 evacuation levels are in place for many residences in ad near the fires. multiple historic cabins as well as archaeological sites  mines and t&e species are also at risk.\n\nProjected activity:\nlion rock fire flanking with the head of the fire moving eastward. one half to three quarters of a mile spread is predicted in the flanking areas and two to three miles at the fire head. spot fires are expected one half to one mile in front of the fire head. similar growth is expected in other fires.  the fires are burning together during todays burning period.|lion rock fire flanking with the head of the fire moving eastward. one half to three quarters of a mile spread is predicted in the flanking areas and two to three miles at the fire head. spot fires are expected one half to one mile in front of the fire head. similar growth is expected in other fires.",
+      "known_conflicts": [],
+      "source": "ics209plus",
+      "planted_evidence": null
+    },
+    "metadata": {
+      "incident_id": "2012_WA-OWF-000642_TABLE MOUNTAIN FIRE",
+      "year": 2012,
+      "final_acres": 42312.0,
+      "geomac_fire_id": "2012-WAOWF-000642",
+      "new_acres": 3473.0,
+      "n_perimeters_that_day": 6,
+      "tool_errors": [],
+      "slug": "table-mountain-complex-wa-2012-09-19"
+    }
+  },
+  {
+    "inputs": {
+      "incident_name": "Wenatchee Complex",
+      "report_date": "2012-09-27",
+      "state": "WA"
+    },
+    "outputs": {
+      "fields": {
+        "acres": 54428.0,
+        "pct_contained": 36.0,
+        "personnel": 976,
+        "structures_threatened": 321,
+        "structures_destroyed": 1
+      },
+      "narrative": "Remarks:\nmisc fires are:  white pine (57 ac)  cuitin lake (204 ac)  maverick (21 ac)  sears creek (477 ac)  469 (21 ac)  upper white (0.2 ac)  john (2 ac)\n\nSignificant events:\nmop up and rehab is continuing. pilot cars are being used on route 97 and will continue through the night.\n\nCurrent threat:\nnone based on predicted weather and fire behavior|threats to residences of wenatchee and cashmere due to unchecked lines  timber  watershed visuals and t&e habitat.\n\nProjected activity:\ncontinued growth in all directions on unchecked line.|continued growth in all directions on unchecked line. cashmere growth to the southwest.",
+      "known_conflicts": [],
+      "source": "ics209plus",
+      "planted_evidence": null
+    },
+    "metadata": {
+      "incident_id": "2012_WA-OWF-000559_WENATCHEE COMPLEX",
+      "year": 2012,
+      "final_acres": 56478.0,
+      "geomac_fire_id": "2012-WAOWF-000559",
+      "new_acres": 1284.0,
+      "n_perimeters_that_day": 28,
+      "tool_errors": [],
+      "slug": "wenatchee-complex-wa-2012-09-27"
+    }
+  },
+  {
+    "inputs": {
+      "incident_name": "Silver",
+      "report_date": "2013-06-12",
+      "state": "NM"
+    },
+    "outputs": {
+      "fields": {
+        "acres": 17000.0,
+        "pct_contained": 0.0,
+        "personnel": 478,
+        "structures_threatened": 70,
+        "structures_destroyed": 1
+      },
+      "narrative": "Remarks:\ncost increase due to incorporation of initial and extended attack efforts.  2 minor suppression related injuries  1 illness requiring hospitalization.\n\nSignificant events:\nlate last night  the fire burned aggressively towards kingston. crews to take active structure protection measures. fire is close to kingston community. indirect line construction is progressing in divisions t and s  and south of highway 152 towards fr 4087c. type 1 helicopters are supporting structure protection at the historic royal john mine.\n\nCurrent threat:\ntown of kingston  hillsboro peak lookout and communication  site royal john mine and t&e species.|other values at risk include hillsboro peak lookout and communication site  royal john mine and t&e species habitat.|town of kingston  hillsboro peak lookout and communication site  royal john mine and t&e species.\n\nProjected activity:\ngiven fuels  topography  and predicted weather  the fire will continue to burn to the south  east and north  particularly in the mixed conifer and pine forest. very rugged terrain with few safety zones or escape routes precludes direct attack.",
+      "known_conflicts": [],
+      "source": "ics209plus",
+      "planted_evidence": null
+    },
+    "metadata": {
+      "incident_id": "2013_NM-GNF-000230_SILVER",
+      "year": 2013,
+      "final_acres": 138546.0,
+      "geomac_fire_id": "2013-NMGNF-000230",
+      "new_acres": 8600.0,
+      "n_perimeters_that_day": 4,
+      "tool_errors": [],
+      "slug": "silver-nm-2013-06-12"
+    }
+  },
+  {
+    "inputs": {
+      "incident_name": "Thompson Ridge",
+      "report_date": "2013-06-13",
+      "state": "NM"
+    },
+    "outputs": {
+      "fields": {
+        "acres": 23903.0,
+        "pct_contained": 75.0,
+        "personnel": 833,
+        "structures_threatened": 10,
+        "structures_destroyed": 0
+      },
+      "narrative": "Remarks:\nportions of highway 4 will be reduced to one lane tomorrow for fire suppression rehab activity.\n\nSignificant events:\nmop up and secure perimeter of last night's firing operation southwest of redondo peak. mop up  patrol  and rehab efforts continued on all other portions of the fire.\n\nCurrent threat:\n10 private residences  powerlines in valles caldera national preserve  and cultural/historic sites.",
+      "known_conflicts": [],
+      "source": "ics209plus",
+      "planted_evidence": null
+    },
+    "metadata": {
+      "incident_id": "2013_NM-N6S-000230_THOMPSON RIDGE",
+      "year": 2013,
+      "final_acres": 23965.0,
+      "geomac_fire_id": "2013-NMN6S-000230",
+      "new_acres": 1003.0,
+      "n_perimeters_that_day": 4,
+      "tool_errors": [],
+      "slug": "thompson-ridge-nm-2013-06-13"
+    }
+  },
+  {
+    "inputs": {
+      "incident_name": "Salmon River Complex",
+      "report_date": "2013-08-04",
+      "state": "CA"
+    },
+    "outputs": {
+      "fields": {
+        "acres": 3547.0,
+        "pct_contained": 5.0,
+        "personnel": 656,
+        "structures_threatened": 41,
+        "structures_destroyed": 0
+      },
+      "narrative": "Remarks:\nicp relocation to etna was completed today. coordination between this incident and the butler fire continues to achieve efficiency and mission success.\n\nSignificant events:\ncompleted structure defense actions in the little north fork and sawyers bar community. contingency planning for community of sawyers bar and projected fire movement. scouting direct and indirect line on western flank of the boulder fire and eastern flank of shelly fire.\n\nCurrent threat:\ncommunity and infrastructure in sawyers bar and in the little north fork  northern spotted owl habitat  cultural and natural resources  and historic structure.|private residences and infrastructure in the little north fork area  northern spotted owl habitat  cultural and natural resources  and a historic structure.\n\nProjected activity:\nwest between olsen creek and kanaka gulch n-ne to yellow jacket ridge  north towards crapo mtn. n-ne into sur cree gulch  west into little north fork.|north into olsen meadows and yellow jacket ridge - n-ne into titmouse gulch and little north fork  n-ne into jackass gulch.|west into dougherty bluff  n-nw into yellow jacket ridge  east into little north fork and east into jackass gulch|west into china gulch  and east into tanners gulch",
+      "known_conflicts": [],
+      "source": "ics209plus",
+      "planted_evidence": null
+    },
+    "metadata": {
+      "incident_id": "2013_CA-KNF-005949_FORKS COMPLEX",
+      "year": 2013,
+      "final_acres": 37246.0,
+      "geomac_fire_id": "2013-CAKNF-005561",
+      "new_acres": 663.0,
+      "n_perimeters_that_day": 8,
+      "tool_errors": [],
+      "slug": "salmon-river-complex-ca-2013-08-04"
+    }
+  },
+  {
+    "inputs": {
+      "incident_name": "Aspen",
+      "report_date": "2013-08-06",
+      "state": "CA"
+    },
+    "outputs": {
+      "fields": {
+        "acres": 21386.0,
+        "pct_contained": 75.0,
+        "personnel": 1523,
+        "structures_threatened": 0,
+        "structures_destroyed": 0
+      },
+      "narrative": "Remarks:\nin north contingency  divisions a & d  suppression repair continues. crews held in divisions f & m  as fire burned in the wilderness up against sub-alpine rocky ridges and peaks. wild land fire modules will continue to monitor fire progression and check when needed. two type 2 helicopters supported crews mop up operation with water drops in division y. crews held on division z today as unfavorable winds and dense smoke making water drops unfeasible necessitated the suspension of firing operations down to the san joaquin river. fire in division z is currently within 1/4 mile of the san joaquin river. direct line in all divisions continues to hold. as aspen resources become available they are being offered up for re-assigned to other incidents.\n\nSignificant events:\nclosure on the stump springs road remains in effect. trail closure in the kaiser wilderness with the public being warned of the dangers of hiking trails in proximity of the incident. precautionary evacuation of campgrounds and summer camp west of the san joaquin river on forest road 4s81.\n\nCurrent threat:\n12kv power lines  power house  recreation areas  cultural sites  t&e species and habitat  natural and constructed resources.\n\nProjected activity:\nsuppression repair on north contingency  divisions a & d continue. mop up and hold on divisions a  d  f  m and y. continue firing on division z as climatic conditions permit. most remaining interior fire activity is on the south and east side of the fire  divisions m and z.|hold on divisions a  d  f  m  & y. firing operations to continue in division z as climatic conditions permit.",
+      "known_conflicts": [],
+      "source": "ics209plus",
+      "planted_evidence": null
+    },
+    "metadata": {
+      "incident_id": "2013_CA-SNF-1732_ASPEN",
+      "year": 2013,
+      "final_acres": 22992.0,
+      "geomac_fire_id": "2013-CASNF-001732",
+      "new_acres": 5.0,
+      "n_perimeters_that_day": 6,
+      "tool_errors": [],
+      "slug": "aspen-ca-2013-08-06"
+    }
+  },
+  {
+    "inputs": {
+      "incident_name": "Whiskey Complex",
+      "report_date": "2013-08-07",
+      "state": "OR"
+    },
+    "outputs": {
+      "fields": {
+        "acres": 10248.0,
+        "pct_contained": 35.0,
+        "personnel": 931,
+        "structures_threatened": 13,
+        "structures_destroyed": 1
+      },
+      "narrative": "Significant events:\nair and ground suppression forces conducted initial attack on one small fire on the forest just outside the ia area and assisted on several others off the forest.  all the fires were reported to be small.  the spot fire reported yesterday in block 33 as having crossed the 3100600 road late in the afternoon has been successfully lined.  approximately 250 acres was across the 3100600 road  which was the planned containment line.  some of the area burned was within a sold timber sale unit.  good progress continues to be made with securing containment lines on the buckeye fire and divisions a and z of the whiskey fire.\n\nCurrent threat:\nsold timber sales  private timber lands  archeological sites  cultural resources  recreation sites  high value fishery streams containing threatened and endangered fish species  historic structures  tallest sugar pine tree.\n\nProjected activity:\ncontinued south and east spread can be expected on the unchecked perimeter of the whiskey fire as well as some interior burnout  plus movement from any new starts from forecasted thunderstorms which may become large fires in a short period of time.",
+      "known_conflicts": [],
+      "source": "ics209plus",
+      "planted_evidence": null
+    },
+    "metadata": {
+      "incident_id": "2013_OR-UPF-130132_WHISKEY COMPLEX",
+      "year": 2013,
+      "final_acres": 17891.0,
+      "geomac_fire_id": "2013-ORUPF-130132",
+      "new_acres": 1908.0,
+      "n_perimeters_that_day": 6,
+      "tool_errors": [],
+      "slug": "whiskey-complex-or-2013-08-07"
+    }
+  },
+  {
+    "inputs": {
+      "incident_name": "Beaver Creek",
+      "report_date": "2013-08-21",
+      "state": "ID"
+    },
+    "outputs": {
+      "fields": {
+        "acres": 108094.0,
+        "pct_contained": 47.0,
+        "personnel": 1721,
+        "structures_threatened": 864,
+        "structures_destroyed": 13
+      },
+      "narrative": "Remarks:\nstructure protection strike teams from idaho fire chiefs association are being released over the next two days. ongoing as resources time out.  block 16 and 18: using gis added completed control line to perimeter which will22:   block 25: two outfitter yurts burned night of 8/19 discovered 8/20. structure loss and damage assessments continue. count of residences  outbuildings  commercial property estimate from assessor supplied total structure count data. multiple insurance companies with structure protection clauses providing engines to their clients in coordination with team.     suppression damage repair group organized with assigned resources.    visit and briefing for  senator risch and congressman simpson. leaders from idaho bureau of homeland security  health and welfare  and pocatello fire chief visit to shadow command and general staff.     zone 1: need 2 type 2 ia hand crews to replace 2 type 1 hand crews that will be reassigned to zone 2 in 3 days.  2 tflds will be needed to help manage the resources in zone 1.  block 43: reported numbers include both zone 1 and zone 2 and correct error for yesterday.    acres: fs 88 671; blm 7 287; state 1 299; private 10 836\n\nSignificant events:\nblaine county evacuation notices may be referenced at http://www.blainesheriff.com/.    tied in handline in timber gulch (portion of fire to south of ketchum) and held/secured thru the burning period.  this has significantly alleviated the threat of uncontrolled fire from impacting ketchum and sun valley.  conducted successful psd and ground firing operations to keep the fire south of norton  baker  and east fk.  will continue firing operations as conditions permit.    area closures remain in place on blm and usfs lands.     zone 1: crews are working in division w to contain a slop-over north of dollarhide mountain.  direct line construction in divisions w  y and z.  field ops coordinated with ops in zone 2 concerning work in divisions m and n..  rehabilitation continued in division  z\n\nCurrent threat:\n48.|24 hours.|592 private residences and commercial structures  major power transmission lines  smoke impact to wood river valley. sage grouse and bull trout habitat  state and commercial timber  mine sites and historic structures  smoke impact to commercial recreation and hailey airport|592 private residences and commercial structures  major power transmission line  smoke impact to wood river valley. sage grouse and bull trout habitat  whitebark pine stands  state and commercial timber  mine sites and historic structures.\n\nProjected activity:\nfire may reach highway 75 from ketchum to baker creek.  a weather event is predicted to enter the fire area on thursday.|12 hr|interior torching still poses threat to the west side of highway 75 corridor between ketchum and green horn creek .  fire continues to creep down the east side of carbonate mountain west of hailey.|continued threat to values along the west side hwy 75 from hailey to ketchum  and north from snra headquarters to baker creek junction with hwy 75.  fire has potential to reach highway 75 between oregon gulch and baker creek.  main threat of fire to ketchum has been alleviated now that handlines are tied in  but uncontained fire in wolfe tone canyon can spread south threatening croy creek .",
+      "known_conflicts": [],
+      "source": "ics209plus",
+      "planted_evidence": null
+    },
+    "metadata": {
+      "incident_id": "2013_ID-TFD-000337_BEAVER CREEK",
+      "year": 2013,
+      "final_acres": 111490.0,
+      "geomac_fire_id": "2013-IDTFD-000337",
+      "new_acres": 1771.0,
+      "n_perimeters_that_day": 5,
+      "tool_errors": [],
+      "slug": "beaver-creek-id-2013-08-21"
+    }
+  },
+  {
+    "inputs": {
+      "incident_name": "American",
+      "report_date": "2013-08-24",
+      "state": "CA"
+    },
+    "outputs": {
+      "fields": {
+        "acres": 23729.0,
+        "pct_contained": 67.0,
+        "personnel": 1429,
+        "structures_threatened": 360,
+        "structures_destroyed": 5
+      },
+      "narrative": "Remarks:\nfire is burning in an old growth stand of timber with(box 15): sra - 4579.20 (20%) fra - 19149.80 (80%). box 43: committed resources box (other) reflects combining the following federal agencies (due to software incompatibility / limitations): u.s. national park service: u.s. fish and wildlife service: u.s. department of the interior indian affairs.\n\nSignificant events:\ncontinued significant fire growth in both div z and div r due to fire position and canyon alignment. firing operations began in div t. aggressive and safe mop-up in div a and div h. the incident is also supporting initial attack requests over the tfr footprint. field observers were able to determine a miners cabin was lost in the lucky bear / secret canyon mine area.  a type 2 helicopter was loaned to the el dorado national forest in support of initial attack. a partial road closure of mosquito ridge rd (hwy 96) from the junction of the ralston rd (forest rd 23)  east to the junction of forest rd 96-052  west of french meadows reservoir for public and firefighter safety. recreational opportunities remain open in french meadows and adjacent surrounding recreational areas.\n\nCurrent threat:\nhigh value timber lands.|duncan peak lookout; critical communication infrastructure; critical historic structures and cultural sites; high value timber lands; in div r  private land and scattered structures.|greek store spike camp; critical historic structures and cultural sites; high value timber lands; placer county grove of redwoods.|baker mountain; critical historic structures and cultural sites; high value timber lands; the community of hidden treasure.\n\nProjected activity:\nbacking fire implemented by crews will move towards and into the main body of fire. in div r  mop-up and patrol. in div t  continue firing operations. in div z  the fire will continue to advance towards contingency lines to the east towards bear trap creek.|hold  patrol  and mop-up in div r  div t  and div z.|backing fire implemented by crews should merge completely into the main body of fire. hold  patrol  and mop-up in div r  div t  and div z.|backing fire implemented by crews will move towards and into the main body of fire. in div r  mop-up and patrol. in div t  continue firing operations. initiate firing operations in div z.",
+      "known_conflicts": [],
+      "source": "ics209plus",
+      "planted_evidence": null
+    },
+    "metadata": {
+      "incident_id": "2013_CA-TNF-001562_AMERICAN",
+      "year": 2013,
+      "final_acres": 27440.0,
+      "geomac_fire_id": "2013-CATNF-001562",
+      "new_acres": 1689.0,
+      "n_perimeters_that_day": 4,
+      "tool_errors": [],
+      "slug": "american-ca-2013-08-24"
+    }
+  },
+  {
+    "inputs": {
+      "incident_name": "Rim",
+      "report_date": "2013-08-31",
+      "state": "CA"
+    },
+    "outputs": {
+      "fields": {
+        "acres": 222777.0,
+        "pct_contained": 40.0,
+        "personnel": 5069,
+        "structures_threatened": 5506,
+        "structures_destroyed": 111
+      },
+      "narrative": "Remarks:\nvery active fire and extensive spotting continue to hamper suppression efforts. a significant utilization and reliance upon aerial resources with heavy air tankers including the vlat dc-10 and maffs is occurring with reinforcement of control lines in advance of the fires spread  control of spot fires and slowing the fires advancement through terrain inaccessible to ground resources to allow time for indirect line construction to be completed. type 1 helicopters are providing point protection and cooling areas where direct line construction can be achieved safely. the extremely dry fuels  high winds and potential for long-range spotting remain a significant concern for the fire to advance beyond the retardant lines. approx 4500 structures remain threatened in advance of the fire on both the east and west sides. fire expected to continue eastward spread farther into the west side of yosemite n.p. east of aspen valley. several residents remain under mandatory evacuation in the scotts ridge area south of hwy 120 and near little grizzly mountain. due to inaccessible steep terrain and extreme fire behavior suppression efforts on active portions of the fire are being significantly challenged. heavy reliance on aviation resources has been critical in an effort to slow the fires progress to allow suppression resources to establish indirect control lines in areas where accessibility and safety can be achieved. the availability of heavy aircraft is pertinent to the success of suppression efforts. continued warmer and drier weather is forecasted for the next several days which will continue elevated concerns with control and slow burnout progress. one firefighter experienced an injury from a twisted knee which resulted in a medical demob. remotely piloted aircraft is providing realtime visual and infrared intelligence on the fire. continued unified command with cal-fire.\n\nSignificant events:\ngood progress made on containing the spot fire in division r southeast of pilot peak lookout. burnout operations were completed in division r between big oak station to hazel green ranch. good progress was made with burnout operations in division q around the crane flat lookout. mandatory evacuations continue south of hwy 120 in division r and towards yosemite national park north of the old yosemite road. mandatory evacuations north and south of bull creek to grizzly mountain. closure of tioga road west of yosemite creek picnic area. evacuation advisory continues for areas east of highway 108 from ponderosa hills north to pinecrest. a forest closure in in effect for locations near and in advance of the fire. several locations on the west side of yosemite national park have had closures implemented as a result of the fires spread. access and difficult terrain remain concerns for crews and equipment. burnout operations continued slowly in division n south of hetch hetchy reservoir inside yosemite n.p. burnout operations were initiated in division l between hells mountain and clavey meadow.\n\nCurrent threat:\nimminent threats to areas north of old yosemite road (forest rd 2s01) with mandatory evacuations issued. threat to mccauley ranch in division r. immediate threat to powerline infrastructure along state hwy 120 to the west entrance to yosemite. hetch hetchy watershed.commercial recreation and tourism along tuolumne and clavey rivers due to possible closures.threat to locations east of highway 108 from ponderosa hills north up to pinecrest. historical and significant cultural resources.|impacts to the hetch hetchy watershed with potential to create significant disruptions to water service to san francisco. infrastructure and recreation sites within yosemite national park. historical and significant cultural resources. negative impacts to sensitive wildlife species\n\nProjected activity:\nadditional fire growth will continue inside yosemite national park in branch v with burnout conducted along tioga road near crane flat. advancement of the main fire will continue spreading east of the cottonwood meadow and aspen valley areas in divisions n  p and q towards tioga road. moderate fire growth is anticipated to the north with continued burnout operations planned in divisions f and l. rocky granite peaks to the northeast of lake eleanor are limiting the fires spread to the northeast of cherry lake in division m. fire growth will likely continue advancing up the clavey river drainage  as it continues spreading to the north and northeast in divisions f  j and l and additional growth expected with burnout operations between hells mountain and clavey meadow.|fire growth is expected to remain slow to moderate in its progression west towards the hwy 108 corridor due to control efforts in divisions d  e and f. fire growth will likely continue advancing up the clavey river drainage  as it continues spreading to the north and northeast in divisions f  j and l. continued fire growth in division q and n in yosemite national park associated with planned burnout operations. fire spread will continue advancing north up the hull creek drainage in divisions f  j and k.",
+      "known_conflicts": [],
+      "source": "ics209plus",
+      "planted_evidence": null
+    },
+    "metadata": {
+      "incident_id": "2013_CA-STF-002857_RIM",
+      "year": 2013,
+      "final_acres": 257314.0,
+      "geomac_fire_id": "2013-CASTF-002857",
+      "new_acres": 3500.0,
+      "n_perimeters_that_day": 6,
+      "tool_errors": [],
+      "slug": "rim-ca-2013-08-31"
+    }
+  },
+  {
+    "inputs": {
+      "incident_name": "Bully",
+      "report_date": "2014-07-15",
+      "state": "CA"
+    },
+    "outputs": {
+      "fields": {
+        "acres": 8100.0,
+        "pct_contained": 20.0,
+        "personnel": 744,
+        "structures_threatened": 68,
+        "structures_destroyed": 18
+      },
+      "narrative": "Remarks:\ncal fire incident management team 6 remains in command  crews continue to make progress in all branches.  final incident size has been updated to reflect current fire conditions and establishing projected control lines.   all times are represented in central standard time (cst) unless otherwise noted.\n\nSignificant events:\nthe fire is making slope driven runs in brush and is creeping in timber and understory. increased humidity and cloud cover has slowed spread rates in timber.    fire continued to grow during the day with active burning observed.\n\nCurrent threat:\nminimal.|continued threat to structures  wildlife  commercial timberland and ranches.\n\nProjected activity:\nfire may continue to make moderate runs due to hot and dry conditions.|none.|minimal.|fire will continue to make moderate runs due to hot and dry conditions.",
+      "known_conflicts": [],
+      "source": "ics209plus",
+      "planted_evidence": null
+    },
+    "metadata": {
+      "incident_id": "2014_006248_BULLY",
+      "year": 2014,
+      "final_acres": 12661.0,
+      "geomac_fire_id": "2014-CASHU-006248",
+      "new_acres": 1700.0,
+      "n_perimeters_that_day": 4,
+      "tool_errors": [],
+      "slug": "bully-ca-2014-07-15"
+    }
+  },
+  {
+    "inputs": {
+      "incident_name": "Happy Camp Complex",
+      "report_date": "2014-08-17",
+      "state": "CA"
+    },
+    "outputs": {
+      "fields": {
+        "acres": 5036.0,
+        "pct_contained": 10.0,
+        "personnel": 298,
+        "structures_threatened": 602,
+        "structures_destroyed": 0
+      },
+      "narrative": "Remarks:\nhuckleberry 5 100% contained jackson     21 95% contained mill     2 100% contained noranda     1 100% contained ranch     6 100% contained sutcliffe   27 98% contained thompson    17 95% contained tims        13 100% contained china       3 100% contianed bear     4 100% contained  total acres = 99 acres plus acreage from block 7= 4986 acres\n\nSignificant events:\nshort duration crown runs with short range spotting  active backing down hill  fire burned under a heavy inversion all day  a new fire was detected within the ia responsibility and is being staffed\n\nCurrent threat:\n*falling snags are a significant threat to firefighter and public safety and have blocked some forest roads. smoke inversion are causing health concerns for public and firefighters.|*residential structures and other property  power lines and communication infrastructures  timber  cultural and natural resources including protected species habitat and fisheries. frequent falling snags  rolling debris and steep terrain are limiting night operations. fires burning in and near wilderness areas are likely to spread  presenting suppression challenges.\n\nProjected activity:\n*continued fire growth s/se with fire becoming  establishing in south fork of china creek and upper elk creek. expected fire growth: 14 400|high potential for falkstein and frying pan burning together and consuming the girder creek drainage.|*kemper fire is expected to have minimal fire growth and has been contained and will begin holding and securing fire line  the sutcliffe fire will be put into patrol status the frying pan fire continued to spread in a south east direct into little elk creek and horse creek the faulkner fire continued to spread laterally with the slope n both east and west directions towards girder ridge and tyler meadows.|*sutcliffe fire patrol status kemper fire minimal spread anticipated  frying pan will continue to move in a south east direction towards grider ridge  faulkstein will continue to move towards girder ridge and back down into grider creek|*continued fire spread in a s/se direction with the instability and topographic influences towards grider ridge. expected fire growth 9600 acres",
+      "known_conflicts": [],
+      "source": "ics209plus",
+      "planted_evidence": null
+    },
+    "metadata": {
+      "incident_id": "2014_005956_HAPPY CAMP COMPLEX",
+      "year": 2014,
+      "final_acres": 134056.0,
+      "geomac_fire_id": "2014-CAKNF-005956",
+      "new_acres": 1905.0,
+      "n_perimeters_that_day": 5,
+      "tool_errors": [],
+      "slug": "happy-camp-complex-ca-2014-08-17"
+    }
+  },
+  {
+    "inputs": {
+      "incident_name": "County Line",
+      "report_date": "2012-04-10",
+      "state": "FL"
+    },
+    "outputs": {
+      "fields": {
+        "acres": 20425.0,
+        "pct_contained": 25.0,
+        "personnel": 189,
+        "structures_threatened": 4,
+        "structures_destroyed": 0
+      },
+      "narrative": "Remarks:\nacreage increase primarily due to burnout operations.\n\nCurrent threat:\ncommercial timberland and t&e specie habitat.\n\nProjected activity:\neast and southeast|continued movement to the south and east.|red flag conditions are expected to bring extreme fire activity.",
+      "known_conflicts": [
+        {
+          "field": "acres",
+          "severity": "block"
+        }
+      ],
+      "source": "planted",
+      "planted_evidence": [
+        {
+          "field": "acres",
+          "value": 32680.0,
+          "source": "get_inciweb_updates",
+          "url": "planted://inciweb/county-line-fl-2012-04-10-acres",
+          "fetched_at": "2012-04-10T18:00:00+00:00"
+        }
+      ]
+    },
+    "metadata": {
+      "incident_id": "2012_FL-FNF-012017_COUNTY LINE",
+      "year": 2012,
+      "final_acres": 34936.0,
+      "geomac_fire_id": "2012-FLFNF-012017",
+      "new_acres": 6421.0,
+      "n_perimeters_that_day": 4,
+      "tool_errors": [],
+      "slug": "county-line-fl-2012-04-10-acres",
+      "planted_from": "county-line-fl-2012-04-10"
+    }
+  },
+  {
+    "inputs": {
+      "incident_name": "Sunflower",
+      "report_date": "2012-05-15",
+      "state": "AZ"
+    },
+    "outputs": {
+      "fields": {
+        "acres": 12000.0,
+        "pct_contained": 7.0,
+        "personnel": 403,
+        "structures_threatened": 5,
+        "structures_destroyed": 0
+      },
+      "narrative": "Remarks:\ndue to the south/south west wind pattern setting up  the valley communities may not be effected by smoke for the next 24 hours. smoke will be moving north/north east. payson and surounding communities will be impacted by smoke from the fire.\n\nSignificant events:\ndue to weather conditions 3 large smoke columns developed from the fire today. this was expected and did not effect todays containment strategies.\n\nCurrent threat:\n2 residence  2 out buildings  aps 345 kv power lines  spotted owl habitat.|cross f ranch\n\nProjected activity:\nprojected fire spread is to the nnw due to the ssw winds",
+      "known_conflicts": [
+        {
+          "field": "pct_contained",
+          "severity": "warn"
+        }
+      ],
+      "source": "planted",
+      "planted_evidence": [
+        {
+          "field": "pct_contained",
+          "value": 22.0,
+          "source": "get_inciweb_updates",
+          "url": "planted://inciweb/sunflower-az-2012-05-15-pct-contained",
+          "fetched_at": "2012-05-15T18:00:00+00:00"
+        }
+      ]
+    },
+    "metadata": {
+      "incident_id": "2012_AZ-TNF-039_SUNFLOWER",
+      "year": 2012,
+      "final_acres": 17446.0,
+      "geomac_fire_id": "2012-AZTNF-000039",
+      "new_acres": 7400.0,
+      "n_perimeters_that_day": 4,
+      "tool_errors": [],
+      "slug": "sunflower-az-2012-05-15-pct-contained",
+      "planted_from": "sunflower-az-2012-05-15"
+    }
+  },
+  {
+    "inputs": {
+      "incident_name": "Little Bear",
+      "report_date": "2012-06-20",
+      "state": "NM"
+    },
+    "outputs": {
+      "fields": {
+        "acres": 41706.0,
+        "pct_contained": 60.0,
+        "personnel": 894,
+        "structures_threatened": 0,
+        "structures_destroyed": 254
+      },
+      "narrative": "Significant events:\ngood progress on mop up and rehab in all divisions.  aerial ignitions continued today in division b  and c within the wilderness.  continued mop up of spot fires picked up yesterday in division b and c from the burnout.  spot fire in division a mopped up today.\n\nCurrent threat:\nthe bonito park area and rio bonito subdivisions remain on evacuation status.  mop up and rehab in and around rio bonito subdivision and runnels stables.|aerial ignitions on the western flank of the fire if needed.  mop up and rehab in all divisions around the fire.|continued mop up  rehab  and public relations in all divisions around the fire.\n\nProjected activity:\nprimary movement will be on the western flank within perimeter lines of the white mountain wilderness.  aerial ignitions will continue to fill in any unburned islands.  active to very active fire behavior in interior unburned islands.|moderate to very active fire behavior in interior unburned islands.  30% chance of moisture and higher humidities will help in minimizing fire behavior.|moderate to very active fire behavior in interior unburned islands.",
+      "known_conflicts": [
+        {
+          "field": "personnel",
+          "severity": "warn"
+        }
+      ],
+      "source": "planted",
+      "planted_evidence": [
+        {
+          "field": "personnel",
+          "value": 1073,
+          "source": "get_inciweb_updates",
+          "url": "planted://inciweb/little-bear-nm-2012-06-20-personnel",
+          "fetched_at": "2012-06-20T18:00:00+00:00"
+        }
+      ]
+    },
+    "metadata": {
+      "incident_id": "2012_NM-LNF-007_LITTLE BEAR",
+      "year": 2012,
+      "final_acres": 44330.0,
+      "geomac_fire_id": "2012-NMLNF-000007",
+      "new_acres": 2275.0,
+      "n_perimeters_that_day": 4,
+      "tool_errors": [],
+      "slug": "little-bear-nm-2012-06-20-personnel",
+      "planted_from": "little-bear-nm-2012-06-20"
+    }
+  }
+]
